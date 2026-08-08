@@ -33,26 +33,19 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
           className="space-y-16 md:space-y-24"
         >
           {projects.map((project, index) => {
-            const isWide = index % 3 === 0;
             return (
               <motion.div
                 key={project.slug}
                 variants={fadeInUp}
-                className={`group ${isWide ? "" : "md:pl-[15%]"}`}
+                className="group w-full"
               >
                 <Link
                   href={`/work/${project.slug}`}
-                  className="block"
+                  className="block w-full"
                   data-cursor="View"
                 >
                   {/* Project Image/Video Container */}
-                  <div
-                    className={`relative overflow-hidden bg-[var(--color-bg-card)] ${
-                      isWide
-                        ? "aspect-[16/9]"
-                        : "aspect-[4/3] md:aspect-[3/2] md:max-w-[80%]"
-                    }`}
-                  >
+                  <div className="relative overflow-hidden bg-[var(--color-bg-card)] aspect-[16/9] w-full">
                     {/* Media Container */}
                     <div className="absolute inset-0 bg-[#0a0a0a]">
                       {project.heroVideo ? (

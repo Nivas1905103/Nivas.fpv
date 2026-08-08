@@ -174,29 +174,6 @@ export const projects: Project[] = [
     featured: true,
     order: 5,
   },
-  {
-    title: "Concrete Poetry",
-    slug: "concrete-poetry",
-    category: "Architecture",
-    client: "Your Client Name", // Replace with actual client
-    location: "Coimbatore, India",
-    year: "2026",
-    description:
-      "Architectural film exploring form and space through precise indoor FPV cinematography.",
-    role: "FPV Pilot / Cinematographer / Editor",
-    services: [
-      "FPV Cinematography",
-      "Architecture Film",
-      "Indoor FPV",
-      "Video Editing",
-      "Color Grading",
-    ],
-    heroVideo: "/videos/project-06.mp4",
-    poster: "/images/projects/project-06-poster.jpg",
-    gallery: [],
-    featured: false,
-    order: 6,
-  },
 ];
 
 export const featuredProjects = projects

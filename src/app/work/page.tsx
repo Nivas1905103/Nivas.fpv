@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { allProjects } from "@/data/projects";
 import { formatProjectNumber } from "@/lib/utils";
 
@@ -35,34 +36,42 @@ export default function WorkPage() {
         {/* Projects Grid */}
         <div className="space-y-16 md:space-y-24">
           {allProjects.map((project, index) => {
-            const isWide = index % 3 === 0;
             return (
               <div
                 key={project.slug}
-                className={`group ${isWide ? "" : "md:ml-[12%]"}`}
+                className="group w-full"
               >
                 <Link
                   href={`/work/${project.slug}`}
-                  className="block"
+                  className="block w-full"
                   data-cursor="View"
                 >
                   {/* Project Visual */}
-                  <div
-                    className={`relative overflow-hidden bg-[var(--color-bg-card)] ${
-                      isWide
-                        ? "aspect-[16/9]"
-                        : "aspect-[4/3] md:aspect-[3/2] md:max-w-[85%]"
-                    }`}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] flex items-center justify-center">
-                      <div className="text-center">
-                        <span className="tech-label text-[var(--color-text-muted)]">
-                          {project.category}
-                        </span>
-                        <div className="mt-2 heading-md text-[var(--color-text-secondary)]">
-                          {project.title}
+                  <div className="relative overflow-hidden bg-[var(--color-bg-card)] aspect-[16/9] w-full">
+                    {/* Media Container */}
+                    <div className="absolute inset-0 bg-[#0a0a0a]">
+                      {project.heroVideo ? (
+                        <video
+                          src={project.heroVideo}
+                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          preload="auto"
+                        />
+                      ) : project.poster ? (
+                        <Image
+                          src={project.poster}
+                          alt={project.title}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a]">
+                           <span className="tech-label text-[var(--color-text-muted)]">{project.title}</span>
                         </div>
-                      </div>
+                      )}
                     </div>
 
                     <div className="absolute inset-0 bg-[var(--color-accent)]/0 group-hover:bg-[var(--color-accent)]/10 transition-colors duration-500" />
