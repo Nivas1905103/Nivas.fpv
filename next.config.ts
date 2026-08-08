@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
+  basePath: "/Nivas.fpv",
   // Image optimization
   images: {
     unoptimized: true,
