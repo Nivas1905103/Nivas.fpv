@@ -1,6 +1,6 @@
 {
-  "name": "nivas-fpv",
-  "version": "0.1.0",
+  "name": "nivas-fpv-website",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
