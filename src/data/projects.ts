@@ -123,8 +123,8 @@ export const projects: Project[] = [
     order: 3,
   },
   {
-    title: "Mahi & Rishi",
-    slug: "mahi-and-rishi",
+    title: "A Grandeur Wedding",
+    slug: "a-grandeur-wedding",
     category: "Wedding",
     client: "Mahi & Rishi",
     location: "Theni, India",
