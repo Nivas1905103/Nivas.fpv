@@ -6,7 +6,7 @@ import { formatProjectNumber } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Work — FPV Drone Cinematography Portfolio",
   description:
-    "Explore the FPV drone cinematography portfolio of Nivas S. — featuring commercial films, automotive, real estate, travel, and event cinematography across India.",
+    "Explore the FPV drone cinematography portfolio of Nivas — featuring commercial films, automotive, real estate, travel, and event cinematography across India.",
   alternates: { canonical: "/work" },
 };
 

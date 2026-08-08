@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [...siteConfig.keywords],
-  authors: [{ name: "Nivas S.", url: siteConfig.url }],
-  creator: "Nivas S.",
+  authors: [{ name: "Nivas", url: siteConfig.url }],
+  creator: "Nivas",
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -86,7 +86,7 @@ const jsonLd = {
     {
       "@type": "Person",
       "@id": `${siteConfig.url}/#person`,
-      name: "Nivas S.",
+      name: "Nivas",
       url: siteConfig.url,
       jobTitle: "FPV Drone Cinematographer & Video Editor",
       description:

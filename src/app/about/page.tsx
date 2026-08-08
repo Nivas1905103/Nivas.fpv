@@ -5,9 +5,9 @@ import { siteConfig } from "@/data/siteConfig";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "About — Nivas S. | FPV Drone Cinematographer",
+  title: "About — Nivas | FPV Drone Cinematographer",
   description:
-    "Nivas S. is a professional FPV drone cinematographer and video editor based in India. Specializing in commercial cinematography, real estate walkthroughs, automotive filming, and cinematic FPV experiences.",
+    "Nivas is a professional FPV drone cinematographer and video editor based in India. Specializing in commercial cinematography, real estate walkthroughs, automotive filming, and cinematic FPV experiences.",
   alternates: { canonical: "/about" },
 };
 
@@ -21,7 +21,7 @@ export default function AboutPage() {
             <div className="aspect-[3/4] bg-[var(--color-bg-secondary)] relative overflow-hidden sticky top-24">
               <Image 
                 src="/images/about/portrait-real.jpg" 
-                alt="Nivas S. - Portrait"
+                alt="Nivas - Portrait"
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-105"
                 priority

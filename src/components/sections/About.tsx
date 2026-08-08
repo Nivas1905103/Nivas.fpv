@@ -21,7 +21,7 @@ export default function About() {
             <div className="aspect-[3/4] bg-[var(--color-bg-card)] relative overflow-hidden">
               <Image 
                 src="/images/about/portrait-real.jpg" 
-                alt="Nivas S. - Portrait"
+                alt="Nivas - Portrait"
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-105"
                 priority
@@ -40,7 +40,7 @@ export default function About() {
               <span className="tech-label text-[var(--color-accent)] block mb-4">
                 About
               </span>
-              <h2 className="heading-lg mb-2">Nivas S.</h2>
+              <h2 className="heading-lg mb-2">Nivas</h2>
               <p className="heading-sm text-xs text-[var(--color-text-muted)] mb-8">
                 FPV Drone Cinematographer / Editor / Visual Storyteller
               </p>
