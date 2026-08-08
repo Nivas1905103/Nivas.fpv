@@ -35,7 +35,7 @@ export default function AboutPage() {
               About
             </span>
             <h1 className="heading-xl mb-2">
-              Nivas S<span className="text-[var(--color-accent)]">.</span>
+              Nivas<span className="text-[var(--color-accent)]">.</span>
             </h1>
             <p className="heading-sm text-xs text-[var(--color-text-muted)] mb-12">
               FPV Drone Cinematographer / Editor / Visual Storyteller
