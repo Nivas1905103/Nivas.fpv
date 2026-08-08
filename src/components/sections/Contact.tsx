@@ -62,17 +62,43 @@ export default function Contact() {
     try {
       setSubmitError("");
 
-      // API-ready: Replace this with actual form submission endpoint
-      // e.g., await fetch(process.env.CONTACT_FORM_ENDPOINT, { method: 'POST', body: JSON.stringify(data) })
-      console.log("Form data:", data);
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+      if (!accessKey) {
+        throw new Error("Form submission is not configured yet. Please contact directly via email.");
+      }
 
-      // Simulate submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `New Project Inquiry from ${data.name}`,
+          from_name: data.name,
+          Name: data.name,
+          Email: data.email,
+          Company: data.company || "Not provided",
+          Phone: data.phone || "Not provided",
+          "Project Type": data.projectType,
+          Location: data.location || "Not provided",
+          "Project Date": data.projectDate || "Not provided",
+          "Budget Range": data.budget || "Not provided",
+          Message: data.description,
+        }),
+      });
 
-      setIsSubmitted(true);
-      reset();
-    } catch {
-      setSubmitError("Something went wrong. Please try again or contact directly via email.");
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        reset();
+      } else {
+        setSubmitError(result.message || "Failed to send message. Please try again.");
+      }
+    } catch (err: any) {
+      setSubmitError(err.message || "Something went wrong. Please try again or contact directly via email.");
     }
   };
 
