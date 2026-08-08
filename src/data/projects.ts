@@ -64,7 +64,7 @@ export const projects: Project[] = [
       "Color Grading",
     ],
     equipment: ["DJI Avata 2", "DJI Goggles 3", "ND Filters"],
-    heroVideo: "/videos/1.mov", 
+    heroVideo: "/videos/10.MOV", 
     finalVideo: "/videos/1.mov",
     poster: "/images/projects/chase-that-moment-poster.jpg",
     gallery: [],
