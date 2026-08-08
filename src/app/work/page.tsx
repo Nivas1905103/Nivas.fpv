@@ -103,10 +103,18 @@ export default function WorkPage() {
                 </Link>
               </div>
 
-              {/* Cinematic Red Divider between projects */}
+              {/* Cinematic Scrolling Marquee Divider */}
               {index !== allProjects.length - 1 && (
-                <div className="w-full flex justify-center py-2">
-                  <div className="w-1/3 md:w-1/4 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-40" />
+                <div className="w-full py-2 overflow-hidden border-y border-[var(--color-border)] opacity-40">
+                  <div className="marquee-container w-full">
+                    <div className="marquee-track flex gap-8 whitespace-nowrap">
+                      {Array.from({ length: 4 }).map((_, i) => (
+                        <span key={i} className="tech-label text-xs">
+                          // FPV CINEMATOGRAPHY // AERIAL STORYTELLING // HIGH-SPEED TRACKING // COMMERCIAL VISUALS
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               )}
             </Fragment>
