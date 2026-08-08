@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { Fragment } from "react";
 import { allProjects } from "@/data/projects";
 import { formatProjectNumber } from "@/lib/utils";
 
@@ -34,13 +35,11 @@ export default function WorkPage() {
         </div>
 
         {/* Projects Grid */}
-        <div className="flex flex-col gap-24 md:gap-40">
+        <div className="flex flex-col gap-12 md:gap-20">
           {allProjects.map((project, index) => {
             return (
-              <div
-                key={project.slug}
-                className="group w-full"
-              >
+              <Fragment key={project.slug}>
+                <div className="group w-full">
                 <Link
                   href={`/work/${project.slug}`}
                   className="block w-full"
@@ -103,6 +102,14 @@ export default function WorkPage() {
                   </div>
                 </Link>
               </div>
+
+              {/* Cinematic Red Divider between projects */}
+              {index !== allProjects.length - 1 && (
+                <div className="w-full flex justify-center py-2">
+                  <div className="w-1/3 md:w-1/4 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-40" />
+                </div>
+              )}
+            </Fragment>
             );
           })}
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Fragment } from "react";
 import { motion } from "motion/react";
 import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { featuredProjects } from "@/data/projects";
@@ -30,15 +31,15 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer}
-          className="flex flex-col gap-24 md:gap-40"
+          className="flex flex-col gap-12 md:gap-20"
         >
           {projects.map((project, index) => {
             return (
-              <motion.div
-                key={project.slug}
-                variants={fadeInUp}
-                className="group w-full"
-              >
+              <Fragment key={project.slug}>
+                <motion.div
+                  variants={fadeInUp}
+                  className="group w-full"
+                >
                 <Link
                   href={`/work/${project.slug}`}
                   className="block w-full"
@@ -108,7 +109,18 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+                </motion.div>
+
+                {/* Cinematic Red Divider between projects */}
+                {index !== projects.length - 1 && (
+                  <motion.div 
+                    variants={fadeInUp}
+                    className="w-full flex justify-center py-2"
+                  >
+                    <div className="w-1/3 md:w-1/4 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-40" />
+                  </motion.div>
+                )}
+              </Fragment>
             );
           })}
         </motion.div>
