@@ -84,20 +84,32 @@ export default function FlightToFrame() {
             }}
           >
             {/* "After" (graded) side — full background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1a0a0a] via-[#0a0a0a] to-[#0a0a1a] flex items-center justify-center">
-              <span className="heading-md text-[var(--color-text-muted)]/30">
-                Color Graded
-              </span>
+            <div className="absolute inset-0 bg-[#0a0a0a]">
+              <video
+                src="/videos/12.MOV"
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+              />
             </div>
 
             {/* "Before" (raw) side — clipped */}
             <div
-              className="absolute inset-0 bg-gradient-to-br from-[#2a2a2a] via-[#1a1a1a] to-[#2a2a2a] flex items-center justify-center overflow-hidden"
+              className="absolute inset-0 overflow-hidden"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
-              <span className="heading-md text-[var(--color-text-muted)]/30">
-                Raw Footage
-              </span>
+              <video
+                src="/videos/11.MOV"
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+              />
             </div>
 
             {/* Slider Line */}
