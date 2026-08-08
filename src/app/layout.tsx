@@ -66,6 +66,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: '/icon.svg?v=2', type: 'image/svg+xml' }
+    ],
+    apple: [
+      { url: '/icon.svg?v=2', type: 'image/svg+xml' }
+    ],
+  },
   alternates: {
     canonical: siteConfig.url,
   },
