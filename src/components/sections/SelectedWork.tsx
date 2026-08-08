@@ -30,7 +30,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer}
-          className="space-y-16 md:space-y-24"
+          className="flex flex-col gap-24 md:gap-40"
         >
           {projects.map((project, index) => {
             return (

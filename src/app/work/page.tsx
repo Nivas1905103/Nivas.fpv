@@ -34,7 +34,7 @@ export default function WorkPage() {
         </div>
 
         {/* Projects Grid */}
-        <div className="space-y-16 md:space-y-24">
+        <div className="flex flex-col gap-24 md:gap-40">
           {allProjects.map((project, index) => {
             return (
               <div
