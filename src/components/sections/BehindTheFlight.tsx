@@ -9,7 +9,7 @@ const btsItems = [
   {
     label: "Drone Preparation",
     description: "DJI Avata 2 paired with premium ND filters",
-    image: "/images/bts/bts_1_drone_1786228054601.png"
+    image: "/images/bts/drone-in-hand.png"
   },
   {
     label: "The Pilot",
