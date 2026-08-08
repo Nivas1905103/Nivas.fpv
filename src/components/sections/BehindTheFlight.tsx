@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -7,27 +8,33 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const btsItems = [
   {
     label: "Drone Preparation",
-    description: "Pre-flight checks, calibration, and route planning",
+    description: "DJI Avata 2 paired with premium ND filters",
+    image: "/images/bts/bts_1_drone_1786228054601.png"
   },
   {
     label: "The Pilot",
     description: "Goggle-immersed flying with precision control",
+    image: "/images/bts/bts_2_pilot_1786228064668.png"
   },
   {
     label: "On Location",
     description: "Scouting, setup, and adapting to environments",
+    image: "/images/bts/bts_3_location_1786228075470.png"
   },
   {
-    label: "The Flight",
-    description: "High-speed FPV sequences captured in real-time",
+    label: "Stabilization",
+    description: "Post-flight data processing with Gyroflow on MacBook Pro",
+    image: "/images/bts/bts_4_gyroflow_1786228085665.png"
   },
   {
     label: "The Edit",
-    description: "Timeline assembly, pacing, and narrative structure",
+    description: "Timeline assembly and pacing using Adobe Premiere Pro",
+    image: "/images/bts/bts_5_premiere_1786228096497.png"
   },
   {
     label: "Color Grading",
-    description: "Cinematic color science applied to every frame",
+    description: "Cinematic color science applied in DaVinci Resolve",
+    image: "/images/bts/bts_6_davinci_1786228106884.png"
   },
 ];
 
@@ -54,13 +61,14 @@ export default function BehindTheFlight() {
               variants={fadeInUp}
               className="group relative aspect-[4/3] bg-[var(--color-bg-secondary)] overflow-hidden"
             >
-              {/* Placeholder for BTS photos — replace with actual images */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 z-10" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="heading-lg text-[6rem] font-bold text-white/[0.03]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
+              {/* AI Generated BTS Photo */}
+              <Image
+                src={item.image}
+                alt={item.label}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90 z-10" />
 
               <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
                 <span className="tech-label text-[var(--color-accent)] block mb-2">
