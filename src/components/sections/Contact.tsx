@@ -119,114 +119,106 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <input
-                      {...register("name")}
-                      type="text"
-                      placeholder="Name *"
-                      className={inputClasses}
-                      aria-invalid={!!errors.name}
-                    />
-                    {errors.name && (
-                      <p className="text-[var(--color-accent)] text-xs mt-1">{errors.name.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <input
-                      {...register("company")}
-                      type="text"
-                      placeholder="Company"
-                      className={inputClasses}
-                    />
-                  </div>
+              <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8" noValidate>
+                <div>
+                  <input
+                    {...register("name")}
+                    type="text"
+                    placeholder="Name *"
+                    className={inputClasses}
+                    aria-invalid={!!errors.name}
+                  />
+                  {errors.name && (
+                    <p className="text-[var(--color-accent)] text-xs mt-1">{errors.name.message}</p>
+                  )}
                 </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <input
-                      {...register("email")}
-                      type="email"
-                      placeholder="Email *"
-                      className={inputClasses}
-                      aria-invalid={!!errors.email}
-                    />
-                    {errors.email && (
-                      <p className="text-[var(--color-accent)] text-xs mt-1">{errors.email.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <input
-                      {...register("phone")}
-                      type="tel"
-                      placeholder="Phone"
-                      className={inputClasses}
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="relative">
-                    <select
-                      {...register("projectType")}
-                      className={selectClasses}
-                      defaultValue=""
-                      aria-invalid={!!errors.projectType}
-                    >
-                      <option value="" disabled>Project Type *</option>
-                      {projectTypes.map((type) => (
-                        <option key={type} value={type} className="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
-                          {type}
-                        </option>
-                      ))}
-                    </select>
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--color-text-muted)]">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                    </div>
-                    {errors.projectType && (
-                      <p className="text-[var(--color-accent)] text-xs mt-1">{errors.projectType.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <input
-                      {...register("location")}
-                      type="text"
-                      placeholder="Location"
-                      className={inputClasses}
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <input
-                      {...register("projectDate")}
-                      type="text"
-                      placeholder="Project Date"
-                      className={inputClasses}
-                    />
-                  </div>
-                  <div className="relative">
-                    <select
-                      {...register("budget")}
-                      className={selectClasses}
-                      defaultValue=""
-                    >
-                      <option value="" disabled>Budget Range</option>
-                      {budgetRanges.map((range) => (
-                        <option key={range} value={range} className="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
-                          {range}
-                        </option>
-                      ))}
-                    </select>
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--color-text-muted)]">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                    </div>
-                  </div>
+                <div>
+                  <input
+                    {...register("company")}
+                    type="text"
+                    placeholder="Company"
+                    className={inputClasses}
+                  />
                 </div>
 
                 <div>
+                  <input
+                    {...register("email")}
+                    type="email"
+                    placeholder="Email *"
+                    className={inputClasses}
+                    aria-invalid={!!errors.email}
+                  />
+                  {errors.email && (
+                    <p className="text-[var(--color-accent)] text-xs mt-1">{errors.email.message}</p>
+                  )}
+                </div>
+                <div>
+                  <input
+                    {...register("phone")}
+                    type="tel"
+                    placeholder="Phone"
+                    className={inputClasses}
+                  />
+                </div>
+
+                <div className="relative">
+                  <select
+                    {...register("projectType")}
+                    className={selectClasses}
+                    defaultValue=""
+                    aria-invalid={!!errors.projectType}
+                  >
+                    <option value="" disabled>Project Type *</option>
+                    {projectTypes.map((type) => (
+                      <option key={type} value={type} className="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--color-text-muted)]">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                  {errors.projectType && (
+                    <p className="text-[var(--color-accent)] text-xs mt-1">{errors.projectType.message}</p>
+                  )}
+                </div>
+                <div>
+                  <input
+                    {...register("location")}
+                    type="text"
+                    placeholder="Location"
+                    className={inputClasses}
+                  />
+                </div>
+
+                <div>
+                  <input
+                    {...register("projectDate")}
+                    type="text"
+                    placeholder="Project Date"
+                    className={inputClasses}
+                  />
+                </div>
+                <div className="relative">
+                  <select
+                    {...register("budget")}
+                    className={selectClasses}
+                    defaultValue=""
+                  >
+                    <option value="" disabled>Budget Range</option>
+                    {budgetRanges.map((range) => (
+                      <option key={range} value={range} className="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
+                        {range}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--color-text-muted)]">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                </div>
+
+                <div className="sm:col-span-2">
                   <textarea
                     {...register("description")}
                     placeholder="Tell me about your project *"
@@ -239,18 +231,19 @@ export default function Contact() {
                   )}
                 </div>
 
-                {submitError && (
-                  <p className="text-[var(--color-accent)] text-sm">{submitError}</p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="btn-primary w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? "Sending..." : "Start a Project"}
-                  <span>→</span>
-                </button>
+                <div className="sm:col-span-2">
+                  {submitError && (
+                    <p className="text-[var(--color-accent)] text-sm mb-4">{submitError}</p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn-primary w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+                  >
+                    {isSubmitting ? "Sending..." : "Start a Project"}
+                    <span>→</span>
+                  </button>
+                </div>
               </form>
             )}
           </motion.div>
