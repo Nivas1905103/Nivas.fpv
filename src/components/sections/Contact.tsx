@@ -120,7 +120,7 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <input
                       {...register("name")}
@@ -143,7 +143,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <input
                       {...register("email")}
@@ -166,8 +166,8 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="relative">
                     <select
                       {...register("projectType")}
                       className={selectClasses}
@@ -176,11 +176,14 @@ export default function Contact() {
                     >
                       <option value="" disabled>Project Type *</option>
                       {projectTypes.map((type) => (
-                        <option key={type} value={type} className="bg-[var(--color-bg-primary)]">
+                        <option key={type} value={type} className="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
                           {type}
                         </option>
                       ))}
                     </select>
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--color-text-muted)]">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
                     {errors.projectType && (
                       <p className="text-[var(--color-accent)] text-xs mt-1">{errors.projectType.message}</p>
                     )}
@@ -195,7 +198,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <input
                       {...register("projectDate")}
@@ -204,7 +207,7 @@ export default function Contact() {
                       className={inputClasses}
                     />
                   </div>
-                  <div>
+                  <div className="relative">
                     <select
                       {...register("budget")}
                       className={selectClasses}
@@ -212,11 +215,14 @@ export default function Contact() {
                     >
                       <option value="" disabled>Budget Range</option>
                       {budgetRanges.map((range) => (
-                        <option key={range} value={range} className="bg-[var(--color-bg-primary)]">
+                        <option key={range} value={range} className="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
                           {range}
                         </option>
                       ))}
                     </select>
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--color-text-muted)]">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
                   </div>
                 </div>
 
