@@ -138,8 +138,8 @@ export default function FlightToFrame() {
             </div>
           </div>
 
-          <p className="text-center mt-4 text-xs text-[var(--color-text-muted)] tracking-[0.1em] uppercase">
-            Drag to compare — Replace with actual before/after footage
+          <p className="text-center mt-6 md:mt-10 mb-8 md:mb-12 text-xs text-[var(--color-text-muted)] tracking-[0.1em] uppercase">
+            Drag slider to compare raw vs graded footage
           </p>
         </motion.div>
 
