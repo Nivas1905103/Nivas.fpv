@@ -91,14 +91,14 @@ export default function FlightToFrame() {
             {/* "After" (graded) side — full background */}
             <div className="absolute inset-0 bg-[#0a0a0a]">
               <video
-                src="/videos/12.webm"
                 className="absolute inset-0 w-full h-full object-cover"
                 autoPlay
                 muted
                 loop
                 playsInline
-                preload="auto"
-              />
+              >
+                <source src="/videos/12.mp4" type="video/mp4" />
+              </video>
             </div>
 
             {/* "Before" (raw) side — clipped */}
@@ -107,14 +107,14 @@ export default function FlightToFrame() {
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
               <video
-                src="/videos/11.webm"
                 className="absolute inset-0 w-full h-full object-cover"
                 autoPlay
                 muted
                 loop
                 playsInline
-                preload="auto"
-              />
+              >
+                <source src="/videos/11.mp4" type="video/mp4" />
+              </video>
             </div>
 
             {/* Slider Line */}

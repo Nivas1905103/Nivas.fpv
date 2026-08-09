@@ -16,7 +16,7 @@ export default function Hero() {
       {/* Video Background */}
       <div className="absolute inset-0 z-0 bg-[#0a0a0a]">
         <HeroVideo 
-          src="/videos/13.webm"
+          src="/videos/13.mp4"
           poster="/images/about/portrait.png"
           className="opacity-70 mix-blend-normal"
         />
