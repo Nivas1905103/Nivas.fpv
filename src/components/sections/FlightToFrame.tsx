@@ -91,7 +91,7 @@ export default function FlightToFrame() {
             {/* "After" (graded) side — full background */}
             <div className="absolute inset-0 bg-[#0a0a0a]">
               <video
-                src="/videos/12.MOV"
+                src="/videos/12.webm"
                 className="absolute inset-0 w-full h-full object-cover"
                 autoPlay
                 muted
@@ -107,7 +107,7 @@ export default function FlightToFrame() {
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
               <video
-                src="/videos/11.MOV"
+                src="/videos/11.webm"
                 className="absolute inset-0 w-full h-full object-cover"
                 autoPlay
                 muted
