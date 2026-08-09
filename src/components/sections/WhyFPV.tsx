@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import SectionHeading from "@/components/ui/SectionHeading";
 
+import LiquidBackground from "@/components/ui/LiquidBackground";
+
 const fpvCapabilities = [
   {
     title: "Low-Altitude Movement",
@@ -33,8 +35,11 @@ const fpvCapabilities = [
 
 export default function WhyFPV() {
   return (
-    <section id="why-fpv" className="section-padding bg-[var(--color-bg-primary)]">
-      <div className="container-site">
+    <section id="why-fpv" className="relative section-padding bg-[var(--color-bg-primary)] overflow-hidden">
+      
+      <LiquidBackground opacity={0.1} color1="#ff3333" color2="#cc0000" />
+
+      <div className="container-site relative z-10">
         <SectionHeading
           label="Why FPV"
           title="Not Just an Aerial Camera."
@@ -42,7 +47,7 @@ export default function WhyFPV() {
         />
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-border)]"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-border)] border border-[var(--color-border)]"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
@@ -51,14 +56,14 @@ export default function WhyFPV() {
           {fpvCapabilities.map((cap) => (
             <motion.div
               key={cap.title}
-              className="bg-[var(--color-bg-primary)] p-8 md:p-10 group hover:bg-[var(--color-bg-secondary)] transition-colors duration-500"
+              className="bg-[var(--color-bg-primary)] bg-opacity-95 backdrop-blur-sm p-8 md:p-10 group hover:bg-[var(--color-bg-card)] transition-colors duration-500"
               variants={fadeInUp}
             >
               <div className="w-2 h-2 bg-[var(--color-accent)] mb-6 group-hover:scale-150 transition-transform duration-300" />
-              <h3 className="heading-sm text-sm mb-3 text-[var(--color-text-primary)]">
+              <h3 className="heading-sm text-sm md:text-base mb-3 text-[var(--color-text-primary)] tracking-wide">
                 {cap.title}
               </h3>
-              <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
+              <p className="text-sm md:text-base text-[var(--color-text-muted)] leading-relaxed">
                 {cap.description}
               </p>
             </motion.div>

@@ -8,6 +8,7 @@ import { motion } from "motion/react";
 import { fadeInUp, viewportOnce } from "@/lib/animations";
 import { siteConfig } from "@/data/siteConfig";
 import SectionHeading from "@/components/ui/SectionHeading";
+import LiquidBackground from "@/components/ui/LiquidBackground";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -109,8 +110,11 @@ export default function Contact() {
     "w-full bg-transparent border-b border-[var(--color-border)] py-3 text-sm text-[var(--color-text-primary)] focus:border-[var(--color-accent)] focus:outline-none transition-colors duration-300 appearance-none";
 
   return (
-    <section id="contact" className="section-padding bg-[var(--color-bg-primary)]">
-      <div className="container-site">
+    <section id="contact" className="relative section-padding bg-[var(--color-bg-primary)] overflow-hidden">
+      
+      <LiquidBackground opacity={0.15} color1="#880000" color2="#ff3333" />
+
+      <div className="container-site relative z-10">
         <SectionHeading
           label="Contact"
           title="Let's Create Something Impossible."

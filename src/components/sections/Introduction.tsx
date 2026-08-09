@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
+import LiquidBackground from "@/components/ui/LiquidBackground";
 
 const pillars = [
   "FPV Piloting",
@@ -23,28 +24,7 @@ export default function Introduction() {
     <section className="relative section-padding bg-[var(--color-bg-primary)] overflow-hidden" id="introduction">
       
       {/* Liquid / Organic Premium Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none flex justify-center items-center">
-        <motion.div
-          animate={{ 
-            x: [0, 80, -40, 0],
-            y: [0, -50, 60, 0],
-            scale: [1, 1.2, 0.9, 1],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-[#E63946] rounded-full mix-blend-screen filter blur-[120px] md:blur-[180px] opacity-[0.15] md:opacity-[0.2]"
-          style={{ top: '10%', left: '5%' }}
-        />
-        <motion.div
-          animate={{ 
-            x: [0, -60, 50, 0],
-            y: [0, 80, -40, 0],
-            scale: [1, 0.9, 1.1, 1],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-[35vw] h-[35vw] max-w-[500px] max-h-[500px] bg-[#ff5555] rounded-full mix-blend-screen filter blur-[100px] md:blur-[150px] opacity-[0.1] md:opacity-[0.15]"
-          style={{ bottom: '10%', right: '10%' }}
-        />
-      </div>
+      <LiquidBackground />
 
       <div className="container-site relative z-10">
         {/* Big Editorial Headline */}
@@ -55,7 +35,7 @@ export default function Introduction() {
           variants={fadeInUp}
           className="mb-16 md:mb-32"
         >
-          <h2 className="heading-xl max-w-5xl uppercase tracking-tighter" style={{ fontSize: 'clamp(4rem, 10vw, 8rem)', lineHeight: 0.9 }}>
+          <h2 className="heading-xl max-w-5xl uppercase tracking-tighter" style={{ fontSize: 'clamp(2.5rem, 10vw, 8rem)', lineHeight: 0.9 }}>
             FLY DIFFERENT<span className="text-[var(--color-accent)]">.</span>
           </h2>
         </motion.div>

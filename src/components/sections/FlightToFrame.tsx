@@ -5,6 +5,8 @@ import { motion } from "motion/react";
 import { fadeInUp, viewportOnce } from "@/lib/animations";
 import SectionHeading from "@/components/ui/SectionHeading";
 
+import LiquidBackground from "@/components/ui/LiquidBackground";
+
 const processSteps = [
   { label: "Raw Footage", description: "Direct from the camera sensor" },
   { label: "Stabilization", description: "Smooth, cinematic movement" },
@@ -51,8 +53,11 @@ export default function FlightToFrame() {
   }, [isDragging, handleMove]);
 
   return (
-    <section id="flight-to-frame" className="section-padding bg-[var(--color-bg-primary)]">
-      <div className="container-site">
+    <section id="flight-to-frame" className="relative section-padding bg-[var(--color-bg-primary)] overflow-hidden">
+      
+      <LiquidBackground opacity={0.12} color1="#E63946" color2="#880000" />
+
+      <div className="container-site relative z-10">
         <SectionHeading
           label="Post-Production"
           title="From Flight to Final Frame"
@@ -150,11 +155,11 @@ export default function FlightToFrame() {
           viewport={viewportOnce}
           variants={fadeInUp}
         >
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-[var(--color-border)]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-[var(--color-border)] border border-[var(--color-border)]">
             {processSteps.map((step, i) => (
               <div
                 key={step.label}
-                className="bg-[var(--color-bg-primary)] p-6 text-center"
+                className="bg-[var(--color-bg-primary)] bg-opacity-95 backdrop-blur-sm p-6 text-center hover:bg-[var(--color-bg-card)] transition-colors duration-300"
               >
                 <span className="tech-label text-[var(--color-accent)] block mb-2">
                   {String(i + 1).padStart(2, "0")}
