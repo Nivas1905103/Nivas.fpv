@@ -169,6 +169,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <div className="aspect-[16/9] bg-black mb-12 rounded-sm overflow-hidden border border-[var(--color-border)]">
                 <video
                   src={project.finalVideo || project.heroVideo}
+                  poster={project.poster || undefined}
                   className="w-full h-full object-cover"
                   controls
                   playsInline
