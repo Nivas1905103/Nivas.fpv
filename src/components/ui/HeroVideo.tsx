@@ -52,7 +52,7 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
         aria-hidden="true"
       >
         {/* Replace with actual hero FPV footage */}
-        <source src={src} type="video/mp4" />
+        <source src={src} />
       </video>
 
       {/* Poster fallback when video hasn't loaded */}

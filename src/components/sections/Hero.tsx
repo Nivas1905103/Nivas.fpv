@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
+import HeroVideo from "@/components/ui/HeroVideo";
 
 export default function Hero() {
   return (
@@ -10,18 +11,15 @@ export default function Hero() {
       id="hero"
       className="relative w-full h-screen min-h-[600px] max-h-[1200px] flex items-center justify-center overflow-hidden vignette"
     >
-      {/* Image Background */}
-      <div className="absolute inset-0 z-0 bg-[#A61B1B]">
-        <Image
-          src="/images/about/portrait.png"
-          alt="Nivas FPV"
-          fill
-          priority
-          className="object-cover object-right md:object-center opacity-90 mix-blend-luminosity"
-          style={{ objectPosition: '70% center' }}
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0 bg-[#0a0a0a]">
+        <HeroVideo 
+          src="/videos/13.mov"
+          poster="/images/about/portrait.png"
+          className="opacity-70 mix-blend-normal"
         />
-        {/* Gradient overlay to ensure left-side text is readable */}
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#A61B1B]/40 to-[#0a0a0a]/90" />
+        {/* Gradient overlay to ensure left-side text is highly readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/50 to-transparent" />
       </div>
 
       {/* Film Grain */}
