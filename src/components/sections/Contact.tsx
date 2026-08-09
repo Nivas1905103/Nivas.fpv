@@ -63,21 +63,14 @@ export default function Contact() {
     try {
       setSubmitError("");
 
-      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-      if (!accessKey) {
-        throw new Error("Form submission is not configured yet. Please contact directly via email.");
-      }
-
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch(`https://formsubmit.co/ajax/${siteConfig.email}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: accessKey,
-          subject: `New Project Inquiry from ${data.name}`,
-          from_name: data.name,
+          _subject: `New Project Inquiry from ${data.name}`,
           Name: data.name,
           Email: data.email,
           Company: data.company || "Not provided",
@@ -92,7 +85,7 @@ export default function Contact() {
 
       const result = await response.json();
 
-      if (result.success) {
+      if (response.ok) {
         setIsSubmitted(true);
         reset();
       } else {
