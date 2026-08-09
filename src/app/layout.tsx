@@ -7,6 +7,7 @@ import CustomCursor from "@/components/layout/CustomCursor";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import LoadingScreen from "@/components/layout/LoadingScreen";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import SmoothScroll from "@/components/layout/SmoothScroll";
 import { siteConfig } from "@/data/siteConfig";
 
 const spaceGrotesk = Space_Grotesk({
@@ -144,12 +145,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LoadingScreen />
         <CustomCursor />
         <ScrollProgress />
-        <Navbar />
+        <SmoothScroll>
+          <Navbar />
 
-        <main id="main-content">{children}</main>
+          <main id="main-content">{children}</main>
 
-        <Footer />
-        <WhatsAppButton />
+          <Footer />
+          <WhatsAppButton />
+        </SmoothScroll>
       </body>
     </html>
   );

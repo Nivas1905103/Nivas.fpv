@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import HeroVideo from "@/components/ui/HeroVideo";
 
+import Magnetic from "@/components/ui/Magnetic";
+
 export default function Hero() {
   return (
     <section
@@ -84,13 +86,17 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Link href="/work" className="btn-primary">
-              View My Work
-              <span>→</span>
-            </Link>
-            <Link href="/contact" className="btn-secondary">
-              Book a Project
-            </Link>
+            <Magnetic strength={0.4}>
+              <Link href="/work" className="btn-primary" data-cursor="VIEW">
+                View My Work
+                <span>→</span>
+              </Link>
+            </Magnetic>
+            <Magnetic strength={0.2}>
+              <Link href="/contact" className="btn-secondary" data-cursor="BOOK">
+                Book a Project
+              </Link>
+            </Magnetic>
           </motion.div>
         </div>
       </div>

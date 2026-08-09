@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { siteConfig } from "@/data/siteConfig";
 
+import Magnetic from "@/components/ui/Magnetic";
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -45,6 +47,7 @@ export default function Navbar() {
             href="/"
             className="relative z-50 font-[family-name:var(--font-heading)] text-sm md:text-base font-bold tracking-[0.15em] uppercase text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors duration-300"
             aria-label="NIVAS.FPV Home"
+            data-cursor="HOME"
           >
             NIVAS<span className="text-[var(--color-accent)]">.</span>FPV
           </Link>
@@ -52,23 +55,27 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {siteConfig.navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="link-underline text-xs font-[family-name:var(--font-heading)] font-medium tracking-[0.12em] uppercase text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-300"
-              >
-                {link.label}
-              </Link>
+              <Magnetic key={link.href} strength={0.2}>
+                <Link
+                  href={link.href}
+                  className="link-underline text-xs font-[family-name:var(--font-heading)] font-medium tracking-[0.12em] uppercase text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-300 px-2 py-1"
+                >
+                  {link.label}
+                </Link>
+              </Magnetic>
             ))}
-            <Link
-              href="/contact"
-              className="btn-primary text-[0.6875rem] py-2.5 px-5"
-            >
-              Book a Project
-              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
-            </Link>
+            <Magnetic strength={0.3}>
+              <Link
+                href="/contact"
+                className="btn-primary text-[0.6875rem] py-2.5 px-5"
+                data-cursor="BOOK"
+              >
+                Book a Project
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+            </Magnetic>
           </div>
 
           {/* Availability Badge - Desktop */}
