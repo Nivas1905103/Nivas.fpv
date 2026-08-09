@@ -13,9 +13,9 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     // Initialize Lenis with cinematic physics
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.8, // Decreased from 1.2 for snappier feel
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom ease
-      wheelMultiplier: 1,
+      wheelMultiplier: 1.5, // Increased from 1.0 so desktop scroll feels lighter
       touchMultiplier: 2,
     });
     lenisRef.current = lenis;
