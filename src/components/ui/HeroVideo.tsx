@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 interface HeroVideoProps {
   src: string;
@@ -10,7 +10,6 @@ interface HeroVideoProps {
 
 export default function HeroVideo({ src, poster, className = "" }: HeroVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -39,29 +38,18 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
     <div className={`absolute inset-0 overflow-hidden ${className}`}>
       <video
         ref={videoRef}
-        className={`w-full h-full object-cover transition-opacity duration-1000 ${
-          isLoaded ? "opacity-100" : "opacity-0"
-        }`}
+        className="w-full h-full object-cover"
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
         poster={poster}
-        onLoadedData={() => setIsLoaded(true)}
         aria-hidden="true"
       >
         {/* Replace with actual hero FPV footage */}
         <source src={src} type={src.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
       </video>
-
-      {/* Poster fallback when video hasn't loaded */}
-      {!isLoaded && poster && (
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${poster})` }}
-        />
-      )}
 
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/50" />
