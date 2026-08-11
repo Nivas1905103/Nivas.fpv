@@ -43,12 +43,12 @@ export default function About() {
               whileInView="visible"
               viewport={viewportOnce}
               variants={fadeInUp}
-              className="relative p-8 md:p-12 rounded-3xl bg-[#0a0a0a]/40 backdrop-blur-2xl border border-white/[0.08] shadow-2xl"
+              className="relative p-8 md:p-14 pt-16 md:pt-20 rounded-[2.5rem] bg-[#0a0a0a]/40 backdrop-blur-3xl border border-white/[0.12] shadow-2xl"
             >
               {/* Subtle top red glow */}
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-50"></div>
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-60"></div>
               
-              <span className="tech-label text-[var(--color-accent)] block mb-8 tracking-[0.3em]">
+              <span className="tech-label text-[var(--color-accent)] block mb-10 tracking-[0.3em]">
                 ABOUT
               </span>
               <h2 className="heading-xl mb-6 text-5xl md:text-7xl drop-shadow-lg">
@@ -75,7 +75,7 @@ export default function About() {
               </div>
 
               {/* Skills */}
-              <div className="mb-16">
+              <div className="mb-20">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
                   {[
                     "FPV Piloting",
@@ -96,22 +96,22 @@ export default function About() {
               </div>
 
               {/* Gear - Subtle */}
-              <div className="pt-12 border-t border-white/[0.05]">
-                <span className="tech-label text-[var(--color-text-muted)] block mb-8 tracking-[0.2em]">
+              <div className="pt-14 border-t border-white/[0.08]">
+                <span className="tech-label text-[var(--color-text-muted)] block mb-10 tracking-[0.2em]">
                   Equipment Arsenal
                 </span>
-                <div className="flex flex-wrap gap-4 mb-10">
+                <div className="flex flex-wrap gap-4 mb-16">
                   {gear.map((item) => (
                     <span
                       key={item.name}
-                      className="text-xs text-[var(--color-text-muted)] px-4 py-2 rounded-full border border-white/[0.05] hover:border-[var(--color-accent)]/30 hover:text-[var(--color-text-primary)] transition-all duration-300 bg-white/[0.02]"
+                      className="text-xs text-[var(--color-text-muted)] px-4 py-2 rounded-full border border-white/[0.08] hover:border-[var(--color-accent)]/30 hover:text-[var(--color-text-primary)] transition-all duration-300 bg-white/[0.02]"
                     >
                       {item.name}
                     </span>
                   ))}
                 </div>
                 
-                <Link href="/about" className="btn-secondary inline-flex text-xs group mt-4">
+                <Link href="/about" className="btn-secondary inline-flex text-xs group mt-6">
                   Read Full Bio
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </Link>

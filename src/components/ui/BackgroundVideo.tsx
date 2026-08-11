@@ -32,14 +32,30 @@ export default function BackgroundVideo({ src, className = "", poster }: Backgro
       animationFrameId = requestAnimationFrame(checkLoop);
     };
 
-    // Attempt to play
-    video.play().then(() => {
-      checkLoop();
-    }).catch(() => {
-      // Autoplay blocked
-    });
+    // Use IntersectionObserver to only play when visible (saves battery & bypasses Safari 3-video limit)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().then(() => {
+              if (animationFrameId) cancelAnimationFrame(animationFrameId);
+              checkLoop();
+            }).catch(() => {
+              // Autoplay blocked
+            });
+          } else {
+            video.pause();
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(video);
 
     return () => {
+      observer.disconnect();
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -50,7 +66,6 @@ export default function BackgroundVideo({ src, className = "", poster }: Backgro
       src={src}
       poster={poster}
       className={className}
-      autoPlay
       muted
       loop
       playsInline
