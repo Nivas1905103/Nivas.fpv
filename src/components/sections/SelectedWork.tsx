@@ -37,6 +37,23 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
         variants={fadeInUp}
         className="w-full relative"
       >
+        <style jsx global>{`
+          .swiper-slide-active .video-glow-container {
+            box-shadow: 0 0 60px -15px var(--color-accent);
+            border-color: rgba(255, 51, 51, 0.4);
+          }
+          .swiper-slide-active .video-glow-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: inset 0 0 30px rgba(255, 51, 51, 0.2);
+            pointer-events: none;
+          }
+          .swiper-slide {
+            height: auto !important;
+          }
+        `}</style>
         <Swiper
           effect={'coverflow'}
           grabCursor={true}
@@ -45,7 +62,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
           loop={true}
           speed={1000}
           autoplay={{
-            delay: 1000,
+            delay: 3000,
             disableOnInteraction: false,
           }}
           coverflowEffect={{
@@ -56,13 +73,13 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
             slideShadows: true,
           }}
           modules={[EffectCoverflow, Pagination, Autoplay]}
-          className="w-full max-w-[1920px] mx-auto py-12"
+          className="w-full max-w-[1920px] mx-auto py-12 px-4 !overflow-visible"
         >
           {projects.map((project, index) => (
-            <SwiperSlide key={project.slug} className="w-[85vw] md:w-[60vw] max-w-[1200px] aspect-[16/9] transition-transform duration-500 rounded-[2rem] overflow-hidden bg-[var(--color-bg-card)]">
+            <SwiperSlide key={project.slug} className="w-[85vw] md:w-[55vw] max-w-[1000px] transition-transform duration-500">
               <Link href={`/work/${project.slug}`} className="block w-full h-full relative group">
                 {/* Media Container */}
-                <div className="absolute inset-0 bg-[#0a0a0a]">
+                <div className="video-glow-container relative w-full aspect-[16/9] rounded-[2rem] overflow-hidden bg-[#0a0a0a] border border-white/5 transition-all duration-700">
                   {project.heroVideo ? (
                     <BackgroundVideo
                       src={project.heroVideo}
@@ -80,31 +97,27 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
                        <span className="tech-label text-[var(--color-text-muted)]">{project.title}</span>
                     </div>
                   )}
+
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-[var(--color-accent)]/0 group-hover:bg-[var(--color-accent)]/10 transition-colors duration-500 pointer-events-none" />
                 </div>
 
-                {/* Glassmorphic Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute inset-0 bg-[var(--color-accent)]/0 group-hover:bg-[var(--color-accent)]/20 transition-colors duration-500 pointer-events-none" />
-
-                {/* Project Info Overlay */}
-                <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 flex flex-col md:flex-row md:items-end justify-between gap-4 pointer-events-none">
+                {/* Project Info Below Video */}
+                <div className="pt-6 md:pt-8 px-2 flex flex-col md:flex-row md:items-start justify-between gap-4">
                   <div>
-                    <span className="tech-label px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-white mb-4 inline-block border border-white/20">
+                    <span className="tech-label text-[var(--color-accent)] tracking-[0.2em] block mb-3">
                       {project.category}
                     </span>
-                    <h3 className="heading-lg text-3xl md:text-5xl text-white mb-2">
+                    <h3 className="heading-md text-2xl md:text-4xl text-white group-hover:text-[var(--color-accent)] transition-colors duration-300 mb-2">
                       {project.title}
                     </h3>
-                    <p className="body-lg text-white/80 max-w-xl">
+                    <p className="body-sm text-white/60">
                       {project.client}{project.location ? ` — ${project.location}` : ""}
                     </p>
                   </div>
                   
-                  <div className="flex items-center gap-4 text-white">
-                    <span className="tech-label text-white/60">{project.year}</span>
-                    <span className="w-12 h-12 rounded-full border border-white/20 bg-white/5 backdrop-blur-md flex items-center justify-center text-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-[-10px] group-hover:translate-x-0 group-hover:bg-white/10">
-                      →
-                    </span>
+                  <div className="flex flex-col items-start md:items-end gap-2">
+                    <span className="tech-label text-white/40">{project.year}</span>
                   </div>
                 </div>
               </Link>

@@ -48,17 +48,17 @@ export default function About() {
               {/* Subtle top red glow */}
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-50"></div>
               
-              <span className="tech-label text-[var(--color-accent)] block mb-6 tracking-[0.3em]">
+              <span className="tech-label text-[var(--color-accent)] block mb-8 tracking-[0.3em]">
                 ABOUT
               </span>
-              <h2 className="heading-xl mb-4 text-5xl md:text-7xl drop-shadow-lg">
+              <h2 className="heading-xl mb-6 text-5xl md:text-7xl drop-shadow-lg">
                 Nivas<span className="text-[var(--color-accent)]">.</span>
               </h2>
-              <p className="tracking-[0.2em] text-xs md:text-sm text-[var(--color-text-muted)] mb-10 uppercase font-medium">
+              <p className="tracking-[0.2em] text-xs md:text-sm text-[var(--color-text-muted)] mb-12 uppercase font-medium">
                 FPV Drone Cinematographer <span className="text-[var(--color-accent)] mx-2">/</span> Editor <span className="text-[var(--color-accent)] mx-2">/</span> Visual Storyteller
               </p>
 
-              <div className="space-y-6 mb-12">
+              <div className="space-y-8 mb-16">
                 <p className="body-lg leading-loose text-[var(--color-text-secondary)] text-lg md:text-xl font-light">
                   I create dynamic visual experiences through FPV drone
                   cinematography and professional video editing. My work spans
@@ -75,8 +75,8 @@ export default function About() {
               </div>
 
               {/* Skills */}
-              <div className="mb-12">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+              <div className="mb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
                   {[
                     "FPV Piloting",
                     "Cinematography",
@@ -96,11 +96,11 @@ export default function About() {
               </div>
 
               {/* Gear - Subtle */}
-              <div className="pt-8 border-t border-white/[0.05]">
-                <span className="tech-label text-[var(--color-text-muted)] block mb-6 tracking-[0.2em]">
+              <div className="pt-12 border-t border-white/[0.05]">
+                <span className="tech-label text-[var(--color-text-muted)] block mb-8 tracking-[0.2em]">
                   Equipment Arsenal
                 </span>
-                <div className="flex flex-wrap gap-3 mb-8">
+                <div className="flex flex-wrap gap-4 mb-10">
                   {gear.map((item) => (
                     <span
                       key={item.name}
@@ -111,7 +111,7 @@ export default function About() {
                   ))}
                 </div>
                 
-                <Link href="/about" className="btn-secondary inline-flex text-xs group">
+                <Link href="/about" className="btn-secondary inline-flex text-xs group mt-4">
                   Read Full Bio
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
