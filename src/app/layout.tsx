@@ -5,7 +5,6 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/layout/CustomCursor";
 import ScrollProgress from "@/components/layout/ScrollProgress";
-import LoadingScreen from "@/components/layout/LoadingScreen";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import { siteConfig } from "@/data/siteConfig";
@@ -142,7 +141,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
 
-        <LoadingScreen />
         <CustomCursor />
         <ScrollProgress />
         <SmoothScroll>

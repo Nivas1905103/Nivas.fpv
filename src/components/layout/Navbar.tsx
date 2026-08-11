@@ -120,7 +120,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 bg-[var(--color-bg-primary)] flex flex-col justify-center items-center"
+            className="fixed inset-0 z-40 bg-[#050505]/80 backdrop-blur-3xl flex flex-col justify-center items-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
