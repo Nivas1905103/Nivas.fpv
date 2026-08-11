@@ -52,6 +52,7 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
         onEnded={(e) => {
           const target = e.currentTarget;
           target.currentTime = 0;
+          target.load();
           target.play().catch(() => {});
         }}
       >
