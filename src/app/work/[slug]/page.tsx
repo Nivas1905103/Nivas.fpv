@@ -6,6 +6,7 @@ import {
   getProjectBySlug,
   getNextProject,
 } from "@/data/projects";
+import BackgroundVideo from "@/components/ui/BackgroundVideo";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -56,14 +57,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {/* Video/Image Background */}
         <div className="absolute inset-0 bg-[#0a0a0a] overflow-hidden">
           {project.heroVideo ? (
-              <video
-                src={project.heroVideo}
-                className="absolute inset-0 w-full h-full object-cover opacity-60"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
+              <BackgroundVideo
+              src={project.heroVideo}
+              className="absolute inset-0 w-full h-full object-cover opacity-60"
+            />
           ) : project.poster ? (
             <img
               src={project.poster}

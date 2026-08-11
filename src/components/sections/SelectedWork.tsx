@@ -9,6 +9,7 @@ import { formatProjectNumber } from "@/lib/utils";
 import { Project } from "@/data/projects";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
+import BackgroundVideo from "@/components/ui/BackgroundVideo";
 
 export default function SelectedWork({ projects = featuredProjects }: { projects?: any[] }) {
   const totalProjects = projects.length;
@@ -50,15 +51,9 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
                     {/* Media Container */}
                     <div className="absolute inset-0 bg-[#0a0a0a]">
                       {project.heroVideo ? (
-                        <video
+                        <BackgroundVideo
                           src={project.heroVideo}
                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          preload="auto"
-                          onEnded={(e) => { e.currentTarget.play(); }}
                         />
                       ) : project.poster ? (
                         <Image

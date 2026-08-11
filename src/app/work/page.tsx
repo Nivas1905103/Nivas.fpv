@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Fragment } from "react";
 import { allProjects } from "@/data/projects";
 import { formatProjectNumber } from "@/lib/utils";
+import BackgroundVideo from "@/components/ui/BackgroundVideo";
 
 export const metadata: Metadata = {
   title: "Work — FPV Drone Cinematography Portfolio",
@@ -50,14 +51,9 @@ export default function WorkPage() {
                     {/* Media Container */}
                     <div className="absolute inset-0 bg-[#0a0a0a]">
                       {project.heroVideo ? (
-                        <video
+                        <BackgroundVideo
                           src={project.heroVideo}
                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          preload="auto"
                         />
                       ) : project.poster ? (
                         <Image

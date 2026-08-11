@@ -6,6 +6,7 @@ import { fadeInUp, viewportOnce } from "@/lib/animations";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 import LiquidBackground from "@/components/ui/LiquidBackground";
+import BackgroundVideo from "@/components/ui/BackgroundVideo";
 
 const processSteps = [
   { label: "Raw Footage", description: "Direct from the camera sensor" },
@@ -90,16 +91,10 @@ export default function FlightToFrame() {
           >
             {/* "After" (graded) side — full background */}
             <div className="absolute inset-0 bg-[#0a0a0a]">
-              <video
+              <BackgroundVideo
                 className="absolute inset-0 w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                onEnded={(e) => { e.currentTarget.play(); }}
-              >
-                <source src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/12.mp4" type="video/mp4" />
-              </video>
+                src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/12.mp4"
+              />
             </div>
 
             {/* "Before" (raw) side — clipped */}
@@ -107,16 +102,10 @@ export default function FlightToFrame() {
               className="absolute inset-0 overflow-hidden"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
-              <video
+              <BackgroundVideo
                 className="absolute inset-0 w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                onEnded={(e) => { e.currentTarget.play(); }}
-              >
-                <source src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/11.mp4" type="video/mp4" />
-              </video>
+                src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/11.mp4"
+              />
             </div>
 
             {/* Slider Line */}

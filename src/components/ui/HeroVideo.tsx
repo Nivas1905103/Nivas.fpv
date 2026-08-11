@@ -15,6 +15,9 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
     const video = videoRef.current;
     if (!video) return;
 
+    // Force loop attribute directly on the DOM element for Safari
+    video.loop = true;
+
     // Respect reduced motion
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -46,7 +49,11 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
         preload="auto"
         poster={poster}
         aria-hidden="true"
-        onEnded={(e) => { e.currentTarget.play(); }}
+        onEnded={(e) => {
+          const target = e.currentTarget;
+          target.currentTime = 0;
+          target.play().catch(() => {});
+        }}
       >
         {/* Replace with actual hero FPV footage */}
         <source src={src} type={src.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
