@@ -58,6 +58,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
                           loop
                           playsInline
                           preload="auto"
+                          onEnded={(e) => { e.currentTarget.play(); }}
                         />
                       ) : project.poster ? (
                         <Image

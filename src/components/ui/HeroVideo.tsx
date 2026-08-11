@@ -46,6 +46,7 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
         preload="auto"
         poster={poster}
         aria-hidden="true"
+        onEnded={(e) => { e.currentTarget.play(); }}
       >
         {/* Replace with actual hero FPV footage */}
         <source src={src} type={src.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />

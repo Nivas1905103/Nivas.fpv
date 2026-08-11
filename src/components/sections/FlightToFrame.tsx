@@ -96,6 +96,7 @@ export default function FlightToFrame() {
                 muted
                 loop
                 playsInline
+                onEnded={(e) => { e.currentTarget.play(); }}
               >
                 <source src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/12.mp4" type="video/mp4" />
               </video>
@@ -112,6 +113,7 @@ export default function FlightToFrame() {
                 muted
                 loop
                 playsInline
+                onEnded={(e) => { e.currentTarget.play(); }}
               >
                 <source src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/11.mp4" type="video/mp4" />
               </video>

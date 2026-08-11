@@ -56,14 +56,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {/* Video/Image Background */}
         <div className="absolute inset-0 bg-[#0a0a0a] overflow-hidden">
           {project.heroVideo ? (
-            <video
-              src={project.heroVideo}
-              className="absolute inset-0 w-full h-full object-cover opacity-60"
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
+              <video
+                src={project.heroVideo}
+                className="absolute inset-0 w-full h-full object-cover opacity-60"
+                autoPlay
+                muted
+                loop
+                playsInline
+                onEnded={(e) => { e.currentTarget.play(); }}
+              />
           ) : project.poster ? (
             <img
               src={project.poster}
@@ -168,7 +169,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {project.finalVideo || project.heroVideo ? (
               <div className="aspect-[16/9] bg-black mb-12 rounded-sm overflow-hidden border border-[var(--color-border)]">
                 <video
-                  src={project.finalVideo || project.heroVideo}
+                  src={(project.finalVideo || project.heroVideo) + "#t=0.001"}
                   poster={project.poster || undefined}
                   className="w-full h-full object-cover"
                   controls
