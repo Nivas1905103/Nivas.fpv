@@ -57,7 +57,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Main Heading */}
-          <h1 className="font-heading font-bold uppercase tracking-tighter mb-6 text-[clamp(2rem,8.5vw,8rem)] leading-[1]">
+          <h1 className="font-heading font-bold uppercase tracking-tighter mb-10 text-[clamp(2rem,8.5vw,8rem)] leading-[1]">
             <motion.span
               className="block"
               initial={{ opacity: 0, y: 30 }}
@@ -78,7 +78,7 @@ export default function Hero() {
 
           {/* Supporting Text */}
           <motion.p
-            className="body-lg max-w-xl mb-10"
+            className="body-lg max-w-xl mb-14"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -88,7 +88,7 @@ export default function Hero() {
 
           {/* CTAs */}
           <motion.div
-            className="flex flex-wrap justify-start gap-4"
+            className="flex flex-wrap justify-start gap-6"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
