@@ -63,7 +63,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 muted
                 loop
                 playsInline
-                onEnded={(e) => { e.currentTarget.play(); }}
               />
           ) : project.poster ? (
             <img
