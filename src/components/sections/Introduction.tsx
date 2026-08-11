@@ -33,9 +33,9 @@ export default function Introduction() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeInUp}
-          className="mb-16 md:mb-32"
+          className="mb-20 md:mb-40 text-center"
         >
-          <h2 className="heading-xl max-w-5xl uppercase tracking-tighter" style={{ fontSize: 'clamp(2.5rem, 10vw, 8rem)', lineHeight: 0.9 }}>
+          <h2 className="heading-xl max-w-5xl mx-auto uppercase tracking-tighter" style={{ fontSize: 'clamp(2.5rem, 10vw, 8rem)', lineHeight: 0.9 }}>
             FLY DIFFERENT<span className="text-[var(--color-accent)]">.</span>
           </h2>
         </motion.div>
@@ -46,9 +46,9 @@ export default function Introduction() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeInUp}
-          className="mb-24 md:mb-32 max-w-4xl mx-auto"
+          className="mb-32 md:mb-48 max-w-5xl mx-auto"
         >
-          <div className="group bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] rounded-3xl p-8 md:p-16 text-center transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-2xl hover:shadow-[var(--color-accent)]/10 cursor-default">
+          <div className="group bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] rounded-[2rem] p-12 md:p-24 text-center transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.04] hover:border-white/[0.15] hover:shadow-2xl hover:shadow-[var(--color-accent)]/10 cursor-default">
             <p className="body-lg text-[var(--color-text-primary)] leading-relaxed md:leading-loose text-lg md:text-2xl font-light mb-8 transition-colors duration-500">
               I am Nivas — an FPV drone cinematographer and video editor creating
               dynamic visual experiences for films, brands and commercial
