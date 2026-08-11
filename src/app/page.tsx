@@ -1,5 +1,4 @@
 import Hero from "@/components/sections/Hero";
-import Introduction from "@/components/sections/Introduction";
 import SelectedWork from "@/components/sections/SelectedWork";
 import WhyFPV from "@/components/sections/WhyFPV";
 import Services from "@/components/sections/Services";
@@ -28,14 +27,13 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
-      <Introduction />
+      <About />
       <SelectedWork projects={projects} />
       <WhyFPV />
       <Services />
       <FlightToFrame />
       <Capabilities />
       <BehindTheFlight />
-      <About />
       <Availability />
       <Testimonials />
       <Contact />

@@ -21,6 +21,17 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
     video.loop = true;
     video.playsInline = true;
 
+    // ADVANCED LOOP TECHNIQUE: Bypass browser bugs by manually checking time
+    let animationFrameId: number;
+    const checkLoop = () => {
+      // If we are within 50ms of the end, force a loop back to 0
+      if (video.duration > 0 && video.currentTime >= video.duration - 0.05) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      }
+      animationFrameId = requestAnimationFrame(checkLoop);
+    };
+
     // Respect reduced motion
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -34,10 +45,16 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
     // Attempt autoplay
     const playPromise = video.play();
     if (playPromise !== undefined) {
-      playPromise.catch(() => {
+      playPromise.then(() => {
+        checkLoop();
+      }).catch(() => {
         // Autoplay was prevented — show poster instead
       });
     }
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
   return (
