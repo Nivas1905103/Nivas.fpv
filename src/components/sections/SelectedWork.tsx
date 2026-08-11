@@ -73,6 +73,20 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
             slideShadows: true,
           }}
           modules={[EffectCoverflow, Pagination, Autoplay]}
+          onSlideChange={(swiper) => {
+            // Force play the video in the active slide, even if it's a Swiper clone
+            const slides = swiper.slides;
+            for (let i = 0; i < slides.length; i++) {
+              const video = slides[i].querySelector('video');
+              if (video) {
+                if (i === swiper.activeIndex) {
+                  video.play().catch(() => {});
+                } else {
+                  video.pause();
+                }
+              }
+            }
+          }}
           className="w-full max-w-[1920px] mx-auto py-12 px-4 !overflow-visible"
         >
           {projects.map((project, index) => (
@@ -81,9 +95,17 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
                 {/* Media Container */}
                 <div className="video-glow-container relative w-full aspect-[16/9] rounded-[2rem] overflow-hidden bg-[#0a0a0a] border border-white/5 transition-all duration-700">
                   {project.heroVideo ? (
-                    <BackgroundVideo
+                    <video
                       src={project.heroVideo}
+                      muted
+                      loop
+                      playsInline
+                      preload="auto"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      onCanPlay={(e) => {
+                        // Attempt to play immediately if it's the initially active slide
+                        if (index === 0) e.currentTarget.play().catch(() => {});
+                      }}
                     />
                   ) : project.poster ? (
                     <Image

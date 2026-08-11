@@ -36,21 +36,21 @@ export default function AboutPage() {
           </div>
 
           {/* Premium Glassmorphism Content Card */}
-          <div className="relative p-8 md:p-12 rounded-3xl bg-[#0a0a0a]/40 backdrop-blur-2xl border border-white/[0.08] shadow-2xl">
+          <div className="relative px-8 md:px-16 py-16 md:py-24 rounded-[2.5rem] bg-[#0a0a0a]/40 backdrop-blur-3xl border-2 border-white/[0.15] shadow-2xl">
             {/* Subtle top red glow */}
-            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-50"></div>
+            <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-[2.5rem] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-70"></div>
             
-            <span className="tech-label text-[var(--color-accent)] block mb-6 tracking-[0.3em]">
+            <span className="tech-label text-[var(--color-accent)] block mb-10 tracking-[0.3em]">
               ABOUT
             </span>
-            <h1 className="heading-xl mb-4 text-5xl md:text-7xl drop-shadow-lg">
+            <h1 className="heading-xl mb-6 text-5xl md:text-7xl drop-shadow-lg">
               Nivas<span className="text-[var(--color-accent)]">.</span>
             </h1>
             <p className="tracking-[0.2em] text-xs md:text-sm text-[var(--color-text-muted)] mb-12 uppercase font-medium">
               FPV Drone Cinematographer <span className="text-[var(--color-accent)] mx-2">/</span> Editor <span className="text-[var(--color-accent)] mx-2">/</span> Visual Storyteller
             </p>
 
-            <div className="space-y-8 mb-16">
+            <div className="space-y-8 mb-20">
               <p className="body-lg leading-loose text-[var(--color-text-secondary)] text-lg md:text-xl font-light">
                 I create dynamic visual experiences through FPV drone
                 cinematography and professional video editing. Based in India,
@@ -74,11 +74,11 @@ export default function AboutPage() {
             </div>
 
             {/* Skills */}
-            <div className="mb-16">
-              <h2 className="tech-label text-[var(--color-text-muted)] mb-8 tracking-[0.2em]">
+            <div className="mb-20 pt-10 border-t border-white/[0.08]">
+              <h2 className="tech-label text-[var(--color-text-muted)] mb-10 tracking-[0.2em]">
                 Skills & Expertise
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
                 {[
                   "FPV Drone Piloting",
                   "Aerial Cinematography",
@@ -102,21 +102,21 @@ export default function AboutPage() {
             </div>
 
             {/* Equipment */}
-            <div className="mb-16">
-              <h2 className="tech-label text-[var(--color-text-muted)] mb-8 tracking-[0.2em]">
+            <div className="mb-20 pt-10 border-t border-white/[0.08]">
+              <h2 className="tech-label text-[var(--color-text-muted)] mb-10 tracking-[0.2em]">
                 Equipment Arsenal
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {gear.map((item) => (
                   <div
                     key={item.name}
-                    className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 py-5 border-b border-white/[0.05] group hover:border-[var(--color-accent)]/30 transition-colors duration-500"
+                    className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 py-5 border-b border-white/[0.05] group hover:border-[var(--color-accent)]/30 transition-colors duration-500"
                   >
                     <span className="tech-label text-[var(--color-accent)] w-32 flex-shrink-0">
                       {item.category}
                     </span>
                     <div>
-                      <span className="text-base md:text-lg font-medium text-[var(--color-text-primary)] block mb-1">
+                      <span className="text-base md:text-lg font-medium text-[var(--color-text-primary)] block mb-2">
                         {item.name}
                       </span>
                       <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
@@ -129,15 +129,15 @@ export default function AboutPage() {
             </div>
 
             {/* Availability */}
-            <div className="p-8 md:p-10 bg-black/40 rounded-2xl border border-white/[0.05] backdrop-blur-md relative overflow-hidden group hover:border-[var(--color-accent)]/50 transition-colors duration-500">
+            <div className="p-10 md:p-14 bg-black/40 rounded-3xl border border-white/[0.08] backdrop-blur-md relative overflow-hidden group hover:border-[var(--color-accent)]/50 transition-colors duration-500 mt-10 mb-4">
               <div className="absolute top-0 right-0 w-48 h-48 bg-[var(--color-accent)] opacity-[0.03] group-hover:opacity-[0.08] blur-3xl rounded-full translate-x-1/3 -translate-y-1/3 transition-opacity duration-700"></div>
-              <h2 className="tech-label text-[var(--color-text-muted)] mb-6 tracking-[0.2em]">
+              <h2 className="tech-label text-[var(--color-text-muted)] mb-8 tracking-[0.2em]">
                 Availability
               </h2>
-              <p className="text-xl md:text-2xl leading-relaxed mb-4 text-white font-light">
+              <p className="text-xl md:text-2xl leading-relaxed mb-6 text-white font-light">
                 {siteConfig.availability}.
               </p>
-              <p className="text-sm md:text-base text-[var(--color-text-muted)] mb-8">
+              <p className="text-sm md:text-base text-[var(--color-text-muted)] mb-10">
                 Cities: {siteConfig.cities.join(", ")}, and more.
               </p>
               <Link href="/contact" className="btn-primary inline-flex relative z-10">

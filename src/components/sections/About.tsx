@@ -43,10 +43,10 @@ export default function About() {
               whileInView="visible"
               viewport={viewportOnce}
               variants={fadeInUp}
-              className="relative p-8 md:p-14 pt-16 md:pt-20 rounded-[2.5rem] bg-[#0a0a0a]/40 backdrop-blur-3xl border border-white/[0.12] shadow-2xl"
+              className="relative px-8 md:px-16 py-16 md:py-24 rounded-[2.5rem] bg-[#0a0a0a]/40 backdrop-blur-3xl border-2 border-white/[0.15] shadow-2xl"
             >
               {/* Subtle top red glow */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-60"></div>
+              <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-[2.5rem] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-70"></div>
               
               <span className="tech-label text-[var(--color-accent)] block mb-10 tracking-[0.3em]">
                 ABOUT
@@ -96,7 +96,7 @@ export default function About() {
               </div>
 
               {/* Gear - Subtle */}
-              <div className="pt-14 border-t border-white/[0.08]">
+              <div className="pt-14 pb-4 border-t border-white/[0.08]">
                 <span className="tech-label text-[var(--color-text-muted)] block mb-10 tracking-[0.2em]">
                   Equipment Arsenal
                 </span>
@@ -111,7 +111,7 @@ export default function About() {
                   ))}
                 </div>
                 
-                <Link href="/about" className="btn-secondary inline-flex text-xs group mt-6">
+                <Link href="/about" className="btn-secondary inline-flex text-xs group mt-6 mb-2">
                   Read Full Bio
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
