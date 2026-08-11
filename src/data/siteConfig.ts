@@ -13,10 +13,8 @@ export const siteConfig = {
 
   // Contact
   email: process.env.NEXT_PUBLIC_EMAIL || "nivas.fpv@gmail.com",
-  phone: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "8807328961",
   instagram: process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE || "nivas.fpv",
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/nivas.fpv?igsh=MTJxNXE1amRuZ2Z0Mw%3D%3D&utm_source=qr",
-  whatsappUrl: `https://wa.me/91${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "8807328961"}`,
 
   // Brand
   tagline: "I don't just fly drones. I create perspectives.",
@@ -39,11 +37,6 @@ export const siteConfig = {
       label: "Instagram",
       href: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/nivas.fpv?igsh=MTJxNXE1amRuZ2Z0Mw%3D%3D&utm_source=qr",
       icon: "instagram",
-    },
-    {
-      label: "WhatsApp",
-      href: `https://wa.me/91${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "8807328961"}`,
-      icon: "whatsapp",
     },
     {
       label: "Email",

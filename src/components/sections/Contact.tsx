@@ -294,20 +294,6 @@ export default function Contact() {
 
               <div>
                 <span className="tech-label text-[var(--color-text-muted)] block mb-2">
-                  WhatsApp
-                </span>
-                <a
-                  href={siteConfig.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="heading-md text-xl hover:text-[var(--color-accent)] transition-colors"
-                >
-                  Message on WhatsApp
-                </a>
-              </div>
-
-              <div>
-                <span className="tech-label text-[var(--color-text-muted)] block mb-2">
                   Instagram
                 </span>
                 <a

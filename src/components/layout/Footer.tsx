@@ -59,14 +59,6 @@ export default function Footer() {
                 Instagram — @{siteConfig.instagram}
               </a>
               <a
-                href={siteConfig.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-300"
-              >
-                WhatsApp
-              </a>
-              <a
                 href={`mailto:${siteConfig.email}`}
                 className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-300"
               >
