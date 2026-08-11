@@ -14,14 +14,19 @@ export default function Hero() {
       className="relative w-full h-screen min-h-[600px] max-h-[1200px] flex items-center justify-center overflow-hidden vignette"
     >
       {/* Video Background */}
-      <div className="absolute inset-0 z-0 bg-[#0a0a0a]">
+      <motion.div 
+        className="absolute inset-0 z-0 bg-[#0a0a0a]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+      >
         <HeroVideo 
           src="/videos/13.mp4"
           className="opacity-70 mix-blend-normal"
         />
         {/* Gradient overlay to ensure left-side text is highly readable */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/50 to-transparent" />
-      </div>
+      </motion.div>
 
       {/* Film Grain */}
       <div className="absolute inset-0 z-[3] pointer-events-none opacity-[0.04]"
@@ -37,7 +42,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="flex flex-col items-start gap-4 mb-6 w-full"
           >
             <span className="tech-label text-[var(--color-text-muted)] leading-relaxed">
@@ -55,17 +60,17 @@ export default function Hero() {
           <h1 className="font-heading font-bold uppercase tracking-tighter mb-6 text-[clamp(2rem,8.5vw,8rem)] leading-[1]">
             <motion.span
               className="block"
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 2.0, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             >
               FPV Drone
             </motion.span>
             <motion.span
               className="block text-[var(--color-accent)]"
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               Cinematography
             </motion.span>
@@ -74,9 +79,9 @@ export default function Hero() {
           {/* Supporting Text */}
           <motion.p
             className="body-lg max-w-xl mb-10"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
             High-speed perspectives for films, brands and experiences.
           </motion.p>
@@ -84,9 +89,9 @@ export default function Hero() {
           {/* CTAs */}
           <motion.div
             className="flex flex-wrap justify-start gap-4"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <Magnetic strength={0.4}>
               <Link href="/work" className="btn-primary" data-cursor="VIEW">
@@ -108,7 +113,7 @@ export default function Hero() {
         className="absolute top-24 right-[var(--container-padding)] z-10 hidden lg:block text-right"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 3 }}
+        transition={{ duration: 1, delay: 0.8 }}
       >
         <span className="tech-label block">Available for Projects</span>
         <span className="tech-label block text-[var(--color-accent)]">India</span>
@@ -119,7 +124,7 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 3.2 }}
+        transition={{ duration: 1, delay: 1.0 }}
       >
         <span className="tech-label text-[0.625rem]">Scroll</span>
         <motion.div
