@@ -15,8 +15,11 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
     const video = videoRef.current;
     if (!video) return;
 
-    // Force loop attribute directly on the DOM element for Safari
+    // Force attributes directly on the DOM element for mobile browsers
+    video.muted = true;
+    video.defaultMuted = true;
     video.loop = true;
+    video.playsInline = true;
 
     // Respect reduced motion
     const prefersReducedMotion = window.matchMedia(
@@ -52,7 +55,6 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
         onEnded={(e) => {
           const target = e.currentTarget;
           target.currentTime = 0;
-          target.load();
           target.play().catch(() => {});
         }}
       >
