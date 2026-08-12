@@ -140,7 +140,8 @@ export default function FlightToFrame() {
               <video
                 ref={gradedVideoRef}
                 className="absolute inset-0 w-full h-full object-cover"
-                src="/videos/12.webm"
+                src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/12.mp4?v=2"
+                autoPlay
                 loop
                 muted
                 playsInline
@@ -156,7 +157,8 @@ export default function FlightToFrame() {
               <video
                 ref={rawVideoRef}
                 className="absolute inset-0 w-full h-full object-cover"
-                src="/videos/11.webm"
+                src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/11.mp4?v=2"
+                autoPlay
                 loop
                 muted
                 playsInline
