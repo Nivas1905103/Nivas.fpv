@@ -4,7 +4,6 @@ import WhyFPV from "@/components/sections/WhyFPV";
 import Services from "@/components/sections/Services";
 import FlightToFrame from "@/components/sections/FlightToFrame";
 import Capabilities from "@/components/sections/Capabilities";
-import BehindTheFlight from "@/components/sections/BehindTheFlight";
 import About from "@/components/sections/About";
 import Availability from "@/components/sections/Availability";
 import Testimonials from "@/components/sections/Testimonials";
@@ -36,7 +35,6 @@ export default async function HomePage() {
       <Services />
       <FlightToFrame />
       <Capabilities />
-      <BehindTheFlight />
       <Availability />
       <Testimonials />
       <Contact />
