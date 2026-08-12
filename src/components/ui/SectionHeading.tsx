@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { fadeInUp, viewportOnce } from "@/lib/animations";
+import { staggerReveal, textRevealUp, viewportOnce } from "@/lib/animations";
 
 interface SectionHeadingProps {
   label?: string;
@@ -22,16 +22,35 @@ export default function SectionHeading({
       initial="hidden"
       whileInView="visible"
       viewport={viewportOnce}
-      variants={fadeInUp}
+      variants={staggerReveal}
     >
       {label && (
-        <span className="tech-label block mb-4 text-[var(--color-accent)]">
-          {label}
-        </span>
+        <div className="overflow-hidden mb-4">
+          <motion.span 
+            variants={textRevealUp}
+            className="tech-label block text-[var(--color-accent)]"
+          >
+            {label}
+          </motion.span>
+        </div>
       )}
-      <h2 className="heading-lg">{title}</h2>
+      <div className="overflow-hidden">
+        <motion.h2 
+          variants={textRevealUp}
+          className="heading-lg"
+        >
+          {title}
+        </motion.h2>
+      </div>
       {subtitle && (
-        <p className="body-lg mt-4 max-w-2xl">{subtitle}</p>
+        <div className="overflow-hidden mt-4">
+          <motion.p 
+            variants={textRevealUp}
+            className="body-lg max-w-2xl"
+          >
+            {subtitle}
+          </motion.p>
+        </div>
       )}
     </motion.div>
   );

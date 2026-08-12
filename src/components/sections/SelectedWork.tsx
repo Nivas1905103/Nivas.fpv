@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { fadeInUp, viewportOnce } from "@/lib/animations";
+import { fadeInUp, viewportOnce, textRevealUp, staggerReveal } from "@/lib/animations";
 import { featuredProjects, Project } from "@/data/projects";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -126,17 +126,37 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
 
                 {/* Project Info Below Video */}
                 <div className="pt-6 md:pt-8 px-2 flex flex-col md:flex-row md:items-start justify-between gap-4">
-                  <div>
-                    <span className="tech-label text-[var(--color-accent)] tracking-[0.2em] block mb-3">
-                      {project.category}
-                    </span>
-                    <h3 className="heading-md text-2xl md:text-4xl text-white group-hover:text-[var(--color-accent)] transition-colors duration-300 mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="body-sm text-white/60">
-                      {project.client}{project.location ? ` — ${project.location}` : ""}
-                    </p>
-                  </div>
+                  <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportOnce}
+                    variants={staggerReveal}
+                  >
+                    <div className="overflow-hidden mb-3">
+                      <motion.span 
+                        variants={textRevealUp}
+                        className="tech-label text-[var(--color-accent)] tracking-[0.2em] block"
+                      >
+                        {project.category}
+                      </motion.span>
+                    </div>
+                    <div className="overflow-hidden mb-2">
+                      <motion.h3 
+                        variants={textRevealUp}
+                        className="heading-md text-2xl md:text-4xl text-white group-hover:text-[var(--color-accent)] transition-colors duration-300"
+                      >
+                        {project.title}
+                      </motion.h3>
+                    </div>
+                    <div className="overflow-hidden">
+                      <motion.p 
+                        variants={textRevealUp}
+                        className="body-sm text-white/60"
+                      >
+                        {project.client}{project.location ? ` — ${project.location}` : ""}
+                      </motion.p>
+                    </div>
+                  </motion.div>
                   
                   <div className="flex flex-col items-start md:items-end gap-2">
                     <span className="tech-label text-white/40">{project.year}</span>

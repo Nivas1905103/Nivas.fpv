@@ -56,24 +56,28 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Main Heading */}
+          {/* Main Heading (Aggressive Flolapo Reveal) */}
           <h1 className="font-heading font-bold uppercase tracking-tighter mb-10 text-[clamp(2rem,8.5vw,8rem)] leading-[1]">
-            <motion.span
-              className="block"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            >
-              FPV Drone
-            </motion.span>
-            <motion.span
-              className="block text-[var(--color-accent)]"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            >
-              Cinematography
-            </motion.span>
+            <span className="block overflow-hidden">
+              <motion.span
+                className="block"
+                initial={{ opacity: 0, y: "100%", rotateX: 25 }}
+                animate={{ opacity: 1, y: "0%", rotateX: 0 }}
+                transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              >
+                FPV Drone
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden">
+              <motion.span
+                className="block text-[var(--color-accent)]"
+                initial={{ opacity: 0, y: "100%", rotateX: 25 }}
+                animate={{ opacity: 1, y: "0%", rotateX: 0 }}
+                transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              >
+                Cinematography
+              </motion.span>
+            </span>
           </h1>
 
           {/* Supporting Text */}

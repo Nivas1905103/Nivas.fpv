@@ -102,6 +102,35 @@ export const staggerContainerSlow: Variants = {
   },
 };
 
+// --- Flolapo-Style Text Reveal (Masked upward slide) ---
+export const textRevealUp: Variants = {
+  hidden: {
+    opacity: 0,
+    y: "100%", // Start fully pushed down
+    rotateX: 25, // Slight 3D rotation for dramatic effect
+  },
+  visible: {
+    opacity: 1,
+    y: "0%",
+    rotateX: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.16, 1, 0.3, 1], // Very aggressive cubic-bezier (snappy but smooth)
+    },
+  },
+};
+
+// --- Flolapo-Style Staggered Reveal ---
+export const staggerReveal: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08, // Very fast stagger
+      delayChildren: 0.1,
+    },
+  },
+};
+
 // --- Text Character Reveal ---
 export const charReveal: Variants = {
   hidden: {

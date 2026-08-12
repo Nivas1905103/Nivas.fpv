@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { fadeInUp, viewportOnce } from "@/lib/animations";
+import { fadeInUp, viewportOnce, staggerReveal, textRevealUp } from "@/lib/animations";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 import LiquidBackground from "@/components/ui/LiquidBackground";
@@ -64,33 +64,45 @@ export default function Capabilities() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          variants={fadeInUp}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+          variants={staggerReveal}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 gap-x-6 mt-20"
         >
-          {capabilities.map((cap) => (
-            <div
-              key={cap}
-              className="p-5 md:p-6 border border-[var(--color-border)] bg-black/20 backdrop-blur-md hover:border-[var(--color-accent)]/30 hover:bg-[var(--color-bg-card)] transition-all duration-300 group"
-            >
-              <span className="text-sm font-[family-name:var(--font-heading)] font-medium tracking-[0.05em] uppercase text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors duration-300">
-                {cap}
-              </span>
+          {capabilities.map((cap, index) => (
+            <div key={cap} className="overflow-hidden">
+              <motion.div
+                variants={textRevealUp}
+                className="group relative cursor-default"
+              >
+                <span className="text-[var(--color-accent)] opacity-40 text-xs font-mono tracking-widest block mb-2 transition-opacity duration-300 group-hover:opacity-100">
+                  // {(index + 1).toString().padStart(2, '0')}
+                </span>
+                <span className="text-xl md:text-2xl font-[family-name:var(--font-heading)] font-light tracking-wide text-[var(--color-text-primary)] transition-colors duration-300">
+                  {cap}
+                </span>
+                {/* Minimalist animated underline on hover */}
+                <div className="absolute -bottom-2 left-0 w-0 h-[1px] bg-[var(--color-accent)] group-hover:w-12 transition-all duration-500 ease-out" />
+              </motion.div>
             </div>
           ))}
         </motion.div>
 
         {/* Technical specs */}
         <motion.div
-          className="mt-12 flex flex-wrap justify-center gap-6 md:gap-10"
+          className="mt-20 flex flex-wrap justify-center gap-6 md:gap-10 pt-10 border-t border-white/[0.05]"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          variants={fadeInUp}
+          variants={staggerReveal}
         >
           {["FPV", "4K", "Cinematic", "HDR"].map((spec) => (
-            <span key={spec} className="tech-label text-[var(--color-text-muted)] bg-black/40 backdrop-blur-sm px-4 py-1 rounded-full border border-[var(--color-border)]">
-              {spec}
-            </span>
+            <div key={spec} className="overflow-hidden">
+              <motion.span 
+                variants={textRevealUp}
+                className="tech-label text-[var(--color-text-muted)] block"
+              >
+                {spec}
+              </motion.span>
+            </div>
           ))}
         </motion.div>
       </div>
