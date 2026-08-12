@@ -73,20 +73,39 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
             slideShadows: true,
           }}
           modules={[EffectCoverflow, Pagination, Autoplay]}
+          onSwiper={(swiper) => {
+            // Initialize video listeners on mount
+            const slides = swiper.slides;
+            for (let i = 0; i < slides.length; i++) {
+              const video = slides[i].querySelector('video');
+              if (video) {
+                // Prevent native loop bug (black screen at end)
+                video.loop = false;
+                video.ontimeupdate = () => {
+                  if (video.duration && video.currentTime >= video.duration - 0.2) {
+                    video.currentTime = 0.1;
+                    video.play().catch(() => {});
+                  }
+                };
+              }
+            }
+          }}
           onSlideChange={(swiper) => {
             // Force play the video in the active slide, even if it's a Swiper clone
             const slides = swiper.slides;
             for (let i = 0; i < slides.length; i++) {
               const video = slides[i].querySelector('video');
               if (video) {
-                if (i === swiper.activeIndex) {
-                  // Ensure loop property is set natively
-                  video.loop = true;
-                  // Force playback on loop end
-                  video.onended = () => {
-                    video.currentTime = 0;
+                // Prevent native loop bug (black screen at end)
+                video.loop = false;
+                video.ontimeupdate = () => {
+                  if (video.duration && video.currentTime >= video.duration - 0.2) {
+                    video.currentTime = 0.1;
                     video.play().catch(() => {});
-                  };
+                  }
+                };
+                
+                if (i === swiper.activeIndex) {
                   video.play().catch(() => {});
                 } else {
                   video.pause();
@@ -94,7 +113,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
               }
             }
           }}
-          className="w-full max-w-[1920px] mx-auto py-12 px-4 !overflow-visible"
+          className="w-full max-w-[1920px] mx-auto pt-12 pb-24 md:pb-32 px-4 !overflow-visible"
         >
           {projects.map((project, index) => (
             <SwiperSlide key={project.slug} className="w-[85vw] md:w-[55vw] max-w-[1000px] transition-transform duration-500">
@@ -105,20 +124,10 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
                     <video
                       src={project.heroVideo}
                       muted
-                      loop
                       autoPlay={index === 0}
                       playsInline
                       preload="auto"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      onCanPlay={(e) => {
-                        // Attempt to play immediately if it's the initially active slide
-                        if (index === 0) e.currentTarget.play().catch(() => {});
-                      }}
-                      onEnded={(e) => {
-                        // Fallback for React event loop enforcement
-                        e.currentTarget.currentTime = 0;
-                        e.currentTarget.play().catch(() => {});
-                      }}
                     />
                   ) : project.poster ? (
                     <Image
@@ -183,7 +192,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
 
       {/* View All Work CTA */}
       <motion.div
-        className="mt-16 md:mt-24 text-center pb-12"
+        className="mt-8 md:mt-12 text-center pb-12"
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
