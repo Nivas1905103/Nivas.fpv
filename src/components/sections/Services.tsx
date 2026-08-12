@@ -39,7 +39,7 @@ export default function Services() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
               <button
-                className="w-full px-6 py-6 md:px-10 md:py-8 flex items-center justify-between text-left group z-10 relative"
+                className="w-full px-8 md:px-12 lg:px-16 py-6 md:py-8 flex items-center justify-between text-left group z-10 relative"
                 onClick={() => setActiveIndex(activeIndex === i ? null : i)}
                 aria-expanded={activeIndex === i}
               >
@@ -66,7 +66,7 @@ export default function Services() {
                     transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden z-10 relative"
                   >
-                    <div className="pb-8 px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="pb-8 px-8 md:px-12 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-6">
                       <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-md">
                         {service.description}
                       </p>
