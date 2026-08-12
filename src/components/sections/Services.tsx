@@ -25,7 +25,7 @@ export default function Services() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer}
-          className="flex flex-col gap-4 md:gap-6 mt-8 md:mt-12"
+          className="flex flex-col gap-4 md:gap-6 mt-16 md:mt-24"
         >
           {services.map((service, i) => (
             <motion.div
@@ -44,9 +44,6 @@ export default function Services() {
                 aria-expanded={activeIndex === i}
               >
                 <div className="flex items-center gap-4 md:gap-8">
-                  <span className="tech-label text-[var(--color-accent)] w-8">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
                   <h3 className="heading-md text-lg md:text-2xl group-hover:text-[var(--color-accent)] transition-colors duration-300">
                     {service.title}
                   </h3>
