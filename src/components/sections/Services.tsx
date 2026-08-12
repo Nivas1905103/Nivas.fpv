@@ -17,6 +17,7 @@ export default function Services() {
           label="Services"
           title="What I Do"
           subtitle="End-to-end FPV cinematography and post-production services for professional commercial work."
+          subtitleClassName="mt-6 md:mt-10"
         />
 
         <motion.div
@@ -24,16 +25,21 @@ export default function Services() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer}
-          className="border-t border-[var(--color-border)]"
+          className="flex flex-col gap-4 md:gap-6 mt-8 md:mt-12"
         >
           {services.map((service, i) => (
             <motion.div
               key={service.slug}
               variants={fadeInUp}
-              className="border-b border-[var(--color-border)]"
+              className={`relative overflow-hidden rounded-[1.25rem] md:rounded-[1.5rem] bg-white/[0.03] border border-white/[0.05] backdrop-blur-xl transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(255,51,51,0.2)] hover:bg-white/[0.06] hover:border-white/[0.15] ${
+                activeIndex === i ? "bg-white/[0.08] border-white/[0.2] shadow-[0_20px_40px_-15px_rgba(255,51,51,0.2)]" : ""
+              }`}
             >
+              {/* Glossy gradient reflection on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
               <button
-                className="w-full py-6 md:py-8 flex items-center justify-between text-left group"
+                className="w-full px-6 py-6 md:px-10 md:py-8 flex items-center justify-between text-left group z-10 relative"
                 onClick={() => setActiveIndex(activeIndex === i ? null : i)}
                 aria-expanded={activeIndex === i}
               >
@@ -61,9 +67,9 @@ export default function Services() {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden"
+                    className="overflow-hidden z-10 relative"
                   >
-                    <div className="pb-8 pl-12 md:pl-20 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="pb-8 px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-6">
                       <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-md">
                         {service.description}
                       </p>

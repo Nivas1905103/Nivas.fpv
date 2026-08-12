@@ -8,6 +8,7 @@ interface SectionHeadingProps {
   title: string;
   subtitle?: string;
   align?: "left" | "center";
+  subtitleClassName?: string;
 }
 
 export default function SectionHeading({
@@ -15,6 +16,7 @@ export default function SectionHeading({
   title,
   subtitle,
   align = "left",
+  subtitleClassName = "",
 }: SectionHeadingProps) {
   return (
     <motion.div
@@ -43,7 +45,7 @@ export default function SectionHeading({
         </motion.h2>
       </div>
       {subtitle && (
-        <div className="overflow-hidden mt-4">
+        <div className={`overflow-hidden mt-4 ${subtitleClassName}`}>
           <motion.p 
             variants={textRevealUp}
             className="body-lg max-w-2xl"
