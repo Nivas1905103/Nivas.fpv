@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section 
       id="about" 
-      className="py-32 bg-[var(--color-bg-primary)] relative"
+      className="pt-48 pb-32 md:pt-56 bg-[var(--color-bg-primary)] relative"
     >
       <LiquidBackground opacity={0.08} color1="#E63946" color2="#330000" />
       <div className="container-site relative z-10">
@@ -33,16 +33,16 @@ export default function About() {
             
             {/* CHAPTER 1: IDENTITY */}
             <div className="max-w-[540px]">
-              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-[24px]">
+              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-[40px]">
                 About
               </span>
               
-              <h2 className="font-heading font-bold text-5xl md:text-7xl tracking-tighter mb-[24px] text-[var(--color-text-primary)] leading-[1.1]">
+              <h2 className="font-heading font-bold text-5xl md:text-7xl tracking-tighter mb-[48px] text-[var(--color-text-primary)] leading-[1.1]">
                 Nivas<span className="text-[var(--color-accent)]">.</span>
               </h2>
               
               <div>
-                <p className="text-sm md:text-base font-semibold tracking-[0.15em] uppercase text-[var(--color-text-primary)] mb-[8px]">
+                <p className="text-sm md:text-base font-semibold tracking-[0.15em] uppercase text-[var(--color-text-primary)] mb-[12px]">
                   FPV Drone Cinematographer
                 </p>
                 <div className="flex items-center gap-4">
@@ -55,8 +55,8 @@ export default function About() {
             </div>
 
             {/* CHAPTER 2: BACKGROUND */}
-            <div className="mt-[80px] md:mt-[120px] max-w-[540px]">
-              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[32px] md:mb-[40px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-[100px] md:mt-[140px] max-w-[540px]">
+              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[48px] md:mb-[64px] leading-[1.3] ml-0 text-left w-full">
                 01. Background
               </h3>
               
@@ -76,12 +76,12 @@ export default function About() {
             </div>
 
             {/* CHAPTER 3: EXPERTISE */}
-            <div className="mt-[64px] md:mt-[80px] max-w-[540px]">
-              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[48px] md:mb-[64px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-[80px] md:mt-[100px] max-w-[540px]">
+              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[64px] md:mb-[80px] leading-[1.3] ml-0 text-left w-full">
                 02. Core Expertise
               </h3>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-[28px] md:gap-y-[32px] gap-x-[20px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-[40px] md:gap-y-[48px] gap-x-[20px]">
                 {[
                   "FPV Drone Piloting",
                   "Aerial Cinematography",
@@ -103,7 +103,7 @@ export default function About() {
             </div>
 
             {/* CTA */}
-            <div className="mt-[64px] md:mt-[96px] pt-[20px] border-t border-white/[0.08] max-w-[540px]">
+            <div className="mt-[80px] md:mt-[120px] pt-[20px] border-t border-white/[0.08] max-w-[540px]">
               <Link href="/about" className="group inline-flex items-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-text-primary)] transition-colors">
                 <span className="relative pb-1">
                   Read Full Bio

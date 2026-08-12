@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen pt-32 pb-20 bg-[var(--color-bg-primary)] relative overflow-hidden">
+    <div className="min-h-screen pt-48 md:pt-56 pb-20 bg-[var(--color-bg-primary)] relative overflow-hidden">
       
       {/* Subtle Dynamic Background */}
       <LiquidBackground opacity={0.08} color1="#E63946" color2="#330000" />
@@ -45,16 +45,16 @@ export default function AboutPage() {
             
             {/* CHAPTER 1: IDENTITY */}
             <div className="max-w-[540px]">
-              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-[24px]">
+              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-[40px]">
                 Identity
               </span>
               
-              <h1 className="font-heading font-bold text-6xl md:text-8xl tracking-tighter mb-[24px] text-[var(--color-text-primary)] leading-[1.1]">
+              <h1 className="font-heading font-bold text-6xl md:text-8xl tracking-tighter mb-[48px] text-[var(--color-text-primary)] leading-[1.1]">
                 Nivas<span className="text-[var(--color-accent)]">.</span>
               </h1>
               
               <div>
-                <p className="text-sm md:text-base font-semibold tracking-[0.15em] uppercase text-[var(--color-text-primary)] mb-[8px]">
+                <p className="text-sm md:text-base font-semibold tracking-[0.15em] uppercase text-[var(--color-text-primary)] mb-[12px]">
                   FPV Drone Cinematographer
                 </p>
                 <div className="flex items-center gap-4">
@@ -67,8 +67,8 @@ export default function AboutPage() {
             </div>
 
             {/* CHAPTER 2: WHO I AM */}
-            <div className="mt-[80px] md:mt-[120px] max-w-[540px]">
-              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[32px] md:mb-[40px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-[100px] md:mt-[140px] max-w-[540px]">
+              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[48px] md:mb-[64px] leading-[1.3] ml-0 text-left w-full">
                 01. Background
               </h2>
               
@@ -87,8 +87,8 @@ export default function AboutPage() {
             </div>
 
             {/* CHAPTER 3: WHAT I DO */}
-            <div className="mt-[64px] md:mt-[80px] max-w-[540px]">
-              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[32px] md:mb-[40px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-[80px] md:mt-[100px] max-w-[540px]">
+              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[48px] md:mb-[64px] leading-[1.3] ml-0 text-left w-full">
                 02. Approach
               </h2>
               
@@ -106,12 +106,12 @@ export default function AboutPage() {
             </div>
 
             {/* CHAPTER 4: EXPERTISE */}
-            <div className="mt-[64px] md:mt-[80px] max-w-[540px]">
-              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[48px] md:mb-[64px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-[80px] md:mt-[100px] max-w-[540px]">
+              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[64px] md:mb-[80px] leading-[1.3] ml-0 text-left w-full">
                 03. Expertise
               </h2>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-[28px] md:gap-y-[32px] gap-x-[20px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-[40px] md:gap-y-[48px] gap-x-[20px]">
                 {[
                   "FPV Drone Piloting",
                   "Aerial Cinematography",
@@ -135,8 +135,8 @@ export default function AboutPage() {
             </div>
 
             {/* CHAPTER 5: EQUIPMENT ARSENAL */}
-            <div className="mt-[64px] md:mt-[80px] max-w-[540px]">
-              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[48px] md:mb-[64px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-[80px] md:mt-[100px] max-w-[540px]">
+              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[64px] md:mb-[80px] leading-[1.3] ml-0 text-left w-full">
                 04. Technical Arsenal
               </h2>
               
@@ -144,7 +144,7 @@ export default function AboutPage() {
                 {gear.map((item, index) => (
                   <div 
                     key={item.name} 
-                    className={`flex flex-col sm:flex-row sm:gap-6 group ${index !== gear.length - 1 ? 'mb-[28px]' : 'mb-0'}`}
+                    className={`flex flex-col sm:flex-row sm:gap-6 group ${index !== gear.length - 1 ? 'mb-[40px] md:mb-[48px]' : 'mb-0'}`}
                   >
                     <span className="text-[0.65rem] font-medium tracking-[0.15em] uppercase text-[var(--color-text-muted)] sm:w-[140px] flex-shrink-0 pt-[4px] mb-[6px] sm:mb-0">
                       {item.category}
@@ -163,7 +163,7 @@ export default function AboutPage() {
             </div>
 
             {/* CHAPTER 6: CTA / AVAILABILITY */}
-            <div className="mt-[64px] md:mt-[96px] pt-[20px] border-t border-white/[0.08] max-w-[540px]">
+            <div className="mt-[80px] md:mt-[120px] pt-[20px] border-t border-white/[0.08] max-w-[540px]">
               <span className="text-[16px] font-semibold tracking-[0.18em] text-[var(--color-text-muted)] uppercase block mb-[20px] md:mb-[24px]">
                 Availability
               </span>
