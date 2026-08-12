@@ -22,6 +22,7 @@ export default function Hero() {
       >
         <HeroVideo 
           src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/13.mp4"
+          poster="/images/hero-poster.jpg"
           className="opacity-70 mix-blend-normal"
         />
         {/* Gradient overlay to ensure left-side text is highly readable */}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 
 interface HeroVideoProps {
   src: string;
@@ -18,19 +19,17 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
     // Force attributes directly on the DOM element for mobile browsers
     video.muted = true;
     video.defaultMuted = true;
-    video.loop = true;
+    video.loop = false; // Disable native loop
     video.playsInline = true;
 
-    // ADVANCED LOOP TECHNIQUE: Bypass browser bugs by manually checking time
-    let animationFrameId: number;
-    const checkLoop = () => {
-      // If we are within 50ms of the end, force a loop back to 0
-      if (video.duration > 0 && video.currentTime >= video.duration - 0.05) {
-        video.currentTime = 0;
-        video.play().catch(() => {});
+    // Use timeupdate to fade out before end
+    const handleTimeUpdate = () => {
+      if (video.duration && video.currentTime >= video.duration - 0.1) {
+        video.style.opacity = '0';
       }
-      animationFrameId = requestAnimationFrame(checkLoop);
     };
+    
+    video.addEventListener('timeupdate', handleTimeUpdate);
 
     // Respect reduced motion
     const prefersReducedMotion = window.matchMedia(
@@ -45,42 +44,41 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
     // Attempt autoplay
     const playPromise = video.play();
     if (playPromise !== undefined) {
-      playPromise.then(() => {
-        checkLoop();
-      }).catch(() => {
+      playPromise.catch(() => {
         // Autoplay was prevented — show poster instead
       });
     }
 
     return () => {
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      video.removeEventListener('timeupdate', handleTimeUpdate);
     };
   }, []);
 
   return (
     <div className={`absolute inset-0 overflow-hidden ${className}`}>
+      {poster && (
+        <Image
+          src={poster}
+          alt="Hero Background"
+          fill
+          priority
+          className="object-cover absolute inset-0 z-0"
+        />
+      )}
       <video
         ref={videoRef}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover z-10 relative transition-opacity duration-[1000ms]"
         autoPlay
         muted
-        loop
         playsInline
         preload="auto"
-        poster={poster}
-        aria-hidden="true"
-        onEnded={(e) => {
-          const target = e.currentTarget;
-          target.currentTime = 0;
-          target.play().catch(() => {});
-        }}
       >
         {/* Replace with actual hero FPV footage */}
         <source src={src} type={src.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
       </video>
 
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/50 z-20" />
     </div>
   );
 }
