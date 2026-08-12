@@ -54,7 +54,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
             height: auto !important;
           }
           .swiper-pagination {
-            bottom: 10px !important;
+            bottom: 0px !important;
           }
         `}</style>
         <Swiper
@@ -116,7 +116,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
               }
             }
           }}
-          className="w-full max-w-[1920px] mx-auto pt-12 pb-[60px] md:pb-[80px] px-4 !overflow-visible"
+          className="w-full max-w-[1920px] mx-auto pt-12 pb-[60px] px-4 !overflow-visible"
         >
           {projects.map((project, index) => (
             <SwiperSlide key={project.slug} className="w-[85vw] md:w-[55vw] max-w-[1000px] transition-transform duration-500">
@@ -194,9 +194,12 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
         </Swiper>
       </motion.div>
 
+      {/* Explicit Spacer to guarantee physical layout gap */}
+      <div className="h-[80px] md:h-[140px] w-full pointer-events-none" />
+
       {/* View All Work CTA */}
       <motion.div
-        className="mt-[80px] md:mt-[100px] text-center pb-12 relative z-20"
+        className="text-center pb-12 relative z-20"
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
