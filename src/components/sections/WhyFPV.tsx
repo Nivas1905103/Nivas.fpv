@@ -47,7 +47,7 @@ export default function WhyFPV() {
         />
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-border)] border border-[var(--color-border)]"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
@@ -56,16 +56,26 @@ export default function WhyFPV() {
           {fpvCapabilities.map((cap) => (
             <motion.div
               key={cap.title}
-              className="bg-[var(--color-bg-primary)] bg-opacity-95 backdrop-blur-sm p-8 md:p-10 group hover:bg-[var(--color-bg-card)] transition-colors duration-500"
+              className="relative overflow-hidden h-[260px] md:h-[300px] rounded-[2rem] bg-white/[0.03] border border-white/[0.05] group cursor-pointer transition-all duration-[600ms] ease-out hover:-translate-y-3 hover:shadow-[0_30px_60px_-15px_rgba(255,51,51,0.25)] hover:bg-white/[0.06] hover:border-white/[0.15] backdrop-blur-xl"
               variants={fadeInUp}
             >
-              <div className="w-2 h-2 bg-[var(--color-accent)] mb-6 group-hover:scale-150 transition-transform duration-300" />
-              <h3 className="heading-sm text-sm md:text-base mb-3 text-[var(--color-text-primary)] tracking-wide">
-                {cap.title}
-              </h3>
-              <p className="text-sm md:text-base text-[var(--color-text-muted)] leading-relaxed">
-                {cap.description}
-              </p>
+              {/* Glossy gradient reflection on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              
+              {/* Title: Centered initially, moves up on hover */}
+              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-center items-center text-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-12">
+                <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] opacity-0 group-hover:opacity-100 mb-4 scale-0 group-hover:scale-100 transition-all duration-500 ease-out" />
+                <h3 className="heading-sm text-lg md:text-xl text-white tracking-wide transition-colors duration-500 drop-shadow-md">
+                  {cap.title}
+                </h3>
+              </div>
+
+              {/* Description: Hidden at bottom, slides up on hover */}
+              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end text-center opacity-0 translate-y-16 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-75">
+                <p className="text-[0.9rem] md:text-base text-[var(--color-text-secondary)] leading-relaxed">
+                  {cap.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
