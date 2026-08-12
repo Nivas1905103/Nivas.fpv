@@ -74,7 +74,7 @@ export default function Capabilities() {
                 className="group relative cursor-default"
               >
                 <span className="text-[var(--color-accent)] opacity-40 text-xs font-mono tracking-widest block mb-2 transition-opacity duration-300 group-hover:opacity-100">
-                  // {(index + 1).toString().padStart(2, '0')}
+                  {"// "}{(index + 1).toString().padStart(2, '0')}
                 </span>
                 <span className="text-xl md:text-2xl font-[family-name:var(--font-heading)] font-light tracking-wide text-[var(--color-text-primary)] transition-colors duration-300">
                   {cap}

@@ -106,7 +106,7 @@ export default function WorkPage() {
                     <div className="marquee-track flex gap-8 whitespace-nowrap">
                       {Array.from({ length: 4 }).map((_, i) => (
                         <span key={i} className="tech-label text-xs">
-                          // FPV CINEMATOGRAPHY // AERIAL STORYTELLING // HIGH-SPEED TRACKING // COMMERCIAL VISUALS
+                          {"// FPV CINEMATOGRAPHY // AERIAL STORYTELLING // HIGH-SPEED TRACKING // COMMERCIAL VISUALS"}
                         </span>
                       ))}
                     </div>

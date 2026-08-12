@@ -91,8 +91,8 @@ export default function Contact() {
       } else {
         setSubmitError(result.message || "Failed to send message. Please try again.");
       }
-    } catch (err: any) {
-      setSubmitError(err.message || "Something went wrong. Please try again or contact directly via email.");
+    } catch (err: unknown) {
+      setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please try again or contact directly via email.");
     }
   };
 
