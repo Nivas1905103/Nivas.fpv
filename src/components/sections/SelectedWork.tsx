@@ -80,6 +80,13 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
               const video = slides[i].querySelector('video');
               if (video) {
                 if (i === swiper.activeIndex) {
+                  // Ensure loop property is set natively
+                  video.loop = true;
+                  // Force playback on loop end
+                  video.onended = () => {
+                    video.currentTime = 0;
+                    video.play().catch(() => {});
+                  };
                   video.play().catch(() => {});
                 } else {
                   video.pause();
@@ -106,6 +113,11 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
                         // Attempt to play immediately if it's the initially active slide
                         if (index === 0) e.currentTarget.play().catch(() => {});
                       }}
+                      onEnded={(e) => {
+                        // Fallback for React event loop enforcement
+                        e.currentTarget.currentTime = 0;
+                        e.currentTarget.play().catch(() => {});
+                      }}
                     />
                   ) : project.poster ? (
                     <Image
@@ -120,46 +132,46 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
                     </div>
                   )}
 
+                  {/* Dark Gradient Overlay for text readability */}
+                  <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
+
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-[var(--color-accent)]/0 group-hover:bg-[var(--color-accent)]/10 transition-colors duration-500 pointer-events-none" />
-                </div>
-
-                {/* Project Info Below Video */}
-                <div className="pt-6 md:pt-8 px-2 flex flex-col md:flex-row md:items-start justify-between gap-4">
-                  <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    variants={staggerReveal}
-                  >
-                    <div className="overflow-hidden mb-3">
-                      <motion.span 
-                        variants={textRevealUp}
-                        className="tech-label text-[var(--color-accent)] tracking-[0.2em] block"
-                      >
-                        {project.category}
-                      </motion.span>
-                    </div>
-                    <div className="overflow-hidden mb-2">
-                      <motion.h3 
-                        variants={textRevealUp}
-                        className="heading-md text-2xl md:text-4xl text-white group-hover:text-[var(--color-accent)] transition-colors duration-300"
-                      >
-                        {project.title}
-                      </motion.h3>
-                    </div>
-                    <div className="overflow-hidden">
-                      <motion.p 
-                        variants={textRevealUp}
-                        className="body-sm text-white/60"
-                      >
-                        {project.client}{project.location ? ` — ${project.location}` : ""}
-                      </motion.p>
-                    </div>
-                  </motion.div>
                   
-                  <div className="flex flex-col items-start md:items-end gap-2">
-                    <span className="tech-label text-white/40">{project.year}</span>
+                  {/* Project Info Inside Video */}
+                  <div className="absolute inset-x-0 bottom-8 md:bottom-12 px-4 md:px-8 flex flex-col items-center text-center z-10 pointer-events-none">
+                    <motion.div
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={viewportOnce}
+                      variants={staggerReveal}
+                      className="flex flex-col items-center"
+                    >
+                      <div className="overflow-hidden mb-3">
+                        <motion.span 
+                          variants={textRevealUp}
+                          className="tech-label text-[var(--color-accent)] tracking-[0.2em] block drop-shadow-md"
+                        >
+                          {project.category}
+                        </motion.span>
+                      </div>
+                      <div className="overflow-hidden mb-2">
+                        <motion.h3 
+                          variants={textRevealUp}
+                          className="heading-md text-3xl md:text-5xl text-white group-hover:text-[var(--color-accent)] transition-colors duration-300 drop-shadow-lg"
+                        >
+                          {project.title}
+                        </motion.h3>
+                      </div>
+                      <div className="overflow-hidden">
+                        <motion.p 
+                          variants={textRevealUp}
+                          className="body-sm text-white/90 drop-shadow-md text-[0.95rem] md:text-[1.1rem]"
+                        >
+                          {project.client}{project.location ? ` — ${project.location}` : ""}
+                        </motion.p>
+                      </div>
+                    </motion.div>
                   </div>
                 </div>
               </Link>

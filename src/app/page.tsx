@@ -9,6 +9,7 @@ import About from "@/components/sections/About";
 import Availability from "@/components/sections/Availability";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 import { client } from "@/sanity/lib/client";
 import { featuredProjects } from "@/data/projects";
@@ -27,7 +28,9 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
+      <SectionDivider />
       <About />
+      <SectionDivider />
       <SelectedWork projects={projects} />
       <WhyFPV />
       <Services />

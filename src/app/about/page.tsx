@@ -67,8 +67,8 @@ export default function AboutPage() {
             </div>
 
             {/* CHAPTER 2: WHO I AM */}
-            <div className="mt-[64px] md:mt-[80px] max-w-[540px]">
-              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[20px] md:mb-[24px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-[80px] md:mt-[120px] max-w-[540px]">
+              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[32px] md:mb-[40px] leading-[1.3] ml-0 text-left w-full">
                 01. Background
               </h2>
               
@@ -88,7 +88,7 @@ export default function AboutPage() {
 
             {/* CHAPTER 3: WHAT I DO */}
             <div className="mt-[64px] md:mt-[80px] max-w-[540px]">
-              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[20px] md:mb-[24px] leading-[1.3] ml-0 text-left w-full">
+              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[32px] md:mb-[40px] leading-[1.3] ml-0 text-left w-full">
                 02. Approach
               </h2>
               
@@ -107,7 +107,7 @@ export default function AboutPage() {
 
             {/* CHAPTER 4: EXPERTISE */}
             <div className="mt-[64px] md:mt-[80px] max-w-[540px]">
-              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[20px] md:mb-[24px] leading-[1.3] ml-0 text-left w-full">
+              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[48px] md:mb-[64px] leading-[1.3] ml-0 text-left w-full">
                 03. Expertise
               </h2>
               
@@ -136,7 +136,7 @@ export default function AboutPage() {
 
             {/* CHAPTER 5: EQUIPMENT ARSENAL */}
             <div className="mt-[64px] md:mt-[80px] max-w-[540px]">
-              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[20px] md:mb-[24px] leading-[1.3] ml-0 text-left w-full">
+              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[48px] md:mb-[64px] leading-[1.3] ml-0 text-left w-full">
                 04. Technical Arsenal
               </h2>
               

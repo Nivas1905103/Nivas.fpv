@@ -55,8 +55,8 @@ export default function About() {
             </div>
 
             {/* CHAPTER 2: BACKGROUND */}
-            <div className="mt-[64px] md:mt-[80px] max-w-[540px]">
-              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[20px] md:mb-[24px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-[80px] md:mt-[120px] max-w-[540px]">
+              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[32px] md:mb-[40px] leading-[1.3] ml-0 text-left w-full">
                 01. Background
               </h3>
               
@@ -77,7 +77,7 @@ export default function About() {
 
             {/* CHAPTER 3: EXPERTISE */}
             <div className="mt-[64px] md:mt-[80px] max-w-[540px]">
-              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[20px] md:mb-[24px] leading-[1.3] ml-0 text-left w-full">
+              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[48px] md:mb-[64px] leading-[1.3] ml-0 text-left w-full">
                 02. Core Expertise
               </h3>
               
