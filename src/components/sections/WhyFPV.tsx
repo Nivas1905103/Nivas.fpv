@@ -62,19 +62,23 @@ export default function WhyFPV() {
               {/* Glossy gradient reflection on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
               
-              {/* Title: Centered initially, moves up on hover */}
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-center items-center text-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-12">
-                <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] opacity-0 group-hover:opacity-100 mb-4 scale-0 group-hover:scale-100 transition-all duration-500 ease-out" />
-                <h3 className="heading-sm text-lg md:text-xl text-white tracking-wide transition-colors duration-500 drop-shadow-md">
-                  {cap.title}
-                </h3>
-              </div>
+              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-center items-center">
+                {/* Content Wrapper - moves up on hover */}
+                <div className="relative w-full flex flex-col items-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-6">
+                  
+                  {/* Title with glossy text glow */}
+                  <h3 className="heading-sm text-lg md:text-xl text-center text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 tracking-wide transition-all duration-500 group-hover:from-white group-hover:to-white drop-shadow-[0_0_12px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">
+                    {cap.title}
+                  </h3>
 
-              {/* Description: Hidden at bottom, slides up on hover */}
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end text-center opacity-0 translate-y-16 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-75">
-                <p className="text-[0.9rem] md:text-base text-[var(--color-text-secondary)] leading-relaxed">
-                  {cap.description}
-                </p>
+                  {/* Description - absolute positioned to not affect initial flex centering */}
+                  <div className="absolute top-full left-0 w-full pt-4 md:pt-5 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-75">
+                    <p className="text-[0.9rem] md:text-[0.95rem] text-[var(--color-text-secondary)] leading-relaxed text-center">
+                      {cap.description}
+                    </p>
+                  </div>
+                  
+                </div>
               </div>
             </motion.div>
           ))}
