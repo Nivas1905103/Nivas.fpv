@@ -1,12 +1,11 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import Image from "next/image";
 
 interface HeroVideoProps {
   src: string;
-  poster?: string;
   className?: string;
+  poster?: string;
 }
 
 export default function HeroVideo({ src, poster, className = "" }: HeroVideoProps) {
@@ -19,17 +18,19 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
     // Force attributes directly on the DOM element for mobile browsers
     video.muted = true;
     video.defaultMuted = true;
-    video.loop = false; // Disable native loop
+    video.loop = true; // Re-enable native loop
     video.playsInline = true;
 
-    // Use timeupdate to fade out before end
-    const handleTimeUpdate = () => {
-      if (video.duration && video.currentTime >= video.duration - 0.1) {
-        video.style.opacity = '0';
+    // ADVANCED LOOP TECHNIQUE: Bypass browser bugs by manually checking time
+    let animationFrameId: number;
+    const checkLoop = () => {
+      // If we are within 50ms of the end, force a loop back to 0
+      if (video.duration > 0 && video.currentTime >= video.duration - 0.05) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
       }
+      animationFrameId = requestAnimationFrame(checkLoop);
     };
-    
-    video.addEventListener('timeupdate', handleTimeUpdate);
 
     // Respect reduced motion
     const prefersReducedMotion = window.matchMedia(
@@ -44,34 +45,34 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
     // Attempt autoplay
     const playPromise = video.play();
     if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Autoplay was prevented — show poster instead
+      playPromise.then(() => {
+        checkLoop();
+      }).catch(() => {
+        // Autoplay was prevented
       });
     }
 
     return () => {
-      video.removeEventListener('timeupdate', handleTimeUpdate);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
     <div className={`absolute inset-0 overflow-hidden ${className}`}>
-      {poster && (
-        <Image
-          src={poster}
-          alt="Hero Background"
-          fill
-          priority
-          className="object-cover absolute inset-0 z-0"
-        />
-      )}
       <video
         ref={videoRef}
-        className="w-full h-full object-cover z-10 relative transition-opacity duration-[1000ms]"
+        className="w-full h-full object-cover z-10 relative"
         autoPlay
         muted
+        loop
         playsInline
         preload="auto"
+        onEnded={(e) => {
+          // Fallback for when 'loop' attribute fails
+          const target = e.currentTarget;
+          target.currentTime = 0;
+          target.play().catch(() => {});
+        }}
       >
         {/* Replace with actual hero FPV footage */}
         <source src={src} type={src.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
