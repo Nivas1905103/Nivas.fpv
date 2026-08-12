@@ -11,10 +11,9 @@ export default function About() {
       <LiquidBackground opacity={0.08} color1="#E63946" color2="#330000" />
       <div className="container-site relative z-10">
         
-        {/* Strict 12-column grid for precise 45/55 layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-start w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start w-full">
           
-          {/* Image Column: 5/12 (~41%) */}
+          {/* Image Column: 5/12 */}
           <div className="lg:col-span-5 relative">
             <div className="aspect-[4/5] bg-[var(--color-bg-secondary)] relative overflow-hidden rounded-[1rem] border border-white/[0.05] shadow-[0_20px_50px_rgba(0,0,0,0.4)] sticky top-32">
               <Image 
@@ -28,25 +27,25 @@ export default function About() {
             </div>
           </div>
 
-          {/* Content Column: 6/12 (~50%), starting at col 7 */}
-          <div className="lg:col-span-6 lg:col-start-7 flex flex-col justify-start">
+          {/* Content Column: 7/12 */}
+          <div className="lg:col-span-7 flex flex-col justify-start">
             
             {/* CHAPTER 1: IDENTITY */}
-            <div className="max-w-[540px]">
-              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-[64px]">
+            <div className="w-full">
+              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-3">
                 About
               </span>
               
-              <h2 className="font-heading font-bold text-5xl md:text-7xl tracking-tighter mb-[64px] text-[var(--color-text-primary)] leading-[1.1]">
+              <h2 className="font-heading font-bold text-5xl md:text-7xl tracking-tighter mb-5 text-[var(--color-text-primary)] leading-[1.1]">
                 Nivas<span className="text-[var(--color-accent)]">.</span>
               </h2>
               
-              <div>
-                <p className="text-sm md:text-base font-semibold tracking-[0.15em] uppercase text-[var(--color-text-primary)] mb-[24px]">
+              <div className="flex flex-col gap-2.5">
+                <p className="text-sm md:text-base font-semibold tracking-[0.15em] uppercase text-[var(--color-text-primary)]">
                   FPV Drone Cinematographer
                 </p>
-                <div className="flex items-center gap-6">
-                  <div className="h-[2px] w-12 bg-[var(--color-accent)]" />
+                <div className="flex items-center gap-4">
+                  <div className="h-[2px] w-8 bg-[var(--color-accent)]" />
                   <p className="text-xs md:text-sm font-medium tracking-[0.15em] uppercase text-[var(--color-text-muted)]">
                     Editor / Visual Storyteller
                   </p>
@@ -55,12 +54,12 @@ export default function About() {
             </div>
 
             {/* CHAPTER 2: BACKGROUND */}
-            <div className="mt-[140px] md:mt-[180px] max-w-[540px]">
-              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[24px] mb-[64px] md:mb-[80px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-12 md:mt-16 w-full">
+              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-4 leading-[1.3] text-left w-full">
                 01. Background
               </h3>
               
-              <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.85] text-[var(--color-text-secondary)] font-light mb-[32px] md:mb-[40px]">
+              <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.85] text-[var(--color-text-secondary)] font-light mb-6">
                 I create dynamic visual experiences through FPV drone
                 cinematography and professional video editing. Based in India,
                 I work with film productions, brands, agencies, and businesses
@@ -76,12 +75,13 @@ export default function About() {
             </div>
 
             {/* CHAPTER 3: EXPERTISE */}
-            <div className="mt-[120px] md:mt-[160px] max-w-[540px]">
-              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[24px] mb-[80px] md:mb-[100px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-12 md:mt-16 w-full">
+              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-4 leading-[1.3] text-left w-full">
                 02. Core Expertise
               </h3>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-[56px] md:gap-y-[64px] gap-x-[32px]">
+              {/* Compact 2-column grid with sensible spacing */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-5 gap-x-6">
                 {[
                   "FPV Drone Piloting",
                   "Aerial Cinematography",
@@ -90,7 +90,7 @@ export default function About() {
                   "Sound Design",
                   "Speed Ramping"
                 ].map((skill, i) => (
-                  <div key={skill} className="flex items-baseline gap-4 group cursor-default">
+                  <div key={skill} className="flex items-baseline gap-3 group cursor-default">
                     <span className="text-[var(--color-accent)] font-mono text-[0.65rem] tracking-wider opacity-60">
                       {(i+1).toString().padStart(2, '0')}
                     </span>
@@ -103,7 +103,7 @@ export default function About() {
             </div>
 
             {/* CTA */}
-            <div className="mt-[120px] md:mt-[160px] pt-[40px] border-t border-white/[0.08] max-w-[540px]">
+            <div className="mt-20 pt-10 border-t border-white/[0.08] w-full">
               <Link href="/about" className="group inline-flex items-center gap-4 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-text-primary)] transition-colors">
                 <span className="relative pb-2">
                   Read Full Bio

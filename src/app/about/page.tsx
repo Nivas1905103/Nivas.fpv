@@ -21,10 +21,9 @@ export default function AboutPage() {
 
       <div className="container-site relative z-10">
         
-        {/* Strict 12-column grid for precise 45/55 layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-start w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start w-full">
           
-          {/* Image Column: 5/12 (~41%) */}
+          {/* Image Column: 5/12 */}
           <div className="lg:col-span-5 relative">
             {/* Aspect ratio optimized for portrait cinematic framing */}
             <div className="aspect-[4/5] bg-[var(--color-bg-secondary)] relative overflow-hidden rounded-[1rem] border border-white/[0.05] shadow-[0_20px_50px_rgba(0,0,0,0.4)] sticky top-32">
@@ -40,25 +39,25 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Content Column: 6/12 (~50%), starting at col 7 to leave a 1-col gap */}
-          <div className="lg:col-span-6 lg:col-start-7 flex flex-col justify-start">
+          {/* Content Column: 7/12 */}
+          <div className="lg:col-span-7 flex flex-col justify-start">
             
             {/* CHAPTER 1: IDENTITY */}
-            <div className="max-w-[540px]">
-              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-[64px]">
+            <div className="w-full">
+              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-3">
                 Identity
               </span>
               
-              <h1 className="font-heading font-bold text-6xl md:text-8xl tracking-tighter mb-[64px] text-[var(--color-text-primary)] leading-[1.1]">
+              <h1 className="font-heading font-bold text-6xl md:text-8xl tracking-tighter mb-5 text-[var(--color-text-primary)] leading-[1.1]">
                 Nivas<span className="text-[var(--color-accent)]">.</span>
               </h1>
               
-              <div>
-                <p className="text-sm md:text-base font-semibold tracking-[0.15em] uppercase text-[var(--color-text-primary)] mb-[24px]">
+              <div className="flex flex-col gap-2.5">
+                <p className="text-sm md:text-base font-semibold tracking-[0.15em] uppercase text-[var(--color-text-primary)]">
                   FPV Drone Cinematographer
                 </p>
-                <div className="flex items-center gap-6">
-                  <div className="h-[2px] w-12 bg-[var(--color-accent)]" />
+                <div className="flex items-center gap-4">
+                  <div className="h-[2px] w-8 bg-[var(--color-accent)]" />
                   <p className="text-xs md:text-sm font-medium tracking-[0.15em] uppercase text-[var(--color-text-muted)]">
                     Editor / Visual Storyteller
                   </p>
@@ -66,13 +65,13 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* CHAPTER 2: WHO I AM */}
-            <div className="mt-[140px] md:mt-[180px] max-w-[540px]">
-              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[24px] mb-[64px] md:mb-[80px] leading-[1.3] ml-0 text-left w-full">
+            {/* CHAPTER 2: BACKGROUND */}
+            <div className="mt-12 md:mt-16 w-full">
+              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-4 leading-[1.3] text-left w-full">
                 01. Background
               </h2>
               
-              <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.85] text-[var(--color-text-secondary)] font-light mb-[32px] md:mb-[40px]">
+              <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.85] text-[var(--color-text-secondary)] font-light mb-6">
                 Based in India, I create dynamic visual experiences through FPV drone
                 cinematography and professional video editing. I work closely with film 
                 productions, brands, agencies, and businesses to deliver cinematic aerial 
@@ -86,13 +85,13 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* CHAPTER 3: WHAT I DO */}
-            <div className="mt-[120px] md:mt-[160px] max-w-[540px]">
-              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[24px] mb-[64px] md:mb-[80px] leading-[1.3] ml-0 text-left w-full">
+            {/* CHAPTER 3: APPROACH */}
+            <div className="mt-12 md:mt-16 w-full">
+              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-4 leading-[1.3] text-left w-full">
                 02. Approach
               </h2>
               
-              <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.85] text-[var(--color-text-secondary)] font-light mb-[32px] md:mb-[40px]">
+              <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.85] text-[var(--color-text-secondary)] font-light mb-6">
                 Every project begins with understanding the core narrative. I combine
                 technical piloting precision with a cinematographer&apos;s eye for framing
                 and an editor&apos;s sense of pacing. 
@@ -106,12 +105,13 @@ export default function AboutPage() {
             </div>
 
             {/* CHAPTER 4: EXPERTISE */}
-            <div className="mt-[120px] md:mt-[160px] max-w-[540px]">
-              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[24px] mb-[80px] md:mb-[100px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-12 md:mt-16 w-full">
+              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-4 leading-[1.3] text-left w-full">
                 03. Expertise
               </h2>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-[56px] md:gap-y-[64px] gap-x-[32px]">
+              {/* Compact 2-column grid with sensible spacing */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 md:gap-y-5 gap-x-6">
                 {[
                   "FPV Drone Piloting",
                   "Aerial Cinematography",
@@ -122,7 +122,7 @@ export default function AboutPage() {
                   "Creative Direction",
                   "Indoor Fly-Throughs",
                 ].map((skill, i) => (
-                  <div key={skill} className="flex items-baseline gap-4 group cursor-default">
+                  <div key={skill} className="flex items-baseline gap-3 group cursor-default">
                     <span className="text-[var(--color-accent)] font-mono text-[0.65rem] tracking-wider opacity-60">
                       {(i+1).toString().padStart(2, '0')}
                     </span>
@@ -135,25 +135,25 @@ export default function AboutPage() {
             </div>
 
             {/* CHAPTER 5: EQUIPMENT ARSENAL */}
-            <div className="mt-[120px] md:mt-[160px] max-w-[540px]">
-              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[24px] mb-[80px] md:mb-[100px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-16 md:mt-20 w-full">
+              <h2 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-6 leading-[1.3] text-left w-full">
                 04. Technical Arsenal
               </h2>
               
-              <div className="flex flex-col">
-                {gear.map((item, index) => (
+              <div className="flex flex-col gap-10">
+                {gear.map((item) => (
                   <div 
                     key={item.name} 
-                    className={`flex flex-col sm:flex-row sm:gap-8 group ${index !== gear.length - 1 ? 'mb-[56px] md:mb-[64px]' : 'mb-0'}`}
+                    className="flex flex-col sm:flex-row sm:gap-6 group"
                   >
-                    <span className="text-[0.65rem] font-medium tracking-[0.15em] uppercase text-[var(--color-text-muted)] sm:w-[140px] flex-shrink-0 pt-[6px] mb-[12px] sm:mb-0">
+                    <span className="text-[0.65rem] font-medium tracking-[0.15em] uppercase text-[var(--color-text-muted)] sm:w-[140px] flex-shrink-0 pt-[4px] mb-[6px] sm:mb-0">
                       {item.category}
                     </span>
                     <div>
-                      <span className="text-[1rem] tracking-wide text-[var(--color-text-primary)] font-light block mb-[12px] group-hover:text-white transition-colors duration-300">
+                      <span className="text-[0.95rem] tracking-wide text-[var(--color-text-primary)] font-light block mb-2 group-hover:text-white transition-colors duration-300">
                         {item.name}
                       </span>
-                      <p className="text-[0.9rem] text-[var(--color-text-secondary)] leading-[1.75] mb-0">
+                      <p className="text-[0.85rem] text-[var(--color-text-secondary)] leading-[1.75] mb-0">
                         {item.description}
                       </p>
                     </div>
@@ -163,16 +163,16 @@ export default function AboutPage() {
             </div>
 
             {/* CHAPTER 6: CTA / AVAILABILITY */}
-            <div className="mt-[120px] md:mt-[180px] pt-[40px] border-t border-white/[0.08] max-w-[540px]">
-              <span className="text-[16px] font-semibold tracking-[0.18em] text-[var(--color-text-muted)] uppercase block mb-[32px]">
+            <div className="mt-20 pt-10 border-t border-white/[0.08] w-full">
+              <span className="text-[16px] font-semibold tracking-[0.18em] text-[var(--color-text-muted)] uppercase block mb-6">
                 Availability
               </span>
               
-              <h3 className="font-heading font-light text-2xl md:text-3xl tracking-tight mb-[24px] text-[var(--color-text-primary)]">
+              <h3 className="font-heading font-light text-2xl md:text-3xl tracking-tight mb-4 text-[var(--color-text-primary)]">
                 {siteConfig.availability}.
               </h3>
               
-              <p className="text-xs md:text-sm text-[var(--color-text-muted)] mb-[48px] tracking-[0.1em] uppercase font-medium">
+              <p className="text-xs md:text-sm text-[var(--color-text-muted)] mb-10 tracking-[0.1em] uppercase font-medium">
                 Based in India — <span className="text-[var(--color-text-secondary)]">Available Worldwide</span>
               </p>
               
