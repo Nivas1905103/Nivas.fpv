@@ -53,6 +53,9 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
           .swiper-slide {
             height: auto !important;
           }
+          .swiper-pagination {
+            bottom: 10px !important;
+          }
         `}</style>
         <Swiper
           effect={'coverflow'}
@@ -113,7 +116,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
               }
             }
           }}
-          className="w-full max-w-[1920px] mx-auto pt-12 pb-24 md:pb-32 px-4 !overflow-visible"
+          className="w-full max-w-[1920px] mx-auto pt-12 pb-[60px] md:pb-[80px] px-4 !overflow-visible"
         >
           {projects.map((project, index) => (
             <SwiperSlide key={project.slug} className="w-[85vw] md:w-[55vw] max-w-[1000px] transition-transform duration-500">
@@ -123,6 +126,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
                   {project.heroVideo ? (
                     <video
                       src={project.heroVideo}
+                      poster={project.poster}
                       muted
                       autoPlay={index === 0}
                       playsInline
@@ -192,7 +196,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
 
       {/* View All Work CTA */}
       <motion.div
-        className="mt-8 md:mt-12 text-center pb-12"
+        className="mt-[80px] md:mt-[100px] text-center pb-12 relative z-20"
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
