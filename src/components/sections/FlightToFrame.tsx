@@ -38,20 +38,6 @@ export default function FlightToFrame() {
     raw.playsInline = true;
     graded.playsInline = true;
 
-    // ADVANCED LOOP TECHNIQUE: Bypass Safari black screen bug
-    let animationFrameId: number;
-    const checkLoop = () => {
-      if (raw.duration > 0 && raw.currentTime >= raw.duration - 0.05) {
-        raw.currentTime = 0;
-        raw.play().catch(() => {});
-      }
-      if (graded.duration > 0 && graded.currentTime >= graded.duration - 0.05) {
-        graded.currentTime = 0;
-        graded.play().catch(() => {});
-      }
-      animationFrameId = requestAnimationFrame(checkLoop);
-    };
-
     // Use IntersectionObserver to play/pause both
     const observer = new IntersectionObserver(
       (entries) => {
@@ -64,14 +50,10 @@ export default function FlightToFrame() {
             const playRaw = raw.play();
             const playGraded = graded.play();
             
-            Promise.all([playRaw, playGraded]).then(() => {
-              if (animationFrameId) cancelAnimationFrame(animationFrameId);
-              checkLoop();
-            }).catch(() => {});
+            Promise.all([playRaw, playGraded]).catch(() => {});
           } else {
             raw.pause();
             graded.pause();
-            if (animationFrameId) cancelAnimationFrame(animationFrameId);
           }
         });
       },
@@ -82,7 +64,6 @@ export default function FlightToFrame() {
 
     return () => {
       observer.disconnect();
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
@@ -158,16 +139,18 @@ export default function FlightToFrame() {
               <video
                 ref={gradedVideoRef}
                 className="absolute inset-0 w-full h-full object-cover"
-                src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/12.mp4?v=2"
+                src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/12.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
                 preload="auto"
-                onEnded={(e) => {
+                onTimeUpdate={(e) => {
                   const target = e.currentTarget;
-                  target.currentTime = 0;
-                  target.play().catch(() => {});
+                  if (target.duration && target.currentTime >= target.duration - 0.15) {
+                    target.currentTime = 0.05; // avoid 0 which can sometimes flash black
+                    target.play().catch(() => {});
+                  }
                 }}
               />
             </div>
@@ -180,16 +163,18 @@ export default function FlightToFrame() {
               <video
                 ref={rawVideoRef}
                 className="absolute inset-0 w-full h-full object-cover"
-                src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/11.mp4?v=2"
+                src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/11.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
                 preload="auto"
-                onEnded={(e) => {
+                onTimeUpdate={(e) => {
                   const target = e.currentTarget;
-                  target.currentTime = 0;
-                  target.play().catch(() => {});
+                  if (target.duration && target.currentTime >= target.duration - 0.15) {
+                    target.currentTime = 0.05;
+                    target.play().catch(() => {});
+                  }
                 }}
               />
             </div>
