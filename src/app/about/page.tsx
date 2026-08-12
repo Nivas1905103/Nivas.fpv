@@ -14,73 +14,103 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <section className="min-h-screen pt-32 pb-20 bg-[var(--color-bg-primary)] relative overflow-hidden">
+    <div className="min-h-screen pt-32 pb-20 bg-[var(--color-bg-primary)] relative overflow-hidden">
       
-      {/* Dynamic Background for Glassmorphism to reflect */}
-      <LiquidBackground opacity={0.15} color1="#880000" color2="#ff3333" />
+      {/* Subtle Dynamic Background */}
+      <LiquidBackground opacity={0.08} color1="#E63946" color2="#330000" />
 
       <div className="container-site relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">
-          {/* Portrait */}
-          <div>
-            <div className="aspect-[3/4] bg-[var(--color-bg-secondary)] relative overflow-hidden sticky top-24 rounded-2xl border border-white/[0.05] shadow-2xl">
+        
+        {/* Strict 12-column grid for precise 45/55 layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-start">
+          
+          {/* Image Column: 5/12 (~41%) */}
+          <div className="lg:col-span-5 relative">
+            {/* Aspect ratio optimized for portrait cinematic framing */}
+            <div className="aspect-[4/5] bg-[var(--color-bg-secondary)] relative overflow-hidden rounded-[1rem] border border-white/[0.05] shadow-[0_20px_50px_rgba(0,0,0,0.4)] sticky top-32">
               <Image 
                 src="/images/about/portrait-real.jpg" 
                 alt="Nivas - Portrait"
                 fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
+                className="object-cover transition-transform duration-[1.5s] ease-out hover:scale-[1.03]"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              {/* Very subtle gradient to ground the image, no heavy glows */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/60 via-transparent to-transparent opacity-80" />
             </div>
           </div>
 
-          {/* Editorial Minimalist Content */}
-          <div className="relative py-12 lg:py-24 lg:pl-10">
-            <span className="tech-label text-[var(--color-accent)] block mb-6 tracking-[0.3em]">
-              ABOUT
-            </span>
+          {/* Content Column: 6/12 (~50%), starting at col 7 to leave a 1-col gap */}
+          <div className="lg:col-span-6 lg:col-start-7 flex flex-col justify-start">
             
-            <h1 className="heading-xl mb-6 text-6xl md:text-8xl drop-shadow-lg tracking-tight">
-              Nivas<span className="text-[var(--color-accent)]">.</span>
-            </h1>
-            
-            <p className="tracking-[0.2em] text-sm md:text-base text-[var(--color-text-primary)] mb-16 uppercase font-medium border-l-2 border-[var(--color-accent)] pl-6 py-1">
-              FPV Drone Cinematographer <br className="hidden md:block" /> 
-              <span className="text-[var(--color-text-muted)] font-normal text-xs md:text-sm mt-2 block">
-                Editor / Visual Storyteller
+            {/* CHAPTER 1: IDENTITY */}
+            <div className="mb-24">
+              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-6">
+                Identity
               </span>
-            </p>
-
-            <div className="space-y-8 mb-24 max-w-2xl">
-              <p className="body-lg leading-relaxed text-[var(--color-text-secondary)] text-xl md:text-2xl font-light">
-                I create dynamic visual experiences through FPV drone
-                cinematography and professional video editing. Based in India,
-                I work with film productions, brands, agencies, and businesses
-                to deliver cinematic aerial footage that tells stories through
-                movement.
-              </p>
-              <p className="body-lg leading-relaxed text-[var(--color-text-muted)] text-lg md:text-xl font-light">
-                Every project begins with understanding the story. I combine
-                technical FPV piloting skill with a cinematographer&apos;s eye
-                and an editor&apos;s sense of pacing. The result is footage
-                that doesn&apos;t just look impressive — it moves the
-                narrative forward.
-              </p>
-              <p className="body-lg leading-relaxed text-[var(--color-text-muted)] text-lg md:text-xl font-light">
-                From high-speed automotive tracking to intimate indoor
-                walkthroughs, from brand campaigns to feature film sequences —
-                I handle the entire process: concept, flight,
-                cinematography, editing, and final delivery.
-              </p>
+              
+              <h1 className="font-heading font-bold text-6xl md:text-8xl tracking-tighter mb-6 text-[var(--color-text-primary)]">
+                Nivas<span className="text-[var(--color-accent)]">.</span>
+              </h1>
+              
+              <div className="mb-10">
+                <p className="text-sm md:text-base font-semibold tracking-[0.15em] uppercase text-[var(--color-text-primary)] mb-1">
+                  FPV Drone Cinematographer
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="h-[2px] w-8 bg-[var(--color-accent)]" />
+                  <p className="text-xs md:text-sm font-medium tracking-[0.15em] uppercase text-[var(--color-text-muted)]">
+                    Editor / Visual Storyteller
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* Skills */}
-            <div className="mb-24">
-              <h2 className="tech-label text-[var(--color-text-primary)] mb-8 tracking-[0.2em] uppercase border-b border-white/[0.1] pb-4">
-                Skills & Expertise
+            {/* CHAPTER 2: WHO I AM */}
+            <div className="mb-24 max-w-[540px]">
+              <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-8">
+                01. Background
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-4">
+              <div className="space-y-6">
+                <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.8] text-[var(--color-text-secondary)] font-light">
+                  Based in India, I create dynamic visual experiences through FPV drone
+                  cinematography and professional video editing. I work closely with film 
+                  productions, brands, agencies, and businesses to deliver cinematic aerial 
+                  footage that tells stories through movement.
+                </p>
+                <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.8] text-[var(--color-text-secondary)] font-light">
+                  My journey began with a fascination for aviation and visual arts. Over the years, 
+                  I merged these disciplines, using FPV drones not just as flying cameras, but as 
+                  instruments for emotional storytelling.
+                </p>
+              </div>
+            </div>
+
+            {/* CHAPTER 3: WHAT I DO */}
+            <div className="mb-24 max-w-[540px]">
+              <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-8">
+                02. Approach
+              </h2>
+              <div className="space-y-6">
+                <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.8] text-[var(--color-text-secondary)] font-light">
+                  Every project begins with understanding the core narrative. I combine
+                  technical piloting precision with a cinematographer&apos;s eye for framing
+                  and an editor&apos;s sense of pacing. 
+                </p>
+                <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.8] text-[var(--color-text-secondary)] font-light">
+                  From high-speed automotive tracking to intimate indoor walkthroughs, 
+                  the objective is always the same: capture footage that doesn&apos;t just 
+                  look impressive, but actively moves the story forward.
+                </p>
+              </div>
+            </div>
+
+            {/* CHAPTER 4: EXPERTISE */}
+            <div className="mb-24">
+              <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-8">
+                03. Expertise
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 max-w-[540px]">
                 {[
                   "FPV Drone Piloting",
                   "Aerial Cinematography",
@@ -88,42 +118,37 @@ export default function AboutPage() {
                   "Color Grading",
                   "Sound Design",
                   "Speed Ramping",
-                  "Stabilization",
                   "Creative Direction",
-                  "Indoor FPV Flying",
-                  "Outdoor Aerial Film",
+                  "Indoor Fly-Throughs",
                 ].map((skill, i) => (
-                  <div key={skill} className="group relative overflow-hidden cursor-default">
-                    <span className="text-sm md:text-base text-[var(--color-text-secondary)] group-hover:text-white transition-colors duration-500 font-light tracking-wide">
-                      <span className="text-[var(--color-accent)] opacity-50 mr-2 text-xs">{(i+1).toString().padStart(2, '0')}</span>
+                  <div key={skill} className="flex items-baseline gap-3 group cursor-default">
+                    <span className="text-[var(--color-accent)] font-mono text-[0.65rem] tracking-wider opacity-60">
+                      {(i+1).toString().padStart(2, '0')}
+                    </span>
+                    <span className="text-[0.95rem] tracking-wide text-[var(--color-text-primary)] font-light group-hover:text-white transition-colors duration-300">
                       {skill}
                     </span>
-                    {/* Underline effect */}
-                    <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-[var(--color-accent)] group-hover:w-full transition-all duration-500 ease-out mt-1" />
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Equipment */}
+            {/* CHAPTER 5: EQUIPMENT ARSENAL */}
             <div className="mb-24">
-              <h2 className="tech-label text-[var(--color-text-primary)] mb-10 tracking-[0.2em] uppercase border-b border-white/[0.1] pb-4">
-                Equipment Arsenal
+              <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-8">
+                04. Technical Arsenal
               </h2>
-              <div className="space-y-10">
+              <div className="space-y-6 max-w-[540px]">
                 {gear.map((item) => (
-                  <div
-                    key={item.name}
-                    className="flex flex-col sm:flex-row gap-4 sm:gap-8 group"
-                  >
-                    <span className="tech-label text-[var(--color-accent)] w-40 flex-shrink-0 pt-1">
+                  <div key={item.name} className="flex flex-col sm:flex-row gap-2 sm:gap-6 group">
+                    <span className="text-[0.65rem] font-medium tracking-[0.15em] uppercase text-[var(--color-text-muted)] w-32 flex-shrink-0 pt-[4px]">
                       {item.category}
                     </span>
                     <div>
-                      <span className="text-lg md:text-xl font-medium text-[var(--color-text-primary)] block mb-2 group-hover:text-white transition-colors duration-300">
+                      <span className="text-[0.95rem] tracking-wide text-[var(--color-text-primary)] font-light block mb-1 group-hover:text-white transition-colors duration-300">
                         {item.name}
                       </span>
-                      <p className="text-sm md:text-base text-[var(--color-text-muted)] leading-relaxed max-w-xl">
+                      <p className="text-[0.85rem] text-[var(--color-text-secondary)] leading-relaxed">
                         {item.description}
                       </p>
                     </div>
@@ -132,28 +157,34 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Availability / Call to Action */}
-            <div className="relative overflow-hidden group border-t border-white/[0.1] pt-16">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-accent)] opacity-0 group-hover:opacity-[0.05] blur-3xl rounded-full translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000"></div>
-              
-              <h2 className="tech-label text-[var(--color-text-muted)] mb-8 tracking-[0.2em] uppercase">
+            {/* CHAPTER 6: CTA / AVAILABILITY */}
+            <div className="pt-12 border-t border-white/[0.08] max-w-[540px]">
+              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-8">
                 Availability
-              </h2>
-              <p className="text-2xl md:text-4xl leading-tight mb-4 text-white font-light tracking-wide">
+              </span>
+              
+              <h3 className="font-heading font-light text-2xl md:text-3xl tracking-tight mb-3 text-[var(--color-text-primary)]">
                 {siteConfig.availability}.
-              </p>
-              <p className="text-sm md:text-lg text-[var(--color-text-muted)] mb-12 uppercase tracking-widest font-medium">
-                Cities: {siteConfig.cities.join(", ")} & beyond
+              </h3>
+              
+              <p className="text-xs md:text-sm text-[var(--color-text-muted)] mb-12 tracking-[0.1em] uppercase font-medium">
+                Based in India — <span className="text-[var(--color-text-secondary)]">Available Worldwide</span>
               </p>
               
-              <Link href="/contact" className="group/btn inline-flex items-center gap-4 text-sm md:text-base font-medium uppercase tracking-[0.2em] text-white hover:text-[var(--color-accent)] transition-colors">
-                <span className="border-b border-current pb-1">Book a Project</span>
-                <span className="group-hover/btn:translate-x-2 transition-transform duration-300">→</span>
+              <Link href="/contact" className="group inline-flex items-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-text-primary)] transition-colors">
+                <span className="relative pb-1">
+                  Book a Project
+                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white/20 transition-colors duration-300 group-hover:bg-[var(--color-accent)]" />
+                </span>
+                <span className="text-[var(--color-accent)] transform group-hover:translate-x-1 transition-transform duration-300">
+                  →
+                </span>
               </Link>
             </div>
+            
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
