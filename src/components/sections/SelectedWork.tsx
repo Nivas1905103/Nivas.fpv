@@ -106,6 +106,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
                       src={project.heroVideo}
                       muted
                       loop
+                      autoPlay={index === 0}
                       playsInline
                       preload="auto"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -182,7 +183,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
 
       {/* View All Work CTA */}
       <motion.div
-        className="mt-12 md:mt-20 text-center"
+        className="mt-16 md:mt-24 text-center pb-12"
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
