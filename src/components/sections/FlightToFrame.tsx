@@ -33,8 +33,24 @@ export default function FlightToFrame() {
     graded.muted = true;
     raw.defaultMuted = true;
     graded.defaultMuted = true;
+    raw.loop = true;
+    graded.loop = true;
     raw.playsInline = true;
     graded.playsInline = true;
+
+    // ADVANCED LOOP TECHNIQUE: Bypass Safari black screen bug
+    let animationFrameId: number;
+    const checkLoop = () => {
+      if (raw.duration > 0 && raw.currentTime >= raw.duration - 0.05) {
+        raw.currentTime = 0;
+        raw.play().catch(() => {});
+      }
+      if (graded.duration > 0 && graded.currentTime >= graded.duration - 0.05) {
+        graded.currentTime = 0;
+        graded.play().catch(() => {});
+      }
+      animationFrameId = requestAnimationFrame(checkLoop);
+    };
 
     // Use IntersectionObserver to play/pause both
     const observer = new IntersectionObserver(
@@ -45,11 +61,17 @@ export default function FlightToFrame() {
             if (Math.abs(raw.currentTime - graded.currentTime) > 0.5) {
               graded.currentTime = raw.currentTime;
             }
-            raw.play().catch(() => {});
-            graded.play().catch(() => {});
+            const playRaw = raw.play();
+            const playGraded = graded.play();
+            
+            Promise.all([playRaw, playGraded]).then(() => {
+              if (animationFrameId) cancelAnimationFrame(animationFrameId);
+              checkLoop();
+            }).catch(() => {});
           } else {
             raw.pause();
             graded.pause();
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
           }
         });
       },
@@ -60,6 +82,7 @@ export default function FlightToFrame() {
 
     return () => {
       observer.disconnect();
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
@@ -141,6 +164,11 @@ export default function FlightToFrame() {
                 muted
                 playsInline
                 preload="auto"
+                onEnded={(e) => {
+                  const target = e.currentTarget;
+                  target.currentTime = 0;
+                  target.play().catch(() => {});
+                }}
               />
             </div>
 
@@ -158,6 +186,11 @@ export default function FlightToFrame() {
                 muted
                 playsInline
                 preload="auto"
+                onEnded={(e) => {
+                  const target = e.currentTarget;
+                  target.currentTime = 0;
+                  target.play().catch(() => {});
+                }}
               />
             </div>
 
