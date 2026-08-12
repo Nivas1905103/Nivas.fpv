@@ -18,34 +18,29 @@ export default function BackgroundVideo({ src, className = "", poster }: Backgro
     // Force attributes directly on the DOM element for mobile browsers
     video.muted = true;
     video.defaultMuted = true;
-    video.loop = true;
+    video.loop = false; // Disable native loop
     video.playsInline = true;
     
-    // ADVANCED LOOP TECHNIQUE: Bypass browser bugs by manually checking time
-    let animationFrameId: number;
-    const checkLoop = () => {
-      // If we are within 50ms of the end, force a loop back to 0
-      if (video.duration > 0 && video.currentTime >= video.duration - 0.05) {
-        video.currentTime = 0;
-        video.play().catch(() => {});
+    // Fade out before end
+    const handleTimeUpdate = () => {
+      if (video.duration && video.currentTime >= video.duration - 0.1) {
+        video.style.opacity = '0';
       }
-      animationFrameId = requestAnimationFrame(checkLoop);
     };
+    
+    video.addEventListener('timeupdate', handleTimeUpdate);
 
-    // Use IntersectionObserver to only play when visible (saves battery & bypasses Safari 3-video limit)
+    // Use IntersectionObserver to only play when visible (saves battery)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            video.play().then(() => {
-              if (animationFrameId) cancelAnimationFrame(animationFrameId);
-              checkLoop();
-            }).catch(() => {
-              // Autoplay blocked
-            });
+            // Reset state when coming into view
+            video.style.opacity = '';
+            video.currentTime = 0;
+            video.play().catch(() => {});
           } else {
             video.pause();
-            if (animationFrameId) cancelAnimationFrame(animationFrameId);
           }
         });
       },
@@ -55,27 +50,28 @@ export default function BackgroundVideo({ src, className = "", poster }: Backgro
     observer.observe(video);
 
     return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
       observer.disconnect();
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
-    <video
-      ref={videoRef}
-      src={src}
-      poster={poster}
-      className={className}
-      muted
-      loop
-      playsInline
-      preload="auto"
-      onEnded={(e) => {
-        // Fallback for when 'loop' attribute fails
-        const target = e.currentTarget;
-        target.currentTime = 0;
-        target.play().catch(() => {});
-      }}
-    />
+    <>
+      {poster && (
+        <img
+          src={poster}
+          alt="Background Thumbnail"
+          className={`${className} absolute inset-0 z-0`}
+        />
+      )}
+      <video
+        ref={videoRef}
+        src={src}
+        className={`${className} transition-opacity duration-[1000ms] relative z-10`}
+        muted
+        playsInline
+        preload="auto"
+      />
+    </>
   );
 }
