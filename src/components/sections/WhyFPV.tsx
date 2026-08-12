@@ -46,8 +46,11 @@ export default function WhyFPV() {
           subtitle="FPV drones unlock camera movements that no crane, gimbal, or traditional drone can achieve."
         />
 
+        {/* Hard Physical Spacer */}
+        <div className="h-[40px] md:h-[60px] w-full" />
+
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-12 md:mt-20"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}

@@ -6,7 +6,6 @@ import { fadeInUp, viewportOnce } from "@/lib/animations";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 import LiquidBackground from "@/components/ui/LiquidBackground";
-import BackgroundVideo from "@/components/ui/BackgroundVideo";
 
 const processSteps = [
   { label: "Raw Footage", description: "Direct from the camera sensor" },
@@ -21,6 +20,53 @@ export default function FlightToFrame() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const rawVideoRef = useRef<HTMLVideoElement>(null);
+  const gradedVideoRef = useRef<HTMLVideoElement>(null);
+
+  // Sync videos
+  useEffect(() => {
+    const raw = rawVideoRef.current;
+    const graded = gradedVideoRef.current;
+    if (!raw || !graded) return;
+
+    raw.muted = true;
+    graded.muted = true;
+    raw.defaultMuted = true;
+    graded.defaultMuted = true;
+    raw.playsInline = true;
+    graded.playsInline = true;
+
+    // Use IntersectionObserver to play/pause both
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            raw.play().catch(() => {});
+            graded.play().catch(() => {});
+          } else {
+            raw.pause();
+            graded.pause();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(raw);
+
+    // Keep them synced
+    const syncVideos = () => {
+      if (Math.abs(raw.currentTime - graded.currentTime) > 0.1) {
+        graded.currentTime = raw.currentTime;
+      }
+    };
+    raw.addEventListener('timeupdate', syncVideos);
+
+    return () => {
+      observer.disconnect();
+      raw.removeEventListener('timeupdate', syncVideos);
+    };
+  }, []);
 
   const handleMove = useCallback(
     (clientX: number) => {
@@ -91,9 +137,14 @@ export default function FlightToFrame() {
           >
             {/* "After" (graded) side — full background */}
             <div className="absolute inset-0 bg-[#0a0a0a]">
-              <BackgroundVideo
+              <video
+                ref={gradedVideoRef}
                 className="absolute inset-0 w-full h-full object-cover"
-                src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/12.mp4"
+                src="/videos/12.webm"
+                loop
+                muted
+                playsInline
+                preload="auto"
               />
             </div>
 
@@ -102,9 +153,14 @@ export default function FlightToFrame() {
               className="absolute inset-0 overflow-hidden"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
-              <BackgroundVideo
+              <video
+                ref={rawVideoRef}
                 className="absolute inset-0 w-full h-full object-cover"
-                src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/11.mp4"
+                src="/videos/11.webm"
+                loop
+                muted
+                playsInline
+                preload="auto"
               />
             </div>
 
