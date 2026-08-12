@@ -82,12 +82,10 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
             for (let i = 0; i < slides.length; i++) {
               const video = slides[i].querySelector('video');
               if (video) {
-                // Prevent native loop bug (black screen at end)
                 video.loop = false;
                 video.ontimeupdate = () => {
-                  if (video.duration && video.currentTime >= video.duration - 0.2) {
-                    video.currentTime = 0.1;
-                    video.play().catch(() => {});
+                  if (video.duration && video.currentTime >= video.duration - 0.1) {
+                    video.style.opacity = '0';
                   }
                 };
               }
@@ -99,16 +97,16 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
             for (let i = 0; i < slides.length; i++) {
               const video = slides[i].querySelector('video');
               if (video) {
-                // Prevent native loop bug (black screen at end)
                 video.loop = false;
                 video.ontimeupdate = () => {
-                  if (video.duration && video.currentTime >= video.duration - 0.2) {
-                    video.currentTime = 0.1;
-                    video.play().catch(() => {});
+                  if (video.duration && video.currentTime >= video.duration - 0.1) {
+                    video.style.opacity = '0';
                   }
                 };
                 
                 if (i === swiper.activeIndex) {
+                  video.style.opacity = '1';
+                  video.currentTime = 0;
                   video.play().catch(() => {});
                 } else {
                   video.pause();
@@ -123,25 +121,29 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
               <Link href={`/work/${project.slug}`} className="block w-full h-full relative group">
                 {/* Media Container */}
                 <div className="video-glow-container relative w-full aspect-[16/9] rounded-[2rem] overflow-hidden bg-[#0a0a0a] border border-white/5 transition-all duration-700">
-                  {project.heroVideo ? (
-                    <video
-                      src={project.heroVideo}
-                      poster={project.poster}
-                      muted
-                      autoPlay={index === 0}
-                      playsInline
-                      preload="auto"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  ) : project.poster ? (
+                  {/* Always render poster as a fallback underneath */}
+                  {project.poster && (
                     <Image
                       src={project.poster}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-105"
                     />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a]">
+                  )}
+                  
+                  {project.heroVideo && (
+                    <video
+                      src={project.heroVideo}
+                      muted
+                      autoPlay={index === 0}
+                      playsInline
+                      preload="auto"
+                      className="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-500 group-hover:scale-105"
+                    />
+                  )}
+                  
+                  {!project.heroVideo && !project.poster && (
+                    <div className="absolute inset-0 z-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a]">
                        <span className="tech-label text-[var(--color-text-muted)]">{project.title}</span>
                     </div>
                   )}
