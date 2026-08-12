@@ -33,20 +33,20 @@ export default function About() {
             
             {/* CHAPTER 1: IDENTITY */}
             <div className="max-w-[540px]">
-              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-[40px]">
+              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-[64px]">
                 About
               </span>
               
-              <h2 className="font-heading font-bold text-5xl md:text-7xl tracking-tighter mb-[48px] text-[var(--color-text-primary)] leading-[1.1]">
+              <h2 className="font-heading font-bold text-5xl md:text-7xl tracking-tighter mb-[64px] text-[var(--color-text-primary)] leading-[1.1]">
                 Nivas<span className="text-[var(--color-accent)]">.</span>
               </h2>
               
               <div>
-                <p className="text-sm md:text-base font-semibold tracking-[0.15em] uppercase text-[var(--color-text-primary)] mb-[12px]">
+                <p className="text-sm md:text-base font-semibold tracking-[0.15em] uppercase text-[var(--color-text-primary)] mb-[24px]">
                   FPV Drone Cinematographer
                 </p>
-                <div className="flex items-center gap-4">
-                  <div className="h-[2px] w-8 bg-[var(--color-accent)]" />
+                <div className="flex items-center gap-6">
+                  <div className="h-[2px] w-12 bg-[var(--color-accent)]" />
                   <p className="text-xs md:text-sm font-medium tracking-[0.15em] uppercase text-[var(--color-text-muted)]">
                     Editor / Visual Storyteller
                   </p>
@@ -55,12 +55,12 @@ export default function About() {
             </div>
 
             {/* CHAPTER 2: BACKGROUND */}
-            <div className="mt-[100px] md:mt-[140px] max-w-[540px]">
-              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[48px] md:mb-[64px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-[140px] md:mt-[180px] max-w-[540px]">
+              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[24px] mb-[64px] md:mb-[80px] leading-[1.3] ml-0 text-left w-full">
                 01. Background
               </h3>
               
-              <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.75] text-[var(--color-text-secondary)] font-light mb-[18px] md:mb-[20px]">
+              <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.85] text-[var(--color-text-secondary)] font-light mb-[32px] md:mb-[40px]">
                 I create dynamic visual experiences through FPV drone
                 cinematography and professional video editing. Based in India,
                 I work with film productions, brands, agencies, and businesses
@@ -68,7 +68,7 @@ export default function About() {
                 movement.
               </p>
               
-              <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.75] text-[var(--color-text-secondary)] font-light mb-0">
+              <p className="text-[1.05rem] md:text-[1.15rem] leading-[1.85] text-[var(--color-text-secondary)] font-light mb-0">
                 Every project begins with understanding the story. I combine
                 technical FPV piloting skill with a cinematographer&apos;s eye
                 and an editor&apos;s sense of pacing.
@@ -76,12 +76,12 @@ export default function About() {
             </div>
 
             {/* CHAPTER 3: EXPERTISE */}
-            <div className="mt-[80px] md:mt-[100px] max-w-[540px]">
-              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[16px] mb-[64px] md:mb-[80px] leading-[1.3] ml-0 text-left w-full">
+            <div className="mt-[120px] md:mt-[160px] max-w-[540px]">
+              <h3 className="text-[16px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-[24px] mb-[80px] md:mb-[100px] leading-[1.3] ml-0 text-left w-full">
                 02. Core Expertise
               </h3>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-[40px] md:gap-y-[48px] gap-x-[20px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-[56px] md:gap-y-[64px] gap-x-[32px]">
                 {[
                   "FPV Drone Piloting",
                   "Aerial Cinematography",
@@ -90,7 +90,7 @@ export default function About() {
                   "Sound Design",
                   "Speed Ramping"
                 ].map((skill, i) => (
-                  <div key={skill} className="flex items-baseline gap-3 group cursor-default">
+                  <div key={skill} className="flex items-baseline gap-4 group cursor-default">
                     <span className="text-[var(--color-accent)] font-mono text-[0.65rem] tracking-wider opacity-60">
                       {(i+1).toString().padStart(2, '0')}
                     </span>
@@ -103,13 +103,13 @@ export default function About() {
             </div>
 
             {/* CTA */}
-            <div className="mt-[80px] md:mt-[120px] pt-[20px] border-t border-white/[0.08] max-w-[540px]">
-              <Link href="/about" className="group inline-flex items-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-text-primary)] transition-colors">
-                <span className="relative pb-1">
+            <div className="mt-[120px] md:mt-[160px] pt-[40px] border-t border-white/[0.08] max-w-[540px]">
+              <Link href="/about" className="group inline-flex items-center gap-4 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-text-primary)] transition-colors">
+                <span className="relative pb-2">
                   Read Full Bio
                   <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white/20 transition-colors duration-300 group-hover:bg-[var(--color-accent)]" />
                 </span>
-                <span className="text-[var(--color-accent)] transform group-hover:translate-x-1 transition-transform duration-300">
+                <span className="text-[var(--color-accent)] transform group-hover:translate-x-2 transition-transform duration-300">
                   →
                 </span>
               </Link>
