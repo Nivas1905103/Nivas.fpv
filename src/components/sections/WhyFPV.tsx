@@ -59,7 +59,7 @@ export default function WhyFPV() {
           {fpvCapabilities.map((cap) => (
             <motion.div
               key={cap.title}
-              className="relative overflow-hidden h-[260px] md:h-[300px] rounded-[2rem] bg-white/[0.03] border border-white/[0.05] group cursor-pointer transition-all duration-[600ms] ease-out hover:-translate-y-3 hover:shadow-[0_30px_60px_-15px_rgba(255,51,51,0.25)] hover:bg-white/[0.06] hover:border-white/[0.15] backdrop-blur-xl"
+              className="relative overflow-hidden h-[180px] md:h-[220px] rounded-[1.5rem] md:rounded-[2rem] bg-white/[0.03] border border-white/[0.05] group cursor-pointer transition-all duration-[600ms] ease-out hover:-translate-y-3 hover:shadow-[0_30px_60px_-15px_rgba(255,51,51,0.25)] hover:bg-white/[0.06] hover:border-white/[0.15] backdrop-blur-xl"
               variants={fadeInUp}
             >
               {/* Glossy gradient reflection on hover */}
