@@ -22,7 +22,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
       id="work"
       className="section-padding bg-[var(--color-bg-secondary)] overflow-hidden"
     >
-      <div className="container-site mb-12 md:mb-16">
+      <div className="container-site mb-16 md:mb-24">
         <SectionHeading
           label="Portfolio"
           title="Selected Work"
@@ -114,7 +114,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
               }
             }
           }}
-          className="w-full max-w-[1920px] mx-auto pt-12 pb-[60px] px-4 !overflow-visible"
+          className="w-full max-w-[1920px] mx-auto pt-24 md:pt-32 pb-[60px] px-4 !overflow-visible"
         >
           {projects.map((project, index) => (
             <SwiperSlide key={project.slug} className="w-[85vw] md:w-[55vw] max-w-[1000px] transition-transform duration-500">
