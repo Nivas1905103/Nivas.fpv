@@ -35,37 +35,39 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Premium Glassmorphism Content Card */}
-          <div className="relative px-8 md:px-16 py-16 md:py-24 rounded-[2.5rem] bg-[#0a0a0a]/40 backdrop-blur-3xl border-2 border-white/[0.15] shadow-2xl">
-            {/* Subtle top red glow */}
-            <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-[2.5rem] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-70"></div>
-            
-            <span className="tech-label text-[var(--color-accent)] block mb-10 tracking-[0.3em]">
+          {/* Editorial Minimalist Content */}
+          <div className="relative py-12 lg:py-24 lg:pl-10">
+            <span className="tech-label text-[var(--color-accent)] block mb-6 tracking-[0.3em]">
               ABOUT
             </span>
-            <h1 className="heading-xl mb-6 text-5xl md:text-7xl drop-shadow-lg">
+            
+            <h1 className="heading-xl mb-6 text-6xl md:text-8xl drop-shadow-lg tracking-tight">
               Nivas<span className="text-[var(--color-accent)]">.</span>
             </h1>
-            <p className="tracking-[0.2em] text-xs md:text-sm text-[var(--color-text-muted)] mb-12 uppercase font-medium">
-              FPV Drone Cinematographer <span className="text-[var(--color-accent)] mx-2">/</span> Editor <span className="text-[var(--color-accent)] mx-2">/</span> Visual Storyteller
+            
+            <p className="tracking-[0.2em] text-sm md:text-base text-[var(--color-text-primary)] mb-16 uppercase font-medium border-l-2 border-[var(--color-accent)] pl-6 py-1">
+              FPV Drone Cinematographer <br className="hidden md:block" /> 
+              <span className="text-[var(--color-text-muted)] font-normal text-xs md:text-sm mt-2 block">
+                Editor / Visual Storyteller
+              </span>
             </p>
 
-            <div className="space-y-8 mb-20">
-              <p className="body-lg leading-loose text-[var(--color-text-secondary)] text-lg md:text-xl font-light">
+            <div className="space-y-8 mb-24 max-w-2xl">
+              <p className="body-lg leading-relaxed text-[var(--color-text-secondary)] text-xl md:text-2xl font-light">
                 I create dynamic visual experiences through FPV drone
                 cinematography and professional video editing. Based in India,
                 I work with film productions, brands, agencies, and businesses
                 to deliver cinematic aerial footage that tells stories through
                 movement.
               </p>
-              <p className="body-lg leading-loose text-[var(--color-text-secondary)] text-lg md:text-xl font-light">
+              <p className="body-lg leading-relaxed text-[var(--color-text-muted)] text-lg md:text-xl font-light">
                 Every project begins with understanding the story. I combine
                 technical FPV piloting skill with a cinematographer&apos;s eye
                 and an editor&apos;s sense of pacing. The result is footage
                 that doesn&apos;t just look impressive — it moves the
                 narrative forward.
               </p>
-              <p className="body-lg leading-loose text-[var(--color-text-secondary)] text-lg md:text-xl font-light">
+              <p className="body-lg leading-relaxed text-[var(--color-text-muted)] text-lg md:text-xl font-light">
                 From high-speed automotive tracking to intimate indoor
                 walkthroughs, from brand campaigns to feature film sequences —
                 I handle the entire process: concept, flight,
@@ -74,11 +76,11 @@ export default function AboutPage() {
             </div>
 
             {/* Skills */}
-            <div className="mb-20 pt-10 border-t border-white/[0.08]">
-              <h2 className="tech-label text-[var(--color-text-muted)] mb-10 tracking-[0.2em]">
+            <div className="mb-24">
+              <h2 className="tech-label text-[var(--color-text-primary)] mb-8 tracking-[0.2em] uppercase border-b border-white/[0.1] pb-4">
                 Skills & Expertise
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-4">
                 {[
                   "FPV Drone Piloting",
                   "Aerial Cinematography",
@@ -90,36 +92,38 @@ export default function AboutPage() {
                   "Creative Direction",
                   "Indoor FPV Flying",
                   "Outdoor Aerial Film",
-                ].map((skill) => (
-                  <div key={skill} className="flex items-center gap-4 py-2 group cursor-default">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-bg-secondary)] border border-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:shadow-[0_0_10px_var(--color-accent)] transition-all duration-300" />
-                    <span className="text-[var(--color-text-secondary)] group-hover:text-white transition-colors duration-300">
+                ].map((skill, i) => (
+                  <div key={skill} className="group relative overflow-hidden cursor-default">
+                    <span className="text-sm md:text-base text-[var(--color-text-secondary)] group-hover:text-white transition-colors duration-500 font-light tracking-wide">
+                      <span className="text-[var(--color-accent)] opacity-50 mr-2 text-xs">{(i+1).toString().padStart(2, '0')}</span>
                       {skill}
                     </span>
+                    {/* Underline effect */}
+                    <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-[var(--color-accent)] group-hover:w-full transition-all duration-500 ease-out mt-1" />
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Equipment */}
-            <div className="mb-20 pt-10 border-t border-white/[0.08]">
-              <h2 className="tech-label text-[var(--color-text-muted)] mb-10 tracking-[0.2em]">
+            <div className="mb-24">
+              <h2 className="tech-label text-[var(--color-text-primary)] mb-10 tracking-[0.2em] uppercase border-b border-white/[0.1] pb-4">
                 Equipment Arsenal
               </h2>
-              <div className="space-y-8">
+              <div className="space-y-10">
                 {gear.map((item) => (
                   <div
                     key={item.name}
-                    className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 py-5 border-b border-white/[0.05] group hover:border-[var(--color-accent)]/30 transition-colors duration-500"
+                    className="flex flex-col sm:flex-row gap-4 sm:gap-8 group"
                   >
-                    <span className="tech-label text-[var(--color-accent)] w-32 flex-shrink-0">
+                    <span className="tech-label text-[var(--color-accent)] w-40 flex-shrink-0 pt-1">
                       {item.category}
                     </span>
                     <div>
-                      <span className="text-base md:text-lg font-medium text-[var(--color-text-primary)] block mb-2">
+                      <span className="text-lg md:text-xl font-medium text-[var(--color-text-primary)] block mb-2 group-hover:text-white transition-colors duration-300">
                         {item.name}
                       </span>
-                      <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
+                      <p className="text-sm md:text-base text-[var(--color-text-muted)] leading-relaxed max-w-xl">
                         {item.description}
                       </p>
                     </div>
@@ -128,21 +132,23 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Availability */}
-            <div className="p-10 md:p-14 bg-black/40 rounded-3xl border border-white/[0.08] backdrop-blur-md relative overflow-hidden group hover:border-[var(--color-accent)]/50 transition-colors duration-500 mt-10 mb-4">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-[var(--color-accent)] opacity-[0.03] group-hover:opacity-[0.08] blur-3xl rounded-full translate-x-1/3 -translate-y-1/3 transition-opacity duration-700"></div>
-              <h2 className="tech-label text-[var(--color-text-muted)] mb-8 tracking-[0.2em]">
+            {/* Availability / Call to Action */}
+            <div className="relative overflow-hidden group border-t border-white/[0.1] pt-16">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-accent)] opacity-0 group-hover:opacity-[0.05] blur-3xl rounded-full translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000"></div>
+              
+              <h2 className="tech-label text-[var(--color-text-muted)] mb-8 tracking-[0.2em] uppercase">
                 Availability
               </h2>
-              <p className="text-xl md:text-2xl leading-relaxed mb-6 text-white font-light">
+              <p className="text-2xl md:text-4xl leading-tight mb-4 text-white font-light tracking-wide">
                 {siteConfig.availability}.
               </p>
-              <p className="text-sm md:text-base text-[var(--color-text-muted)] mb-10">
-                Cities: {siteConfig.cities.join(", ")}, and more.
+              <p className="text-sm md:text-lg text-[var(--color-text-muted)] mb-12 uppercase tracking-widest font-medium">
+                Cities: {siteConfig.cities.join(", ")} & beyond
               </p>
-              <Link href="/contact" className="btn-primary inline-flex relative z-10">
-                Book a Project
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              
+              <Link href="/contact" className="group/btn inline-flex items-center gap-4 text-sm md:text-base font-medium uppercase tracking-[0.2em] text-white hover:text-[var(--color-accent)] transition-colors">
+                <span className="border-b border-current pb-1">Book a Project</span>
+                <span className="group-hover/btn:translate-x-2 transition-transform duration-300">→</span>
               </Link>
             </div>
           </div>

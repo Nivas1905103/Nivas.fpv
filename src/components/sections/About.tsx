@@ -36,36 +36,38 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Premium Glassmorphism Bio Card */}
+          {/* Editorial Minimalist Bio Content */}
           <div className="flex flex-col justify-center">
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
               variants={fadeInUp}
-              className="relative px-8 md:px-16 py-16 md:py-24 rounded-[2.5rem] bg-[#0a0a0a]/40 backdrop-blur-3xl border-2 border-white/[0.15] shadow-2xl"
+              className="relative py-12 lg:py-24 lg:pl-10"
             >
-              {/* Subtle top red glow */}
-              <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-[2.5rem] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-70"></div>
-              
-              <span className="tech-label text-[var(--color-accent)] block mb-10 tracking-[0.3em]">
+              <span className="tech-label text-[var(--color-accent)] block mb-6 tracking-[0.3em]">
                 ABOUT
               </span>
-              <h2 className="heading-xl mb-6 text-5xl md:text-7xl drop-shadow-lg">
+              
+              <h2 className="heading-xl mb-6 text-6xl md:text-8xl drop-shadow-lg tracking-tight">
                 Nivas<span className="text-[var(--color-accent)]">.</span>
               </h2>
-              <p className="tracking-[0.2em] text-xs md:text-sm text-[var(--color-text-muted)] mb-12 uppercase font-medium">
-                FPV Drone Cinematographer <span className="text-[var(--color-accent)] mx-2">/</span> Editor <span className="text-[var(--color-accent)] mx-2">/</span> Visual Storyteller
+              
+              <p className="tracking-[0.2em] text-sm md:text-base text-[var(--color-text-primary)] mb-14 uppercase font-medium border-l-2 border-[var(--color-accent)] pl-6 py-1">
+                FPV Drone Cinematographer <br className="hidden md:block" /> 
+                <span className="text-[var(--color-text-muted)] font-normal text-xs md:text-sm mt-2 block">
+                  Editor / Visual Storyteller
+                </span>
               </p>
 
-              <div className="space-y-8 mb-16">
-                <p className="body-lg leading-loose text-[var(--color-text-secondary)] text-lg md:text-xl font-light">
+              <div className="space-y-8 mb-20 max-w-2xl">
+                <p className="body-lg leading-relaxed text-[var(--color-text-secondary)] text-xl md:text-2xl font-light">
                   I create dynamic visual experiences through FPV drone
                   cinematography and professional video editing. My work spans
                   commercial films, brand campaigns, real estate,
                   automotive, travel, and events.
                 </p>
-                <p className="body-lg leading-loose text-[var(--color-text-secondary)] text-lg md:text-xl font-light">
+                <p className="body-lg leading-relaxed text-[var(--color-text-muted)] text-lg md:text-xl font-light">
                   Every project begins with understanding the story. I combine
                   technical FPV piloting skill with a cinematographer&apos;s eye
                   and an editor&apos;s sense of pacing to deliver footage that
@@ -74,9 +76,12 @@ export default function About() {
                 </p>
               </div>
 
-              {/* Skills */}
+              {/* Minimalist Skills Grid */}
               <div className="mb-20">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
+                <h3 className="tech-label text-[var(--color-text-primary)] mb-8 tracking-[0.2em] uppercase border-b border-white/[0.1] pb-4">
+                  Core Expertise
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-4">
                   {[
                     "FPV Piloting",
                     "Cinematography",
@@ -84,36 +89,38 @@ export default function About() {
                     "Color Grading",
                     "Sound Design",
                     "Creative Direction",
-                  ].map((skill) => (
-                    <div key={skill} className="flex items-center gap-4 py-2 group cursor-default">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-bg-secondary)] border border-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:shadow-[0_0_10px_var(--color-accent)] transition-all duration-300" />
-                      <span className="text-[var(--color-text-secondary)] group-hover:text-white transition-colors duration-300">
+                  ].map((skill, i) => (
+                    <div key={skill} className="group relative overflow-hidden cursor-default">
+                      <span className="text-sm md:text-base text-[var(--color-text-secondary)] group-hover:text-white transition-colors duration-500 font-light tracking-wide">
+                        <span className="text-[var(--color-accent)] opacity-50 mr-2 text-xs">0{i+1}</span>
                         {skill}
                       </span>
+                      {/* Underline effect */}
+                      <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-[var(--color-accent)] group-hover:w-full transition-all duration-500 ease-out mt-1" />
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Gear - Subtle */}
-              <div className="pt-14 pb-4 border-t border-white/[0.08]">
-                <span className="tech-label text-[var(--color-text-muted)] block mb-10 tracking-[0.2em]">
+              {/* Gear List */}
+              <div>
+                <h3 className="tech-label text-[var(--color-text-primary)] mb-8 tracking-[0.2em] uppercase border-b border-white/[0.1] pb-4">
                   Equipment Arsenal
-                </span>
-                <div className="flex flex-wrap gap-4 mb-16">
+                </h3>
+                <div className="flex flex-wrap gap-3 mb-12">
                   {gear.map((item) => (
                     <span
                       key={item.name}
-                      className="text-xs text-[var(--color-text-muted)] px-4 py-2 rounded-full border border-white/[0.08] hover:border-[var(--color-accent)]/30 hover:text-[var(--color-text-primary)] transition-all duration-300 bg-white/[0.02]"
+                      className="text-sm text-[var(--color-text-muted)] px-5 py-2.5 rounded border border-white/[0.1] hover:border-[var(--color-accent)] hover:text-white transition-all duration-300 bg-transparent uppercase tracking-wider"
                     >
                       {item.name}
                     </span>
                   ))}
                 </div>
                 
-                <Link href="/about" className="btn-secondary inline-flex text-xs group mt-6 mb-2">
-                  Read Full Bio
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                <Link href="/about" className="group inline-flex items-center gap-4 text-sm font-medium uppercase tracking-[0.2em] text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors">
+                  <span className="border-b border-current pb-1">Read Full Bio</span>
+                  <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
                 </Link>
               </div>
             </motion.div>
