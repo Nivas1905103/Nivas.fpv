@@ -41,6 +41,10 @@ export default function FlightToFrame() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            // Only sync on initial play if they drift heavily
+            if (Math.abs(raw.currentTime - graded.currentTime) > 0.5) {
+              graded.currentTime = raw.currentTime;
+            }
             raw.play().catch(() => {});
             graded.play().catch(() => {});
           } else {
@@ -54,17 +58,8 @@ export default function FlightToFrame() {
 
     observer.observe(raw);
 
-    // Keep them synced
-    const syncVideos = () => {
-      if (Math.abs(raw.currentTime - graded.currentTime) > 0.1) {
-        graded.currentTime = raw.currentTime;
-      }
-    };
-    raw.addEventListener('timeupdate', syncVideos);
-
     return () => {
       observer.disconnect();
-      raw.removeEventListener('timeupdate', syncVideos);
     };
   }, []);
 
