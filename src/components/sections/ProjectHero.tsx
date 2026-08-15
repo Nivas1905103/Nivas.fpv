@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
 import Image from "next/image";
+import SafeVideo from "@/components/ui/SafeVideo";
 
 interface ProjectHeroProps {
   title: string;
@@ -16,40 +16,21 @@ export default function ProjectHero({
   heroVideo,
   poster,
 }: ProjectHeroProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    video.muted = true;
-    video.defaultMuted = true;
-    video.loop = true;
-    video.playsInline = true;
-
-    video.play().catch(() => {});
-  }, [heroVideo]);
-
   return (
     <section className="relative w-full h-[75vh] min-h-[520px] max-h-[900px] overflow-hidden bg-[#050505]">
       {/* 1. Media Layer (z-0) */}
       <div className="absolute inset-0 z-0 bg-[#050505] overflow-hidden">
         {heroVideo ? (
-          <video
-            ref={videoRef}
+          <SafeVideo
             src={heroVideo}
+            poster={poster}
             autoPlay
             loop
             muted
             playsInline
             preload="auto"
-            poster={poster || undefined}
-            onEnded={(e) => {
-              const v = e.currentTarget;
-              v.currentTime = 0;
-              v.play().catch(() => {});
-            }}
-            className="absolute inset-0 w-full h-full object-cover z-0 opacity-100"
+            priority
+            className="w-full h-full object-cover"
           />
         ) : poster ? (
           <Image

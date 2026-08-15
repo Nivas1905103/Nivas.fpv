@@ -4,9 +4,8 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { fadeInUp, viewportOnce, textRevealUp, staggerReveal } from "@/lib/animations";
 import { featuredProjects, Project } from "@/data/projects";
-import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
-import BackgroundVideo from "@/components/ui/BackgroundVideo";
+import SafeVideo from "@/components/ui/SafeVideo";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
@@ -114,37 +113,27 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
               <Link href={`/work/${project.slug}`} className="block w-full h-full relative group">
                 {/* Media Container */}
                 <div className="video-glow-container relative w-full aspect-[16/9] rounded-[2rem] overflow-hidden bg-[#0a0a0a] border border-white/5 transition-all duration-700">
-                  {/* Always render poster as a fallback underneath */}
-                  {project.poster && (
-                    <Image
-                      src={project.poster}
-                      alt={project.title}
-                      fill
-                      className="object-cover absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-105"
-                    />
-                  )}
-                  
-                  {project.heroVideo && (
-                    <video
+                  {project.heroVideo ? (
+                    <SafeVideo
                       src={project.heroVideo}
+                      poster={project.poster || undefined}
                       muted
                       loop
                       autoPlay={index === 0}
                       playsInline
                       preload="auto"
-                      poster={project.poster || undefined}
-                      className="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-500 group-hover:scale-105"
-                      onEnded={(e) => {
-                        const target = e.currentTarget;
-                        target.currentTime = 0;
-                        target.play().catch(() => {});
-                      }}
+                      className="transition-transform duration-700 group-hover:scale-105"
+                      containerClassName="absolute inset-0 w-full h-full object-cover z-0"
                     />
-                  )}
-                  
-                  {!project.heroVideo && !project.poster && (
+                  ) : project.poster ? (
+                    <img
+                      src={project.poster}
+                      alt={project.title}
+                      className="object-cover absolute inset-0 w-full h-full z-0 transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
                     <div className="absolute inset-0 z-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a]">
-                       <span className="tech-label text-[var(--color-text-muted)]">{project.title}</span>
+                      <span className="tech-label text-[var(--color-text-muted)]">{project.title}</span>
                     </div>
                   )}
 

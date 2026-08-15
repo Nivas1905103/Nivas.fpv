@@ -32,6 +32,8 @@ export interface Project {
   poster: string;
   /** Optional separate path to the final full-length video */
   finalVideo?: string;
+  /** Optional poster image for the final video */
+  finalPoster?: string;
   /** Gallery image paths */
   gallery?: string[];
   /** Is this a featured project on homepage? */
@@ -67,6 +69,7 @@ export const projects: Project[] = [
     heroVideo: "/videos/10.mp4", 
     finalVideo: "/videos/1.mp4",
     poster: "/images/posters/project-10.jpg",
+    finalPoster: "/images/posters/final-1.jpg",
     gallery: [],
     featured: true,
     order: 1,
@@ -92,6 +95,7 @@ export const projects: Project[] = [
     heroVideo: "/videos/2.mp4",
     finalVideo: "/videos/3.mp4",
     poster: "/images/posters/project-2.jpg",
+    finalPoster: "/images/posters/final-3.jpg",
     gallery: [],
     featured: true,
     order: 2,
@@ -118,6 +122,7 @@ export const projects: Project[] = [
     heroVideo: "/videos/4.mp4",
     finalVideo: "/videos/5.mp4",
     poster: "/images/posters/project-4.jpg",
+    finalPoster: "/images/posters/final-5.jpg",
     gallery: [],
     featured: true,
     order: 3,
@@ -144,6 +149,7 @@ export const projects: Project[] = [
     heroVideo: "/videos/6.mp4",
     finalVideo: "/videos/7.mp4",
     poster: "/images/posters/project-6.jpg",
+    finalPoster: "/images/posters/final-7.jpg",
     gallery: [],
     featured: true,
     order: 4,
@@ -170,6 +176,7 @@ export const projects: Project[] = [
     heroVideo: "/videos/8.mp4",
     finalVideo: "/videos/9.mp4",
     poster: "/images/posters/project-8.jpg",
+    finalPoster: "/images/posters/final-9.jpg",
     gallery: [],
     featured: true,
     order: 5,
