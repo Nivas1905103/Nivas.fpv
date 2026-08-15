@@ -28,7 +28,6 @@ export default async function HomePage() {
     <>
       <Hero />
       <About />
-      <SectionDivider />
       <SelectedWork projects={projects} />
       <WhyFPV />
       <Services />

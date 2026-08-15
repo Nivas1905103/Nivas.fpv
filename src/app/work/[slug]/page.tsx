@@ -58,9 +58,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="absolute inset-0 bg-[#0a0a0a] overflow-hidden">
           {project.heroVideo ? (
               <BackgroundVideo
-              src={project.heroVideo}
-              className="absolute inset-0 w-full h-full object-cover opacity-60"
-            />
+                src={project.heroVideo}
+                poster={project.poster || undefined}
+                className="absolute inset-0 w-full h-full object-cover opacity-60"
+              />
           ) : project.poster ? (
             <img
               src={project.poster}

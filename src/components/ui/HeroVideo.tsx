@@ -15,22 +15,11 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
     const video = videoRef.current;
     if (!video) return;
 
-    // Force attributes directly on the DOM element for mobile browsers
+    // Force attributes directly on the DOM element for mobile/desktop browsers
     video.muted = true;
     video.defaultMuted = true;
-    video.loop = true; // Re-enable native loop
+    video.loop = true;
     video.playsInline = true;
-
-    // ADVANCED LOOP TECHNIQUE: Bypass browser bugs by manually checking time
-    let animationFrameId: number;
-    const checkLoop = () => {
-      // If we are within 50ms of the end, force a loop back to 0
-      if (video.duration > 0 && video.currentTime >= video.duration - 0.05) {
-        video.currentTime = 0;
-        video.play().catch(() => {});
-      }
-      animationFrameId = requestAnimationFrame(checkLoop);
-    };
 
     // Respect reduced motion
     const prefersReducedMotion = window.matchMedia(
@@ -42,19 +31,10 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
       return;
     }
 
-    // Attempt autoplay
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.then(() => {
-        checkLoop();
-      }).catch(() => {
-        // Autoplay was prevented
-      });
-    }
-
-    return () => {
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
-    };
+    // Play video
+    video.play().catch(() => {
+      // Autoplay was prevented
+    });
   }, []);
 
   return (
@@ -67,14 +47,13 @@ export default function HeroVideo({ src, poster, className = "" }: HeroVideoProp
         loop
         playsInline
         preload="auto"
+        poster={poster}
         onEnded={(e) => {
-          // Fallback for when 'loop' attribute fails
           const target = e.currentTarget;
           target.currentTime = 0;
           target.play().catch(() => {});
         }}
       >
-        {/* Replace with actual hero FPV footage */}
         <source src={src} type={src.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
       </video>
 

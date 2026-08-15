@@ -53,6 +53,7 @@ export default function WorkPage() {
                       {project.heroVideo ? (
                         <BackgroundVideo
                           src={project.heroVideo}
+                          poster={project.poster || undefined}
                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                       ) : project.poster ? (

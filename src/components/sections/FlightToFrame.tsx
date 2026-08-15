@@ -38,18 +38,38 @@ export default function FlightToFrame() {
     raw.playsInline = true;
     graded.playsInline = true;
 
-    // Use IntersectionObserver to play/pause both
+    // Periodic sync check to prevent any drift between raw and graded streams
+    const syncVideos = () => {
+      if (!raw || !graded) return;
+      if (Math.abs(raw.currentTime - graded.currentTime) > 0.08) {
+        graded.currentTime = raw.currentTime;
+      }
+    };
+
+    const handleEnded = () => {
+      if (raw) {
+        raw.currentTime = 0;
+        raw.play().catch(() => {});
+      }
+      if (graded) {
+        graded.currentTime = 0;
+        graded.play().catch(() => {});
+      }
+    };
+
+    raw.addEventListener("ended", handleEnded);
+    graded.addEventListener("ended", handleEnded);
+    const syncInterval = setInterval(syncVideos, 500);
+
+    // Use IntersectionObserver to play/pause both together
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Only sync on initial play if they drift heavily
-            if (Math.abs(raw.currentTime - graded.currentTime) > 0.5) {
-              graded.currentTime = raw.currentTime;
-            }
+            raw.currentTime = 0;
+            graded.currentTime = 0;
             const playRaw = raw.play();
             const playGraded = graded.play();
-            
             Promise.all([playRaw, playGraded]).catch(() => {});
           } else {
             raw.pause();
@@ -63,6 +83,9 @@ export default function FlightToFrame() {
     observer.observe(raw);
 
     return () => {
+      raw.removeEventListener("ended", handleEnded);
+      graded.removeEventListener("ended", handleEnded);
+      clearInterval(syncInterval);
       observer.disconnect();
     };
   }, []);
@@ -145,11 +168,10 @@ export default function FlightToFrame() {
                 muted
                 playsInline
                 preload="auto"
-                onTimeUpdate={(e) => {
-                  const target = e.currentTarget;
-                  if (target.duration && target.currentTime >= target.duration - 0.15) {
-                    target.currentTime = 0.05; // avoid 0 which can sometimes flash black
-                    target.play().catch(() => {});
+                onEnded={() => {
+                  if (gradedVideoRef.current) {
+                    gradedVideoRef.current.currentTime = 0;
+                    gradedVideoRef.current.play().catch(() => {});
                   }
                 }}
               />
@@ -169,11 +191,14 @@ export default function FlightToFrame() {
                 muted
                 playsInline
                 preload="auto"
-                onTimeUpdate={(e) => {
-                  const target = e.currentTarget;
-                  if (target.duration && target.currentTime >= target.duration - 0.15) {
-                    target.currentTime = 0.05;
-                    target.play().catch(() => {});
+                onEnded={() => {
+                  if (rawVideoRef.current) {
+                    rawVideoRef.current.currentTime = 0;
+                    rawVideoRef.current.play().catch(() => {});
+                  }
+                  if (gradedVideoRef.current) {
+                    gradedVideoRef.current.currentTime = 0;
+                    gradedVideoRef.current.play().catch(() => {});
                   }
                 }}
               />

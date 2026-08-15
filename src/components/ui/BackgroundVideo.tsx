@@ -18,25 +18,14 @@ export default function BackgroundVideo({ src, className = "", poster }: Backgro
     // Force attributes directly on the DOM element for mobile browsers
     video.muted = true;
     video.defaultMuted = true;
-    video.loop = false; // Disable native loop
+    video.loop = true;
     video.playsInline = true;
-    
-    // Fade out before end
-    const handleTimeUpdate = () => {
-      if (video.duration && video.currentTime >= video.duration - 0.1) {
-        video.style.opacity = '0';
-      }
-    };
-    
-    video.addEventListener('timeupdate', handleTimeUpdate);
 
     // Use IntersectionObserver to only play when visible (saves battery)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Reset state when coming into view
-            video.style.opacity = '';
             video.currentTime = 0;
             video.play().catch(() => {});
           } else {
@@ -50,7 +39,6 @@ export default function BackgroundVideo({ src, className = "", poster }: Backgro
     observer.observe(video);
 
     return () => {
-      video.removeEventListener('timeupdate', handleTimeUpdate);
       observer.disconnect();
     };
   }, []);
@@ -67,10 +55,18 @@ export default function BackgroundVideo({ src, className = "", poster }: Backgro
       <video
         ref={videoRef}
         src={src}
-        className={`${className} transition-opacity duration-[1000ms] relative z-10`}
+        className={`${className} relative z-10`}
+        autoPlay
         muted
+        loop
         playsInline
         preload="auto"
+        poster={poster}
+        onEnded={(e) => {
+          const target = e.currentTarget;
+          target.currentTime = 0;
+          target.play().catch(() => {});
+        }}
       />
     </>
   );

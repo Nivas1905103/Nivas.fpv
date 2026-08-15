@@ -15,7 +15,7 @@ export default function About() {
       <div className="about-hero-separation" aria-hidden="true" />
 
       {/* Content container */}
-      <div className="about-content-container w-full max-w-[1360px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16 relative z-10 h-auto pb-20 md:pb-24 lg:pb-32">
+      <div className="about-content-container w-full max-w-[1360px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16 relative z-10 h-auto pb-12 md:pb-16 lg:pb-20">
         
         {/* 1. HERO / IDENTITY (Responsive Stack -> Grid) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-16 xl:gap-20 items-center w-full h-auto">

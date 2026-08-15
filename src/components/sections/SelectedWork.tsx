@@ -77,35 +77,28 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
           }}
           modules={[EffectCoverflow, Pagination, Autoplay]}
           onSwiper={(swiper) => {
-            // Initialize video listeners on mount
+            // Ensure loop and autoplay behavior for initial active slide
             const slides = swiper.slides;
             for (let i = 0; i < slides.length; i++) {
               const video = slides[i].querySelector('video');
               if (video) {
-                video.loop = false;
-                video.ontimeupdate = () => {
-                  if (video.duration && video.currentTime >= video.duration - 0.1) {
-                    video.style.opacity = '0';
-                  }
-                };
+                video.loop = true;
+                video.muted = true;
+                if (i === swiper.activeIndex) {
+                  video.currentTime = 0;
+                  video.play().catch(() => {});
+                }
               }
             }
           }}
           onSlideChange={(swiper) => {
-            // Force play the video in the active slide, even if it's a Swiper clone
+            // Play video in the active slide, pause background slides
             const slides = swiper.slides;
             for (let i = 0; i < slides.length; i++) {
               const video = slides[i].querySelector('video');
               if (video) {
-                video.loop = false;
-                video.ontimeupdate = () => {
-                  if (video.duration && video.currentTime >= video.duration - 0.1) {
-                    video.style.opacity = '0';
-                  }
-                };
-                
+                video.loop = true;
                 if (i === swiper.activeIndex) {
-                  video.style.opacity = '1';
                   video.currentTime = 0;
                   video.play().catch(() => {});
                 } else {
@@ -135,10 +128,17 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
                     <video
                       src={project.heroVideo}
                       muted
+                      loop
                       autoPlay={index === 0}
                       playsInline
                       preload="auto"
+                      poster={project.poster || undefined}
                       className="absolute inset-0 w-full h-full object-cover z-10 transition-opacity duration-500 group-hover:scale-105"
+                      onEnded={(e) => {
+                        const target = e.currentTarget;
+                        target.currentTime = 0;
+                        target.play().catch(() => {});
+                      }}
                     />
                   )}
                   
