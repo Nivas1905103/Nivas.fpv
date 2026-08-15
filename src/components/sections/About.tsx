@@ -3,17 +3,19 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <section id="about" className="pt-28 md:pt-36 lg:pt-44 pb-20 md:pb-24 lg:pb-32 relative bg-[var(--color-bg-primary)] overflow-hidden h-auto">
+    <section id="about" className="relative bg-[var(--color-bg-primary)] overflow-hidden h-auto">
       
-      {/* Subtle background glow to separate sections visually */}
-      <div className="absolute top-0 right-0 w-full md:w-3/4 h-full bg-gradient-to-bl from-[#E63946]/[0.03] via-transparent to-transparent pointer-events-none" />
+      {/* Background decoration */}
+      <div 
+        className="about-background-decoration absolute top-0 right-0 w-full md:w-3/4 h-full bg-gradient-to-bl from-[#E63946]/[0.03] via-transparent to-transparent pointer-events-none" 
+        aria-hidden="true" 
+      />
 
-      {/* 
-        Content container: 
-        Mobile: 20-24px padding (px-5 md:px-6) 
-        Desktop: max-w-[1360px] with 40-64px padding (lg:px-12 xl:px-16)
-      */}
-      <div className="w-full max-w-[1360px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16 relative z-10 h-auto">
+      {/* Dedicated normal-flow separation spacer from Hero */}
+      <div className="about-hero-separation" aria-hidden="true" />
+
+      {/* Content container */}
+      <div className="about-content-container w-full max-w-[1360px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16 relative z-10 h-auto pb-20 md:pb-24 lg:pb-32">
         
         {/* 1. HERO / IDENTITY (Responsive Stack -> Grid) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-16 xl:gap-20 items-center w-full h-auto">
