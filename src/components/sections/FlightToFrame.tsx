@@ -304,23 +304,23 @@ export default function FlightToFrame() {
             </div>
 
             {/* Prominent Glass Chips for RAW and GRADED */}
-            <div className="absolute top-4 left-4 z-20 pointer-events-none">
-              <div className="px-3.5 py-1.5 rounded-lg bg-black/75 backdrop-blur-md border border-white/15 text-white/90 text-xs font-mono font-bold tracking-wider flex items-center gap-2 shadow-lg">
-                <span className="w-2 h-2 rounded-full bg-white/60" />
+            <div className="absolute top-2.5 sm:top-4 left-2.5 sm:left-4 z-20 pointer-events-none">
+              <div className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg bg-black/80 backdrop-blur-md border border-white/15 text-white/90 text-[10px] sm:text-xs font-mono font-bold tracking-wider flex items-center gap-1.5 sm:gap-2 shadow-lg">
+                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white/60" />
                 <span>01 // RAW LOG</span>
               </div>
             </div>
 
-            <div className="absolute top-4 right-4 z-20 pointer-events-none">
-              <div className="px-3.5 py-1.5 rounded-lg bg-black/75 backdrop-blur-md border border-red-500/30 text-red-400 text-xs font-mono font-bold tracking-wider flex items-center gap-2 shadow-[0_0_15px_rgba(229,9,20,0.2)]">
-                <span className="w-2 h-2 rounded-full bg-red-500" />
+            <div className="absolute top-2.5 sm:top-4 right-2.5 sm:right-4 z-20 pointer-events-none">
+              <div className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg bg-black/80 backdrop-blur-md border border-red-500/40 text-red-400 text-[10px] sm:text-xs font-mono font-bold tracking-wider flex items-center gap-1.5 sm:gap-2 shadow-[0_0_15px_rgba(229,9,20,0.2)]">
+                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-500" />
                 <span>02 // FINAL GRADED</span>
               </div>
             </div>
 
             {/* Bottom Floating Instruction Pill */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
-              <div className="px-4 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white/70 text-[11px] font-mono tracking-widest uppercase flex items-center gap-2 shadow-lg">
+            <div className="absolute bottom-2.5 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+              <div className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-white/10 text-white/70 text-[9px] sm:text-[11px] font-mono tracking-widest uppercase flex items-center gap-1.5 sm:gap-2 shadow-lg whitespace-nowrap">
                 <span>↔ DRAG TO COMPARE</span>
               </div>
             </div>
