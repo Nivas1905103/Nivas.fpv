@@ -2,18 +2,30 @@
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import { motion } from "motion/react";
-import { fadeInUp, viewportOnce } from "@/lib/animations";
-import SectionHeading from "@/components/ui/SectionHeading";
+import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
 
-import LiquidBackground from "@/components/ui/LiquidBackground";
-
-const processSteps = [
-  { label: "Raw Footage", description: "Direct from the camera sensor" },
-  { label: "Stabilization", description: "Smooth, cinematic movement" },
-  { label: "Speed Ramping", description: "Dynamic tempo and pacing" },
-  { label: "Color Grading", description: "Cinematic color science" },
-  { label: "Sound Design", description: "Atmospheric audio layers" },
-  { label: "Final Edit", description: "Polished, delivery-ready film" },
+const pipelineSteps = [
+  {
+    step: "01",
+    phase: "CAPTURE",
+    title: "Raw Sensor Acquisition",
+    description: "4K 10-bit high-bitrate recording with flat color profile and manual shutter angle for pure dynamic range.",
+    badge: "10-BIT D-LOG",
+  },
+  {
+    step: "02",
+    phase: "GRADE",
+    title: "Cinematic Color Science",
+    description: "Custom DaVinci Resolve color transformation, highlight recovery, skin tone protection, and film emulation.",
+    badge: "DAVINCI RESOLVE",
+  },
+  {
+    step: "03",
+    phase: "FINALISE",
+    title: "Mastering & Spatial Audio",
+    description: "Temporal kinetic speed ramping, high-fidelity spatial foley sound design, and broadcast master export.",
+    badge: "4K MASTER EXPORT",
+  },
 ];
 
 export default function FlightToFrame() {
@@ -120,23 +132,27 @@ export default function FlightToFrame() {
 
   const handleMove = useCallback(
     (clientX: number) => {
-      if (!isDragging || !sliderRef.current) return;
+      if (!sliderRef.current) return;
       const rect = sliderRef.current.getBoundingClientRect();
       const x = clientX - rect.left;
       const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
       setSliderPosition(percentage);
     },
-    [isDragging]
+    []
   );
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => handleMove(e.clientX);
-    const handleTouchMove = (e: TouchEvent) => handleMove(e.touches[0].clientX);
+    const handleMouseMove = (e: MouseEvent) => {
+      if (isDragging) handleMove(e.clientX);
+    };
+    const handleTouchMove = (e: TouchEvent) => {
+      if (isDragging && e.touches[0]) handleMove(e.touches[0].clientX);
+    };
     const handleEnd = () => setIsDragging(false);
 
     if (isDragging) {
       window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("touchmove", handleTouchMove);
+      window.addEventListener("touchmove", handleTouchMove, { passive: true });
       window.addEventListener("mouseup", handleEnd);
       window.addEventListener("touchend", handleEnd);
     }
@@ -150,30 +166,83 @@ export default function FlightToFrame() {
   }, [isDragging, handleMove]);
 
   return (
-    <section id="flight-to-frame" className="relative section-padding bg-[var(--color-bg-primary)] overflow-hidden">
-      
-      <LiquidBackground opacity={0.12} color1="#E63946" color2="#880000" />
+    <section
+      id="flight-to-frame"
+      className="relative pt-24 pb-28 md:pt-32 md:pb-36 bg-[#050505] overflow-hidden"
+    >
+      {/* Background Ambient Glows */}
+      <div
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-red-600/[0.04] rounded-full blur-[160px] pointer-events-none"
+        aria-hidden="true"
+      />
 
-      <div className="container-site relative z-10">
-        <SectionHeading
-          label="Post-Production"
-          title="From Flight to Final Frame"
-          subtitle="I don't just capture footage. I know how to turn it into a finished film."
-        />
+      {/* Technical Grid Texture */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none opacity-[0.025]"
+        style={{
+          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+          backgroundSize: "64px 64px",
+        }}
+        aria-hidden="true"
+      />
 
-        {/* Before/After Slider */}
+      <div className="container-site relative z-10 max-w-7xl mx-auto space-y-12 md:space-y-16">
+        {/* Header */}
+        <div className="flex flex-col items-start max-w-3xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono tracking-[0.2em] uppercase mb-4 shadow-[0_0_20px_rgba(229,9,20,0.1)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+            <span>Post-Production / 03</span>
+          </div>
+
+          <h2 className="font-heading font-bold uppercase tracking-tight text-4xl sm:text-5xl lg:text-6xl text-white mb-4">
+            From Flight to Final Frame<span className="text-[var(--color-accent)]">.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-[var(--color-text-secondary)] font-light leading-relaxed">
+            The flight is only the first half of the image. Precision color science,
+            contrast roll-off, and atmospheric sound design transform raw sensor data
+            into high-impact cinematic deliverables.
+          </p>
+        </div>
+
+        {/* Cinematic Control Deck / Before-After Slider Container */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeInUp}
-          className="mb-10 md:mb-14"
+          className="relative rounded-[1.75rem] bg-[#120e0e]/80 backdrop-blur-[20px] border border-white/[0.08] p-3 sm:p-5 md:p-6 shadow-[0_25px_60px_rgba(0,0,0,0.8)]"
         >
+          {/* Bezel Top Status Bar */}
+          <div className="flex items-center justify-between px-3 pb-3 mb-3 border-b border-white/[0.06] text-xs font-mono text-[var(--color-text-muted)]">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
+              <span className="text-white font-medium">SPLIT DECK // REC.709 vs LOG</span>
+            </div>
+            <div className="hidden sm:flex items-center gap-4 text-[10px] tracking-widest text-white/50 uppercase">
+              <span>SYNC: LOCKED</span>
+              <span>•</span>
+              <span>4K PRORES</span>
+              <span>•</span>
+              <span>FPS: 60.00</span>
+            </div>
+            <div className="text-[11px] text-red-400">
+              POS: {Math.round(sliderPosition)}%
+            </div>
+          </div>
+
+          {/* Interactive Drag Frame */}
           <div
             ref={sliderRef}
-            className="before-after-slider relative aspect-[16/9] bg-[var(--color-bg-card)] select-none"
-            onMouseDown={() => setIsDragging(true)}
-            onTouchStart={() => setIsDragging(true)}
+            className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-[#080808] select-none cursor-ew-resize border border-white/[0.05]"
+            onMouseDown={(e) => {
+              setIsDragging(true);
+              handleMove(e.clientX);
+            }}
+            onTouchStart={(e) => {
+              setIsDragging(true);
+              if (e.touches[0]) handleMove(e.touches[0].clientX);
+            }}
             role="slider"
             aria-label="Compare raw footage with color graded footage"
             aria-valuenow={Math.round(sliderPosition)}
@@ -181,11 +250,11 @@ export default function FlightToFrame() {
             aria-valuemax={100}
             tabIndex={0}
             onKeyDown={(e) => {
-              if (e.key === "ArrowLeft") setSliderPosition((p) => Math.max(0, p - 2));
-              if (e.key === "ArrowRight") setSliderPosition((p) => Math.min(100, p + 2));
+              if (e.key === "ArrowLeft") setSliderPosition((p) => Math.max(0, p - 3));
+              if (e.key === "ArrowRight") setSliderPosition((p) => Math.min(100, p + 3));
             }}
           >
-            {/* "After" (graded) side — full background */}
+            {/* "After" (Graded) Side — Full Base */}
             <div className="absolute inset-0 bg-[#0a0a0a]">
               <video
                 ref={gradedVideoRef}
@@ -199,7 +268,7 @@ export default function FlightToFrame() {
               />
             </div>
 
-            {/* "Before" (raw) side — clipped */}
+            {/* "Before" (Raw) Side — Clipped */}
             <div
               className="absolute inset-0 overflow-hidden"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
@@ -216,60 +285,92 @@ export default function FlightToFrame() {
               />
             </div>
 
-            {/* Slider Line */}
+            {/* Central Divider Bar with Red Glow */}
             <div
-              className="absolute top-0 bottom-0 w-[2px] bg-white z-10"
+              className="absolute top-0 bottom-0 w-[2px] bg-white z-20 pointer-events-none shadow-[0_0_15px_rgba(255,255,255,0.8),0_0_30px_rgba(229,9,20,0.6)]"
               style={{ left: `${sliderPosition}%` }}
             >
               {/* Handle */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg cursor-ew-resize">
-                <svg className="w-5 h-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M8 4l-4 8 4 8M16 4l4 8-4 8" />
-                </svg>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-[#120e0e] border-2 border-white/90 shadow-[0_0_20px_rgba(229,9,20,0.5)] flex items-center justify-center pointer-events-auto cursor-grab active:cursor-grabbing">
+                <div className="flex items-center gap-1 text-white">
+                  <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                  <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </div>
               </div>
             </div>
 
-            {/* Labels */}
-            <div className="absolute bottom-4 left-4 z-10">
-              <span className="tech-label px-2 py-1 bg-black/60 backdrop-blur-sm text-white/80">
-                RAW
-              </span>
+            {/* Prominent Glass Chips for RAW and GRADED */}
+            <div className="absolute top-4 left-4 z-20 pointer-events-none">
+              <div className="px-3.5 py-1.5 rounded-lg bg-black/75 backdrop-blur-md border border-white/15 text-white/90 text-xs font-mono font-bold tracking-wider flex items-center gap-2 shadow-lg">
+                <span className="w-2 h-2 rounded-full bg-white/60" />
+                <span>01 // RAW LOG</span>
+              </div>
             </div>
-            <div className="absolute bottom-4 right-4 z-10">
-              <span className="tech-label px-2 py-1 bg-black/60 backdrop-blur-sm text-[var(--color-accent)]">
-                GRADED
-              </span>
+
+            <div className="absolute top-4 right-4 z-20 pointer-events-none">
+              <div className="px-3.5 py-1.5 rounded-lg bg-black/75 backdrop-blur-md border border-red-500/30 text-red-400 text-xs font-mono font-bold tracking-wider flex items-center gap-2 shadow-[0_0_15px_rgba(229,9,20,0.2)]">
+                <span className="w-2 h-2 rounded-full bg-red-500" />
+                <span>02 // FINAL GRADED</span>
+              </div>
+            </div>
+
+            {/* Bottom Floating Instruction Pill */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+              <div className="px-4 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white/70 text-[11px] font-mono tracking-widest uppercase flex items-center gap-2 shadow-lg">
+                <span>↔ DRAG TO COMPARE</span>
+              </div>
             </div>
           </div>
-
-          <p className="text-center mt-4 md:mt-5 text-xs text-[var(--color-text-muted)] tracking-[0.1em] uppercase">
-            Drag slider to compare raw vs graded footage
-          </p>
         </motion.div>
 
-        {/* Process Steps */}
+        {/* Connected Three-Step Glass Pipeline */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          variants={fadeInUp}
+          variants={staggerContainer}
+          className="relative pt-6"
         >
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-[var(--color-border)] border border-[var(--color-border)]">
-            {processSteps.map((step, i) => (
-              <div
-                key={step.label}
-                className="bg-[var(--color-bg-primary)] bg-opacity-95 backdrop-blur-sm p-6 text-center hover:bg-[var(--color-bg-card)] transition-colors duration-300"
+          {/* Subtle Connecting Flight Path Line on Desktop */}
+          <div
+            className="hidden md:block absolute top-[52px] inset-x-16 h-[2px] bg-gradient-to-r from-red-500/20 via-red-500/60 to-red-500/20 z-0 pointer-events-none"
+            aria-hidden="true"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+            {pipelineSteps.map((step) => (
+              <motion.div
+                key={step.step}
+                variants={fadeInUp}
+                className="group relative rounded-2xl bg-[#120e0e]/75 backdrop-blur-[18px] border border-white/[0.08] hover:border-red-500/40 hover:bg-[#181111]/80 p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
               >
-                <span className="tech-label text-[var(--color-accent)] block mb-2">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="heading-sm text-xs block mb-1">
-                  {step.label}
-                </span>
-                <span className="text-[0.6875rem] text-[var(--color-text-muted)]">
+                {/* Number & Phase Marker */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-7 h-7 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center justify-center font-mono text-xs font-bold text-red-400">
+                      {step.step}
+                    </span>
+                    <span className="font-mono text-xs uppercase tracking-widest text-white/50 group-hover:text-white transition-colors">
+                      {step.phase}
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-mono tracking-wider px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06] text-white/60">
+                    {step.badge}
+                  </span>
+                </div>
+
+                <h3 className="font-heading font-bold text-lg uppercase tracking-tight text-white mb-2 group-hover:text-red-200 transition-colors">
+                  {step.title}
+                </h3>
+
+                <p className="text-sm text-[var(--color-text-secondary)] font-light leading-relaxed">
                   {step.description}
-                </span>
-              </div>
+                </p>
+              </motion.div>
             ))}
           </div>
         </motion.div>
