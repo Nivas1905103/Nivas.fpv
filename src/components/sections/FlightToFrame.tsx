@@ -22,52 +22,78 @@ export default function FlightToFrame() {
   const [isDragging, setIsDragging] = useState(false);
   const rawVideoRef = useRef<HTMLVideoElement>(null);
   const gradedVideoRef = useRef<HTMLVideoElement>(null);
+  const restartingRef = useRef(false);
 
-  // Sync videos
+  // Sync videos & smooth endless loop
   useEffect(() => {
     const raw = rawVideoRef.current;
     const graded = gradedVideoRef.current;
     if (!raw || !graded) return;
 
     raw.muted = true;
-    graded.muted = true;
     raw.defaultMuted = true;
-    graded.defaultMuted = true;
-    raw.loop = true;
-    graded.loop = true;
     raw.playsInline = true;
-    graded.playsInline = true;
+    raw.preload = "auto";
 
-    // Periodic sync check to prevent any drift between raw and graded streams
-    const syncVideos = () => {
-      if (!raw || !graded) return;
-      if (Math.abs(raw.currentTime - graded.currentTime) > 0.08) {
+    graded.muted = true;
+    graded.defaultMuted = true;
+    graded.playsInline = true;
+    graded.preload = "auto";
+
+    const restartComparison = async () => {
+      if (restartingRef.current) return;
+      restartingRef.current = true;
+
+      const videos = [rawVideoRef.current, gradedVideoRef.current].filter(
+        (v): v is HTMLVideoElement => v !== null
+      );
+
+      videos.forEach((video) => {
+        video.pause();
+        video.currentTime = 0;
+      });
+
+      await Promise.all(videos.map((video) => video.play().catch(() => {})));
+
+      restartingRef.current = false;
+    };
+
+    // Coordinated restart check before the tail of the video (prevents black frames)
+    const handleTimeUpdate = () => {
+      if (!raw || !graded || restartingRef.current) return;
+      if (raw.duration && raw.currentTime >= raw.duration - 0.25) {
+        restartComparison();
+        return;
+      }
+      if (graded.duration && graded.currentTime >= graded.duration - 0.25) {
+        restartComparison();
+        return;
+      }
+    };
+
+    // Periodic sync check to prevent any micro-drift without reacting on state
+    const syncInterval = setInterval(() => {
+      if (!raw || !graded || restartingRef.current) return;
+      const diff = raw.currentTime - graded.currentTime;
+      if (Math.abs(diff) > 0.05) {
         graded.currentTime = raw.currentTime;
       }
-    };
+    }, 400);
 
     const handleEnded = () => {
-      if (raw) {
-        raw.currentTime = 0;
-        raw.play().catch(() => {});
-      }
-      if (graded) {
-        graded.currentTime = 0;
-        graded.play().catch(() => {});
-      }
+      restartComparison();
     };
 
+    raw.addEventListener("timeupdate", handleTimeUpdate);
+    graded.addEventListener("timeupdate", handleTimeUpdate);
     raw.addEventListener("ended", handleEnded);
     graded.addEventListener("ended", handleEnded);
-    const syncInterval = setInterval(syncVideos, 500);
 
-    // Use IntersectionObserver to play/pause both together
+    // Preload and start playback with generous viewport margin
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            raw.currentTime = 0;
-            graded.currentTime = 0;
             const playRaw = raw.play();
             const playGraded = graded.play();
             Promise.all([playRaw, playGraded]).catch(() => {});
@@ -77,12 +103,14 @@ export default function FlightToFrame() {
           }
         });
       },
-      { threshold: 0.1 }
+      { rootMargin: "300px 0px 300px 0px", threshold: 0.05 }
     );
 
     observer.observe(raw);
 
     return () => {
+      raw.removeEventListener("timeupdate", handleTimeUpdate);
+      graded.removeEventListener("timeupdate", handleTimeUpdate);
       raw.removeEventListener("ended", handleEnded);
       graded.removeEventListener("ended", handleEnded);
       clearInterval(syncInterval);
@@ -164,16 +192,10 @@ export default function FlightToFrame() {
                 className="absolute inset-0 w-full h-full object-cover"
                 src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/12.mp4"
                 autoPlay
-                loop
                 muted
                 playsInline
                 preload="auto"
-                onEnded={() => {
-                  if (gradedVideoRef.current) {
-                    gradedVideoRef.current.currentTime = 0;
-                    gradedVideoRef.current.play().catch(() => {});
-                  }
-                }}
+                poster="/images/hero-poster.jpg"
               />
             </div>
 
@@ -187,20 +209,10 @@ export default function FlightToFrame() {
                 className="absolute inset-0 w-full h-full object-cover"
                 src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/11.mp4"
                 autoPlay
-                loop
                 muted
                 playsInline
                 preload="auto"
-                onEnded={() => {
-                  if (rawVideoRef.current) {
-                    rawVideoRef.current.currentTime = 0;
-                    rawVideoRef.current.play().catch(() => {});
-                  }
-                  if (gradedVideoRef.current) {
-                    gradedVideoRef.current.currentTime = 0;
-                    gradedVideoRef.current.play().catch(() => {});
-                  }
-                }}
+                poster="/images/hero-poster.jpg"
               />
             </div>
 
