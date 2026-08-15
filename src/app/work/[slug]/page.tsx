@@ -6,7 +6,7 @@ import {
   getProjectBySlug,
   getNextProject,
 } from "@/data/projects";
-import BackgroundVideo from "@/components/ui/BackgroundVideo";
+import ProjectHero from "@/components/sections/ProjectHero";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -53,36 +53,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <article className="min-h-screen bg-[var(--color-bg-primary)]">
       {/* Hero */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-end bg-[var(--color-bg-secondary)]">
-        {/* Video/Image Background */}
-        <div className="absolute inset-0 bg-[#0a0a0a] overflow-hidden">
-          {project.heroVideo ? (
-              <BackgroundVideo
-                src={project.heroVideo}
-                poster={project.poster || undefined}
-                className="absolute inset-0 w-full h-full object-cover opacity-60"
-              />
-          ) : project.poster ? (
-            <img
-              src={project.poster}
-              alt={project.title}
-              className="absolute inset-0 w-full h-full object-cover opacity-60"
-            />
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a]">
-              <span className="heading-xl text-white/[0.03]">{project.title}</span>
-            </div>
-          )}
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-primary)] via-transparent to-transparent" />
-
-        <div className="relative z-10 container-site pb-12">
-          <span className="tech-label text-[var(--color-accent)] block mb-4">
-            {project.category}
-          </span>
-          <h1 className="heading-xl max-w-3xl">{project.title}</h1>
-        </div>
-      </section>
+      <ProjectHero
+        title={project.title}
+        category={project.category}
+        heroVideo={project.heroVideo}
+        poster={project.poster || undefined}
+      />
 
       {/* Project Details */}
       <section className="container-site py-16 md:py-24">
