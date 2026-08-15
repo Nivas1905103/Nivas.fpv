@@ -579,12 +579,12 @@ export default function AboutPageView() {
         {/* ═══════════════════════════════════════════════════
             4. EXPERTISE / 03 (BENTO-STYLE GLASS GRID)
             ═══════════════════════════════════════════════════ */}
-        <section id="expertise" className="relative space-y-10">
+        <section id="disciplines" className="relative space-y-10">
           {/* Section Header */}
           <div className="flex flex-col items-start max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono tracking-[0.2em] uppercase mb-4 shadow-[0_0_20px_rgba(229,9,20,0.1)]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono tracking-[0.2em] uppercase mb-4 shadow-[0_0_20px_rgba(229,9,20,0.1)]">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-              <span>Expertise / 03</span>
+              <span>Capabilities // Core Disciplines</span>
             </div>
             <h2 className="font-heading font-bold uppercase tracking-tight text-3xl sm:text-4xl md:text-5xl text-white mb-4">
               Core Cinematographic Disciplines<span className="text-[var(--color-accent)]">.</span>

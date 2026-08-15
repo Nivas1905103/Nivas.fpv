@@ -3,82 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
-
-const coreDisciplines = [
-  {
-    number: "01 / 06",
-    title: "FPV Drone Piloting",
-    tagline: "6-Axis Unconstrained Vectors",
-    description: "Precision manual flight through confined architecture and high-speed pursuits with sub-meter clearance.",
-    span: "lg:col-span-7",
-    icon: (props: { className?: string }) => (
-      <svg className={props.className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
-        <circle cx="12" cy="12" r="1.5" fill="#e50914" />
-      </svg>
-    ),
-  },
-  {
-    number: "02 / 06",
-    title: "Aerial Cinematography",
-    tagline: "180° Shutter & 4K Capture",
-    description: "Manual exposure control, intentional framing, and ND filtration for cinema-grade motion blur.",
-    span: "lg:col-span-5",
-    icon: (props: { className?: string }) => (
-      <svg className={props.className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="5" width="14" height="14" rx="2" />
-        <polygon points="16 9 22 5 22 19 16 15" />
-        <circle cx="9" cy="12" r="3" stroke="#e50914" />
-      </svg>
-    ),
-  },
-  {
-    number: "03 / 06",
-    title: "Cinematic Video Editing",
-    tagline: "Pacing & Narrative Architecture",
-    description: "Crafting tempo, rhythm, and speed ramps from raw flight clips to deliver high-impact commercial cuts.",
-    span: "lg:col-span-4",
-    icon: (props: { className?: string }) => (
-      <svg className={props.className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="4" width="20" height="16" rx="2" />
-        <line x1="8" y1="4" x2="8" y2="20" strokeDasharray="2 2" />
-        <line x1="16" y1="4" x2="16" y2="20" strokeDasharray="2 2" />
-        <polygon points="10 9 14 12 10 15" fill="#e50914" stroke="#e50914" />
-      </svg>
-    ),
-  },
-  {
-    number: "04 / 06",
-    title: "DaVinci Color Science",
-    tagline: "10-Bit Log & Film Emulation",
-    description: "Custom LUT development, dynamic range balancing, and highlight roll-off control in DaVinci Resolve.",
-    span: "lg:col-span-4",
-    icon: (props: { className?: string }) => (
-      <svg className={props.className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="9" />
-        <path d="M12 3a9 9 0 0 0 0 18z" fill="#e50914" fillOpacity="0.2" />
-        <line x1="12" y1="3" x2="12" y2="21" stroke="#e50914" />
-      </svg>
-    ),
-  },
-  {
-    number: "05 / 06",
-    title: "Spatial Foley & SFX",
-    tagline: "Doppler & Kinetic Textures",
-    description: "Acoustic soundscapes, wind textures, and custom foley matched to physical camera speed.",
-    span: "lg:col-span-4",
-    icon: (props: { className?: string }) => (
-      <svg className={props.className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="#e50914" strokeWidth="2" />
-        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-      </svg>
-    ),
-  },
-];
+import { fadeInUp, viewportOnce } from "@/lib/animations";
 
 function HomePortraitCard() {
   return (
@@ -121,7 +46,7 @@ function HomePortraitCard() {
 
 export default function About() {
   return (
-    <section id="about" className="relative pt-20 pb-20 md:pt-28 md:pb-28 bg-[#050505] overflow-hidden">
+    <section id="about" className="relative pt-16 pb-16 md:pt-24 md:pb-24 bg-[#050505] overflow-hidden">
       {/* ═══════════════════════════════════════════════════
           BACKGROUND AMBIENCE & SUBTLE HUD DECORATIONS
           ═══════════════════════════════════════════════════ */}
@@ -144,7 +69,7 @@ export default function About() {
         aria-hidden="true"
       />
 
-      <div className="container-site relative z-10 max-w-7xl mx-auto space-y-16 md:space-y-24">
+      <div className="container-site relative z-10 max-w-7xl mx-auto space-y-12 md:space-y-16">
         {/* ═══════════════════════════════════════════════════
             1. HERO / IDENTITY ASYMMETRIC BENTO
             ═══════════════════════════════════════════════════ */}
@@ -334,75 +259,7 @@ export default function About() {
         </motion.div>
 
         {/* ═══════════════════════════════════════════════════
-            3. CORE DISCIPLINES BENTO PREVIEW
-            ═══════════════════════════════════════════════════ */}
-        <div className="space-y-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <span className="text-xs font-mono tracking-[0.2em] text-red-400 uppercase block mb-2">
-                Capabilities // Core Disciplines
-              </span>
-              <h3 className="font-heading font-bold uppercase tracking-tight text-2xl sm:text-3xl md:text-4xl text-white">
-                Cinematographic Craft<span className="text-[var(--color-accent)]">.</span>
-              </h3>
-            </div>
-            <Link
-              href="/about"
-              className="hidden sm:inline-flex items-center gap-2 text-xs font-mono text-white/60 hover:text-white uppercase tracking-wider transition-colors"
-            >
-              <span>Explore Methodology</span>
-              <span className="text-red-400">→</span>
-            </Link>
-          </div>
-
-          {/* Bento Grid */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5"
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            variants={staggerContainer}
-          >
-            {coreDisciplines.map((item) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  variants={fadeInUp}
-                  className={`${item.span} group relative rounded-[1.5rem] bg-[#120e0e]/75 backdrop-blur-[18px] border border-white/[0.08] hover:border-red-500/40 hover:bg-[#181111]/80 p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(229,9,20,0.12)] flex flex-col justify-between overflow-hidden cursor-default`}
-                >
-                  <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-text-muted)] group-hover:text-red-400 transition-colors">
-                        {item.number}
-                      </span>
-                      <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.08] group-hover:border-red-500/40 group-hover:bg-red-500/10 flex items-center justify-center text-white/70 group-hover:text-red-400 transition-colors shrink-0">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                    </div>
-
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-red-400/90 block mb-1.5 font-medium">
-                      {item.tagline}
-                    </span>
-
-                    <h4 className="font-heading font-bold text-lg sm:text-xl uppercase tracking-tight text-white mb-2 group-hover:text-red-100 transition-colors">
-                      {item.title}
-                    </h4>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-[var(--color-text-secondary)] font-light leading-relaxed pt-3 border-t border-white/[0.05]">
-                    {item.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-
-        {/* ═══════════════════════════════════════════════════
-            4. CLOSING CTA STRIP (TRANSITION TO SELECTED WORK)
+            3. CLOSING CTA STRIP (TRANSITION TO ABOUT PAGE & SELECTED WORK)
             ═══════════════════════════════════════════════════ */}
         <motion.div
           initial="hidden"
@@ -413,10 +270,10 @@ export default function About() {
         >
           <div>
             <span className="font-mono text-[10px] uppercase tracking-widest text-red-400 block mb-1">
-              FULL CINEMATIC PROFILE
+              FULL CINEMATIC PROFILE &amp; DISCIPLINES
             </span>
             <p className="font-heading font-bold uppercase text-lg sm:text-xl text-white tracking-tight">
-              Dive deeper into the flight methodology &amp; production rig.
+              Explore full core disciplines, flight methodology &amp; production rig.
             </p>
           </div>
 
