@@ -15,7 +15,7 @@ export default function About() {
       <div className="about-hero-separation" aria-hidden="true" />
 
       {/* Content container */}
-      <div className="about-content-container w-full max-w-[1360px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16 relative z-10 h-auto pb-12 md:pb-16 lg:pb-20">
+      <div className="about-content-container w-full max-w-[1360px] mx-auto px-5 md:px-8 lg:px-12 xl:px-16 relative z-10 h-auto pb-8 md:pb-10 lg:pb-12">
         
         {/* 1. HERO / IDENTITY (Responsive Stack -> Grid) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-16 xl:gap-20 items-center w-full h-auto">
@@ -113,7 +113,7 @@ export default function About() {
         </div>
 
         {/* CTA */}
-        <div className="mt-14 md:mt-18 lg:mt-20 pt-8 md:pt-10 border-t border-white/[0.08] w-full text-center flex flex-col items-center h-auto">
+        <div className="mt-10 md:mt-12 lg:mt-14 pt-6 md:pt-8 border-t border-white/[0.08] w-full text-center flex flex-col items-center h-auto">
           <Link href="/about" className="group inline-flex items-center gap-3 md:gap-4 text-sm md:text-base lg:text-lg font-semibold uppercase tracking-[0.2em] text-[var(--color-text-primary)] transition-colors m-0">
             <span className="relative pb-1 md:pb-2">
               Read Full Bio

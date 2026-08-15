@@ -20,7 +20,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
   return (
     <section
       id="work"
-      className="section-padding bg-[var(--color-bg-secondary)] overflow-hidden"
+      className="pt-10 md:pt-14 pb-20 md:pb-28 bg-[var(--color-bg-secondary)] overflow-hidden"
     >
       <div className="container-site">
         <SectionHeading
