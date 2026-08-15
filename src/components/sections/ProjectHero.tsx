@@ -86,16 +86,16 @@ export default function ProjectHero({
 
       {/* 3. Hero Content / Title (z-20) */}
       <div
-        className="absolute inset-x-0 z-20 container-site flex flex-col justify-end"
+        className="absolute inset-x-0 z-20 container-site flex flex-col justify-end pointer-events-none"
         style={{
           bottom: "clamp(2.5rem, 7vw, 7rem)",
         }}
       >
-        <div className="max-w-4xl">
-          <span className="tech-label text-[var(--color-accent)] block mb-3 md:mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+        <div className="max-w-3xl">
+          <span className="tech-label text-[var(--color-accent)] block mb-2 md:mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             {category}
           </span>
-          <h1 className="heading-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.08] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] max-w-3xl">
+          <h1 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase text-white tracking-tight leading-[1.1] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] max-w-2xl">
             {title}
           </h1>
         </div>
