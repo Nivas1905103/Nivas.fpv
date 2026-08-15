@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 
 interface ProjectHeroProps {
@@ -16,7 +16,6 @@ export default function ProjectHero({
   heroVideo,
   poster,
 }: ProjectHeroProps) {
-  const [videoReady, setVideoReady] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -28,11 +27,6 @@ export default function ProjectHero({
     video.loop = true;
     video.playsInline = true;
 
-    // Check if video is already ready (e.g. cached)
-    if (video.readyState >= 2) {
-      setVideoReady(true);
-    }
-
     video.play().catch(() => {});
   }, [heroVideo]);
 
@@ -40,26 +34,7 @@ export default function ProjectHero({
     <section className="relative w-full h-[75vh] min-h-[520px] max-h-[900px] overflow-hidden bg-[#050505]">
       {/* 1. Media Layer (z-0) */}
       <div className="absolute inset-0 z-0 bg-[#050505] overflow-hidden">
-        {/* Poster / Loading Fallback image (only visible before video is ready) */}
-        {poster && (
-          <div
-            className={`absolute inset-0 z-0 transition-opacity duration-700 ${
-              videoReady ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
-          >
-            <Image
-              src={poster}
-              alt={title}
-              fill
-              priority
-              className="object-cover"
-              sizes="100vw"
-            />
-          </div>
-        )}
-
-        {/* Hero Video (opacity: 1, full cover) */}
-        {heroVideo && (
+        {heroVideo ? (
           <video
             ref={videoRef}
             src={heroVideo}
@@ -69,9 +44,6 @@ export default function ProjectHero({
             playsInline
             preload="auto"
             poster={poster || undefined}
-            onLoadedData={() => setVideoReady(true)}
-            onCanPlay={() => setVideoReady(true)}
-            onPlaying={() => setVideoReady(true)}
             onEnded={(e) => {
               const v = e.currentTarget;
               v.currentTime = 0;
@@ -79,10 +51,16 @@ export default function ProjectHero({
             }}
             className="absolute inset-0 w-full h-full object-cover z-0 opacity-100"
           />
-        )}
-
-        {/* Fallback if no video and no poster */}
-        {!heroVideo && !poster && (
+        ) : poster ? (
+          <Image
+            src={poster}
+            alt={title}
+            fill
+            priority
+            className="object-cover opacity-100"
+            sizes="100vw"
+          />
+        ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1a1a1a] to-[#050505]">
             <span className="heading-xl text-white/[0.03]">{title}</span>
           </div>
