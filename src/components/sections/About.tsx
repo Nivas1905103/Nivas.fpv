@@ -24,7 +24,7 @@ export default function About() {
             {/* Aspect ratio optimized for portrait cinematic framing */}
             <div className="aspect-[4/5] bg-[var(--color-bg-secondary)] relative overflow-hidden rounded-[1rem] border border-white/[0.05] shadow-[0_20px_50px_rgba(0,0,0,0.4)] w-full h-auto">
               <Image 
-                src="/images/about/portrait-real.jpg" 
+                src="/images/about/nivas-fpv-enhanced.jpg" 
                 alt="Nivas - FPV Pilot"
                 fill
                 className="object-cover transition-transform duration-[1.5s] ease-out hover:scale-[1.03]"
