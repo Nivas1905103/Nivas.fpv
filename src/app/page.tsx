@@ -27,7 +27,6 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
-      <SectionDivider />
       <About />
       <SectionDivider />
       <SelectedWork projects={projects} />

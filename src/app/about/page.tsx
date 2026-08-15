@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="pt-24 md:pt-32 pb-24 md:pb-36 bg-[var(--color-bg-primary)] relative overflow-hidden h-auto">
+    <div className="pt-32 md:pt-40 lg:pt-48 pb-24 md:pb-36 bg-[var(--color-bg-primary)] relative overflow-hidden h-auto">
       
       {/* Subtle Dynamic Background */}
       <LiquidBackground opacity={0.08} color1="#E63946" color2="#330000" />

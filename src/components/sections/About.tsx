@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <section id="about" className="pt-24 md:pt-32 lg:pt-40 pb-20 md:pb-24 lg:pb-32 relative bg-[var(--color-bg-primary)] overflow-hidden h-auto">
+    <section id="about" className="pt-32 md:pt-44 lg:pt-56 pb-20 md:pb-24 lg:pb-32 relative bg-[var(--color-bg-primary)] overflow-hidden h-auto">
       
       {/* Subtle background glow to separate sections visually */}
       <div className="absolute top-0 right-0 w-full md:w-3/4 h-full bg-gradient-to-bl from-[#E63946]/[0.03] via-transparent to-transparent pointer-events-none" />

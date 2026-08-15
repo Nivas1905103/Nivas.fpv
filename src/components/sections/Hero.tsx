@@ -125,19 +125,21 @@ export default function Hero() {
       </motion.div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+      <motion.a
+        href="#about"
+        aria-label="Scroll to About section"
+        className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 group cursor-pointer transition-opacity hover:opacity-100"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.0 }}
       >
-        <span className="tech-label text-[0.625rem]">Scroll</span>
+        <span className="tech-label text-[0.625rem] transition-colors group-hover:text-white">Scroll</span>
         <motion.div
-          className="w-[1px] h-8 bg-white/30 origin-top"
+          className="w-[1px] h-8 bg-white/30 origin-top group-hover:bg-[var(--color-accent)] transition-colors"
           animate={{ scaleY: [1, 0.4, 1] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         />
-      </motion.div>
+      </motion.a>
     </section>
   );
 }
