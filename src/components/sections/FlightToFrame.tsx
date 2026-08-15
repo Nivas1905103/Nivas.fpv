@@ -190,12 +190,12 @@ export default function FlightToFrame() {
               <video
                 ref={gradedVideoRef}
                 className="absolute inset-0 w-full h-full object-cover"
-                src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/12.mp4"
+                src="/videos/12.mp4"
                 autoPlay
                 muted
                 playsInline
                 preload="auto"
-                poster="/images/hero-poster.jpg"
+                poster="/images/posters/f2f-graded.jpg"
               />
             </div>
 
@@ -207,12 +207,12 @@ export default function FlightToFrame() {
               <video
                 ref={rawVideoRef}
                 className="absolute inset-0 w-full h-full object-cover"
-                src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/11.mp4"
+                src="/videos/11.mp4"
                 autoPlay
                 muted
                 playsInline
                 preload="auto"
-                poster="/images/hero-poster.jpg"
+                poster="/images/posters/f2f-raw.jpg"
               />
             </div>
 

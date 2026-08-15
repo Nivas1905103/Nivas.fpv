@@ -21,8 +21,8 @@ export default function Hero() {
         transition={{ duration: 1.5, ease: "easeInOut" }}
       >
         <HeroVideo 
-          src="https://pub-3d5e3982f71a484f82577b7b91b11a62.r2.dev/13.mp4"
-          poster="/images/hero-poster.jpg"
+          src="/videos/13.mp4"
+          poster="/images/posters/hero-13.jpg"
           className="opacity-70 mix-blend-normal"
         />
         {/* Gradient overlay to ensure left-side text is highly readable */}
