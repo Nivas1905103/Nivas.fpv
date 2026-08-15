@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <section className="min-h-screen pt-32 pb-20 bg-[var(--color-bg-primary)]">
+    <section className="min-h-screen pt-28 md:pt-36 pb-20 md:pb-28 bg-[var(--color-bg-primary)]">
       <div className="container-site">
         {/* Header */}
-        <div className="mb-16 md:mb-24 max-w-3xl">
-          <span className="tech-label text-[var(--color-accent)] block mb-4">
+        <div className="mb-10 md:mb-14 lg:mb-16 max-w-3xl">
+          <span className="tech-label text-[var(--color-accent)] block mb-4 md:mb-5">
             Services
           </span>
-          <h1 className="heading-xl mb-6">
+          <h1 className="heading-xl mb-5 md:mb-6">
             What I Do<span className="text-[var(--color-accent)]">.</span>
           </h1>
           <p className="body-lg">
@@ -33,7 +33,7 @@ export default function ServicesPage() {
           {services.map((service, i) => (
             <div
               key={service.slug}
-              className="border-b border-[var(--color-border)] py-12 md:py-16 grid grid-cols-1 lg:grid-cols-3 gap-8"
+              className="border-b border-[var(--color-border)] py-10 md:py-14 grid grid-cols-1 lg:grid-cols-3 gap-8"
             >
               <div className="lg:col-span-1">
                 <span className="tech-label text-[var(--color-accent)] block mb-3">
@@ -68,9 +68,9 @@ export default function ServicesPage() {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 md:mt-24 text-center">
-          <h3 className="heading-lg mb-4">Have a project in mind?</h3>
-          <p className="body-lg mb-8">
+        <div className="mt-12 md:mt-16 text-center">
+          <h3 className="heading-lg mb-4 md:mb-5">Have a project in mind?</h3>
+          <p className="body-lg mb-7 md:mb-8">
             Let&apos;s discuss how FPV cinematography can elevate your
             production.
           </p>

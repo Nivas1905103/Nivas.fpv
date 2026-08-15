@@ -40,7 +40,7 @@ export default function Capabilities() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeInUp}
-          className="mb-16 overflow-hidden"
+          className="mb-10 md:mb-14 overflow-hidden"
         >
           <div className="marquee-container py-6 border-y border-[var(--color-border)] backdrop-blur-sm bg-black/10">
             <div className="marquee-track">
@@ -65,7 +65,7 @@ export default function Capabilities() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerReveal}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 gap-x-6 mt-20"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 md:gap-y-10 gap-x-6 mt-10 md:mt-14"
         >
           {capabilities.map((cap, index) => (
             <div key={cap} className="overflow-hidden">
@@ -88,7 +88,7 @@ export default function Capabilities() {
 
         {/* Technical specs */}
         <motion.div
-          className="mt-20 flex flex-wrap justify-center gap-6 md:gap-10 pt-10 border-t border-white/[0.05]"
+          className="mt-12 md:mt-16 flex flex-wrap justify-center gap-6 md:gap-10 pt-8 md:pt-10 border-t border-white/[0.05]"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}

@@ -115,7 +115,7 @@ export default function Contact() {
           align="center"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 max-w-5xl mx-auto">
           {/* Contact Form */}
           <motion.div
             initial="hidden"

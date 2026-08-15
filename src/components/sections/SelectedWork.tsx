@@ -22,7 +22,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
       id="work"
       className="section-padding bg-[var(--color-bg-secondary)] overflow-hidden"
     >
-      <div className="container-site mb-16 md:mb-24">
+      <div className="container-site">
         <SectionHeading
           label="Portfolio"
           title="Selected Work"
@@ -114,7 +114,7 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
               }
             }
           }}
-          className="w-full max-w-[1920px] mx-auto pt-24 md:pt-32 pb-[60px] px-4 !overflow-visible"
+          className="w-full max-w-[1920px] mx-auto pt-6 md:pt-8 pb-10 px-4 !overflow-visible"
         >
           {projects.map((project, index) => (
             <SwiperSlide key={project.slug} className="w-[85vw] md:w-[55vw] max-w-[1000px] transition-transform duration-500">
@@ -196,12 +196,9 @@ export default function SelectedWork({ projects = featuredProjects }: { projects
         </Swiper>
       </motion.div>
 
-      {/* Explicit Spacer to guarantee physical layout gap */}
-      <div className="h-[80px] md:h-[140px] w-full pointer-events-none" />
-
       {/* View All Work CTA */}
       <motion.div
-        className="text-center pb-12 relative z-20"
+        className="text-center mt-10 md:mt-14 relative z-20"
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}

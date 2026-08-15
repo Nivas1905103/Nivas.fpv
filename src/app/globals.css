@@ -132,7 +132,7 @@ body {
 
 /* --- Section Spacing --- */
 .section-padding {
-  padding-block: clamp(4rem, 10vh, 8rem);
+  padding-block: clamp(4.5rem, 8vw, 8.5rem);
 }
 
 /* --- Typography --- */

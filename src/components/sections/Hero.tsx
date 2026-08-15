@@ -44,7 +44,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col items-start gap-4 mb-6 w-full"
+            className="flex flex-col items-start gap-3 md:gap-4 mb-4 md:mb-5 w-full"
           >
             <span className="tech-label text-[var(--color-text-muted)] leading-relaxed">
               FPV Drone Cinematographer & Video Editor
@@ -58,7 +58,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Main Heading (Aggressive Flolapo Reveal) */}
-          <h1 className="font-heading font-bold uppercase tracking-tighter mb-10 text-[clamp(2rem,8.5vw,8rem)] leading-[1]">
+          <h1 className="font-heading font-bold uppercase tracking-tighter mb-6 md:mb-8 text-[clamp(2rem,8.5vw,8rem)] leading-[1]">
             <span className="block overflow-hidden">
               <motion.span
                 className="block"
@@ -83,7 +83,7 @@ export default function Hero() {
 
           {/* Supporting Text */}
           <motion.p
-            className="body-lg max-w-xl mb-14"
+            className="body-lg max-w-xl mb-8 md:mb-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -93,7 +93,7 @@ export default function Hero() {
 
           {/* CTAs */}
           <motion.div
-            className="flex flex-wrap justify-start gap-6"
+            className="flex flex-wrap justify-start gap-4 md:gap-6"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}

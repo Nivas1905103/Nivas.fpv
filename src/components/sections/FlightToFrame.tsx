@@ -116,7 +116,7 @@ export default function FlightToFrame() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeInUp}
-          className="mb-16 md:mb-24"
+          className="mb-10 md:mb-14"
         >
           <div
             ref={sliderRef}
@@ -205,7 +205,7 @@ export default function FlightToFrame() {
             </div>
           </div>
 
-          <p className="text-center mt-6 md:mt-10 mb-8 md:mb-12 text-xs text-[var(--color-text-muted)] tracking-[0.1em] uppercase">
+          <p className="text-center mt-4 md:mt-5 text-xs text-[var(--color-text-muted)] tracking-[0.1em] uppercase">
             Drag slider to compare raw vs graded footage
           </p>
         </motion.div>

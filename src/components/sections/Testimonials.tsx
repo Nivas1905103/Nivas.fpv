@@ -24,7 +24,7 @@ export default function Testimonials() {
         {/* Client Logos */}
         {hasLogos && (
           <motion.div
-            className="flex flex-wrap justify-center gap-8 md:gap-12 mb-16 md:mb-24"
+            className="flex flex-wrap justify-center gap-6 md:gap-10 mb-10 md:mb-14"
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}

@@ -17,11 +17,11 @@ export default function WorkPage() {
   const totalProjects = allProjects.length;
 
   return (
-    <section className="min-h-screen pt-32 pb-20 bg-[var(--color-bg-primary)]">
+    <section className="min-h-screen pt-28 md:pt-36 pb-20 md:pb-28 bg-[var(--color-bg-primary)]">
       <div className="container-site">
         {/* Header */}
-        <div className="mb-16 md:mb-24">
-          <span className="tech-label text-[var(--color-accent)] block mb-4">
+        <div className="mb-10 md:mb-14 lg:mb-16">
+          <span className="tech-label text-[var(--color-accent)] block mb-4 md:mb-5">
             Portfolio
           </span>
           <h1 className="heading-xl">
@@ -29,7 +29,7 @@ export default function WorkPage() {
             <br />
             Work<span className="text-[var(--color-accent)]">.</span>
           </h1>
-          <p className="body-lg mt-6 max-w-xl">
+          <p className="body-lg mt-5 md:mt-6 max-w-xl">
             FPV drone cinematography and video editing for films, brands, and
             commercial productions.
           </p>

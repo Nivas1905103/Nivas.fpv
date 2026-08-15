@@ -20,14 +20,14 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <motion.div
-      className={`mb-12 md:mb-20 ${align === "center" ? "text-center" : ""}`}
+      className={`mb-10 md:mb-14 lg:mb-16 ${align === "center" ? "text-center" : ""}`}
       initial="hidden"
       whileInView="visible"
       viewport={viewportOnce}
       variants={staggerReveal}
     >
       {label && (
-        <div className="overflow-hidden mb-4">
+        <div className="overflow-hidden mb-4 md:mb-5">
           <motion.span 
             variants={textRevealUp}
             className="tech-label block text-[var(--color-accent)]"
@@ -45,7 +45,7 @@ export default function SectionHeading({
         </motion.h2>
       </div>
       {subtitle && (
-        <div className={`overflow-hidden mt-4 ${subtitleClassName}`}>
+        <div className={`overflow-hidden mt-5 md:mt-6 ${subtitleClassName}`}>
           <motion.p 
             variants={textRevealUp}
             className="body-lg max-w-2xl"

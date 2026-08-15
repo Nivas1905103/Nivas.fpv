@@ -17,7 +17,6 @@ export default function Services() {
           label="Services"
           title="What I Do"
           subtitle="End-to-end FPV cinematography and post-production services for professional commercial work."
-          subtitleClassName="mt-6 md:mt-10"
         />
 
         <motion.div
@@ -25,7 +24,7 @@ export default function Services() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 md:mt-24 items-start"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start"
         >
           {services.map((service, i) => (
             <motion.div
@@ -90,13 +89,13 @@ export default function Services() {
 
         {/* CTA */}
         <motion.div
-          className="mt-12 md:mt-16 text-center"
+          className="mt-10 md:mt-14 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeInUp}
         >
-          <p className="body-lg mb-6">Planning a production?</p>
+          <p className="body-lg mb-7 md:mb-8">Planning a production?</p>
           <Link href="/contact" className="btn-primary">
             Start a Project
             <span>→</span>

@@ -49,18 +49,17 @@ export default function AboutPage() {
           {/* Identity */}
           <div className="lg:col-span-7 flex flex-col justify-center w-full h-auto">
             <div className="w-full h-auto">
-              {/* IDENTITY -> 20px -> Nivas. */}
-              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-5 mt-0">
+              {/* Eyebrow */}
+              <span className="text-xs font-semibold tracking-[0.25em] text-[var(--color-text-muted)] uppercase block mb-4 md:mb-5 mt-0">
                 Identity
               </span>
               
-              {/* Nivas. -> 20-24px -> FPV DRONE... */}
+              {/* Heading */}
               <h1 className="font-heading font-bold text-5xl md:text-7xl lg:text-8xl xl:text-[6rem] tracking-tighter mb-5 md:mb-6 text-[var(--color-text-primary)] leading-[1.1] mt-0">
                 Nivas<span className="text-[var(--color-accent)]">.</span>
               </h1>
               
               <div className="flex flex-col gap-3 md:gap-4 h-auto">
-                {/* Primary role -> Secondary role: 10-14px (handled by flex gap) */}
                 <p className="text-sm md:text-base lg:text-lg font-semibold tracking-[0.15em] uppercase text-[var(--color-text-primary)] m-0 p-0 leading-tight">
                   FPV Drone Cinematographer
                 </p>
@@ -76,19 +75,15 @@ export default function AboutPage() {
           
         </div>
 
-        {/* 2. BACKGROUND & APPROACH (Side-by-Side on Desktop) */}
-        {/* Hero to first major section: 60-80px mobile (mt-16 md:mt-20), 80-120px desktop (lg:mt-28 xl:mt-32) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-14 mt-16 md:mt-20 lg:mt-28 xl:mt-32 w-full h-auto">
+        {/* 2. BACKGROUND & APPROACH */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 mt-12 md:mt-16 lg:mt-20 w-full h-auto">
           
           {/* Left Block: Background */}
-          {/* Card padding: 24-28px mobile (p-6 md:p-7), 32-40px desktop (lg:p-8 xl:p-10) */}
           <div className="bg-[var(--color-bg-secondary)] border border-white/[0.05] rounded-[1rem] p-6 md:p-7 lg:p-8 xl:p-10 w-full shadow-lg h-auto flex flex-col">
-            {/* Heading -> paragraph: 20-24px (mb-5 md:mb-6) */}
-            <h2 className="text-[15px] md:text-[16px] lg:text-[18px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-5 md:mb-6 leading-[1.3] w-full m-0">
+            <h2 className="text-[15px] md:text-[16px] lg:text-[18px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-3 mb-5 md:mb-6 leading-[1.3] w-full m-0">
               01. Background
             </h2>
-            {/* Paragraph -> paragraph: 24-32px (mb-6 md:mb-8) */}
-            <p className="text-[1rem] md:text-[1.05rem] lg:text-[1.15rem] leading-[1.85] text-[var(--color-text-secondary)] font-light mb-6 md:mb-8 mt-0">
+            <p className="text-[1rem] md:text-[1.05rem] lg:text-[1.15rem] leading-[1.85] text-[var(--color-text-secondary)] font-light mb-5 md:mb-6 mt-0">
               Based in India, I create dynamic visual experiences through FPV drone
               cinematography and professional video editing. I work closely with film 
               productions, brands, agencies, and businesses to deliver cinematic aerial 
@@ -103,10 +98,10 @@ export default function AboutPage() {
 
           {/* Right Block: Approach */}
           <div className="bg-[var(--color-bg-secondary)] border border-white/[0.05] rounded-[1rem] p-6 md:p-7 lg:p-8 xl:p-10 w-full shadow-lg h-auto flex flex-col">
-            <h2 className="text-[15px] md:text-[16px] lg:text-[18px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-5 md:mb-6 leading-[1.3] w-full m-0">
+            <h2 className="text-[15px] md:text-[16px] lg:text-[18px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-3 mb-5 md:mb-6 leading-[1.3] w-full m-0">
               02. Approach
             </h2>
-            <p className="text-[1rem] md:text-[1.05rem] lg:text-[1.15rem] leading-[1.85] text-[var(--color-text-secondary)] font-light mb-6 md:mb-8 mt-0">
+            <p className="text-[1rem] md:text-[1.05rem] lg:text-[1.15rem] leading-[1.85] text-[var(--color-text-secondary)] font-light mb-5 md:mb-6 mt-0">
               Every project begins with understanding the core narrative. I combine
               technical piloting precision with a cinematographer&apos;s eye for framing
               and an editor&apos;s sense of pacing. 
@@ -120,17 +115,13 @@ export default function AboutPage() {
           
         </div>
 
-        {/* 3. EXPERTISE (Dedicated Full-Width Section) */}
-        {/* Background/Approach -> Expertise: 64-80px mobile, 80-100px desktop (mt-16 md:mt-20 lg:mt-24 xl:mt-28) */}
-        <div className="mt-16 md:mt-20 lg:mt-24 xl:mt-28 w-full h-auto">
-          {/* Expertise heading -> grid: 24-32px (mb-6 md:mb-8) */}
-          <h2 className="text-[15px] md:text-[16px] lg:text-[18px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-6 md:mb-8 leading-[1.3] w-full m-0">
+        {/* 3. EXPERTISE */}
+        <div className="mt-12 md:mt-16 lg:mt-20 w-full h-auto">
+          <h2 className="text-[15px] md:text-[16px] lg:text-[18px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-3 mb-6 md:mb-8 leading-[1.3] w-full m-0">
             03. Expertise
           </h2>
           
-          {/* Expertise grid: 1 column mobile, 2 columns desktop */}
-          {/* Row gap: 20-28px (gap-y-5 md:gap-y-6), Col gap 40-48px (gap-x-10 md:gap-x-12) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-5 md:gap-y-6 lg:gap-y-7 gap-x-10 md:gap-x-12 w-full h-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-y-5 lg:gap-y-6 gap-x-8 md:gap-x-10 w-full h-auto">
             {[
               "FPV Drone Piloting",
               "Aerial Cinematography",
@@ -153,29 +144,23 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* 4. TECHNICAL ARSENAL (Clean Major Grid) */}
-        {/* Expertise -> Technical Arsenal: 64-80px mobile, 80-100px desktop (mt-16 md:mt-20 lg:mt-24 xl:mt-28) */}
-        <div className="mt-16 md:mt-20 lg:mt-24 xl:mt-28 w-full h-auto">
-          {/* Tech Arsenal heading -> cards: 20-24px (mb-5 md:mb-6) */}
-          <h2 className="text-[15px] md:text-[16px] lg:text-[18px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-4 mb-5 md:mb-6 leading-[1.3] w-full m-0">
+        {/* 4. TECHNICAL ARSENAL */}
+        <div className="mt-12 md:mt-16 lg:mt-20 w-full h-auto">
+          <h2 className="text-[15px] md:text-[16px] lg:text-[18px] font-semibold tracking-[0.18em] uppercase text-[var(--color-text-muted)] border-b border-white/[0.08] pb-3 mb-6 md:mb-8 leading-[1.3] w-full m-0">
             04. Technical Arsenal
           </h2>
           
-          {/* 1 column mobile, 3 desktop */}
-          {/* Gap row/col: 32-40px vert (gap-y-8 md:gap-y-10), 40-48px horiz (gap-x-10 md:gap-x-12) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 md:gap-y-10 gap-x-10 md:gap-x-12 w-full h-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6 md:gap-y-8 gap-x-8 md:gap-x-10 w-full h-auto">
             {gear.map((item) => (
               <div 
                 key={item.name} 
                 className="flex flex-col p-6 md:p-7 lg:p-8 xl:p-9 bg-[var(--color-bg-secondary)] border border-white/[0.05] rounded-[1rem] shadow-lg w-full h-auto"
               >
-                {/* CATEGORY -> 12-16px -> PRODUCT (mb-3 md:mb-4) */}
                 <span className="text-[0.7rem] md:text-[0.75rem] font-medium tracking-[0.15em] uppercase text-[var(--color-text-muted)] block mb-3 md:mb-4 mt-0">
                   {item.category}
                 </span>
                 <div className="h-auto">
-                  {/* PRODUCT -> 10-14px -> DESCRIPTION (mb-3 md:mb-3.5) */}
-                  <span className="text-[1.05rem] md:text-[1.1rem] lg:text-[1.15rem] tracking-wide text-[var(--color-text-primary)] font-medium block mb-3 mt-0">
+                  <span className="text-[1.05rem] md:text-[1.1rem] lg:text-[1.15rem] tracking-wide text-[var(--color-text-primary)] font-medium block mb-2.5 mt-0">
                     {item.name}
                   </span>
                   <p className="text-[0.9rem] md:text-[0.95rem] text-[var(--color-text-secondary)] leading-[1.8] m-0 font-light">
@@ -187,9 +172,8 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* 5. AVAILABILITY (Visually Distinct Dedicated Block) */}
-        {/* Technical -> Availability: 80-120px mobile, 80-120px desktop (mt-20 md:mt-24 lg:mt-28 xl:mt-32) */}
-        <div className="mt-20 md:mt-24 lg:mt-28 xl:mt-32 w-full text-center flex flex-col items-center h-auto">
+        {/* 5. AVAILABILITY */}
+        <div className="mt-14 md:mt-18 lg:mt-20 w-full text-center flex flex-col items-center h-auto">
           {/* Padding: 24-32px mobile, 40-56px desktop (p-6 py-10 md:py-12 lg:py-14) */}
           <div className="w-full bg-gradient-to-b from-white/[0.03] to-transparent border border-white/[0.05] rounded-[1.5rem] md:rounded-[2rem] px-6 md:px-12 py-10 md:py-12 lg:py-14 shadow-2xl flex flex-col items-center h-auto">
             
