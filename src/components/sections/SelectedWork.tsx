@@ -8,7 +8,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import SafeVideo from "@/components/ui/SafeVideo";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';

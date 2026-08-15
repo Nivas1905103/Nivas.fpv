@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import Image from "next/image";
 import HeroVideo from "@/components/ui/HeroVideo";
 
 import Magnetic from "@/components/ui/Magnetic";

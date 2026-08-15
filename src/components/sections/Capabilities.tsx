@@ -224,7 +224,7 @@ export default function Capabilities() {
           className="relative rounded-2xl bg-[#120e0e]/60 backdrop-blur-[16px] border border-white/[0.06] py-4 px-6 overflow-hidden"
         >
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-mono text-white/60 tracking-wider">
-            {telemetrySpecs.map((spec, i) => (
+            {telemetrySpecs.map((spec) => (
               <div key={spec} className="flex items-center gap-3">
                 <span className="text-red-500">◆</span>
                 <span className="hover:text-white transition-colors">{spec}</span>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Services from "@/components/sections/Services";
 
 export const metadata: Metadata = {

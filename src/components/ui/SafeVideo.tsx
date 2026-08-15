@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect, useState, useCallback } from "react";
-import Image from "next/image";
+import React, { useRef, useEffect, useState } from "react";
 
 export interface SafeVideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
   src: string;
@@ -34,34 +33,9 @@ export default function SafeVideo({
   ...restProps
 }: SafeVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [isAutoplayBlocked, setIsAutoplayBlocked] = useState(false);
   const [hasError, setHasError] = useState(false);
-
-  const attemptPlay = useCallback(async () => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    try {
-      video.muted = muted;
-      video.defaultMuted = muted;
-      video.playsInline = playsInline;
-      video.loop = loop;
-
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        await playPromise;
-        setIsPlaying(true);
-        setIsAutoplayBlocked(false);
-        onPlaySuccess?.();
-      }
-    } catch {
-      // Autoplay blocked by browser policy / low-power mode
-      setIsAutoplayBlocked(true);
-      setIsPlaying(false);
-    }
-  }, [muted, playsInline, loop, onPlaySuccess]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -74,16 +48,23 @@ export default function SafeVideo({
     video.loop = loop;
 
     if (autoPlay) {
-      // Check reduced motion preference
       const prefersReducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
       if (!prefersReducedMotion) {
-        attemptPlay();
+        video
+          .play()
+          .then(() => {
+            setIsAutoplayBlocked(false);
+            onPlaySuccess?.();
+          })
+          .catch(() => {
+            setIsAutoplayBlocked(true);
+          });
       }
     }
-  }, [src, autoPlay, muted, playsInline, loop, attemptPlay]);
+  }, [src, autoPlay, muted, playsInline, loop, onPlaySuccess]);
 
   const handleManualPlay = (e: React.MouseEvent | React.TouchEvent) => {
     e.stopPropagation();
@@ -94,8 +75,8 @@ export default function SafeVideo({
     video
       .play()
       .then(() => {
-        setIsPlaying(true);
         setIsAutoplayBlocked(false);
+        onPlaySuccess?.();
       })
       .catch(() => {});
   };
@@ -141,7 +122,6 @@ export default function SafeVideo({
         }}
         onPlaying={() => {
           setIsReady(true);
-          setIsPlaying(true);
           setIsAutoplayBlocked(false);
         }}
         onEnded={(e) => {

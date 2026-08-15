@@ -8,7 +8,6 @@ import About from "@/components/sections/About";
 import Availability from "@/components/sections/Availability";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
-import SectionDivider from "@/components/ui/SectionDivider";
 
 import { client } from "@/sanity/lib/client";
 import { featuredProjects } from "@/data/projects";
@@ -20,7 +19,7 @@ export default async function HomePage() {
     if (sanityProjects && sanityProjects.length > 0) {
       projects = sanityProjects;
     }
-  } catch (e) {
+  } catch {
     console.log("Sanity fetch failed (expected if CMS is not set up), using static data");
   }
 

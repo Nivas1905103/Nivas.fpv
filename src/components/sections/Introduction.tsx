@@ -1,23 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { fadeInUp, staggerContainer, viewportOnce } from "@/lib/animations";
+import { fadeInUp, viewportOnce } from "@/lib/animations";
 import LiquidBackground from "@/components/ui/LiquidBackground";
-
-const pillars = [
-  "FPV Piloting",
-  "Cinematography",
-  "Editing",
-  "Storytelling",
-];
-
-const pipeline = [
-  "Concept",
-  "Flight",
-  "Cinematography",
-  "Editing",
-  "Final Film",
-];
 
 export default function Introduction() {
   return (
