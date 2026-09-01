@@ -7,6 +7,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { fadeInUp, viewportOnce } from "@/lib/animations";
 import { siteConfig } from "@/data/siteConfig";
+import { useLanguage } from "@/context/LanguageContext";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Please provide your name or organization"),
@@ -47,6 +48,7 @@ const budgetRanges = [
 ];
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
 
@@ -165,7 +167,7 @@ export default function Contact() {
           {/* Eyebrow Pill */}
           <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono tracking-[0.2em] uppercase mb-5 shadow-[0_0_25px_rgba(229,9,20,0.15)]">
             <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-            <span>Contact & Inquiries</span>
+            <span>{t.contactEyebrow}</span>
           </div>
 
           {/* Main Fluid Heading */}
@@ -178,8 +180,7 @@ export default function Contact() {
 
           {/* Concise Subheading */}
           <p className="text-base sm:text-lg md:text-xl text-[var(--color-text-secondary)] font-light max-w-2xl leading-relaxed">
-            Have a commercial film, brand campaign, automotive tracking sequence, or
-            property walkthrough that demands a dynamic aerial perspective?
+            {t.contactSubtitle}
           </p>
         </motion.div>
 

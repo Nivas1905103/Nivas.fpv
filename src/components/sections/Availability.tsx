@@ -14,8 +14,13 @@ const cityCoordinates: Record<string, { x: number; y: number; tag?: string }> = 
   Goa: { x: 32, y: 68, tag: "COASTAL" },
   Hyderabad: { x: 48, y: 56, tag: "CENTRAL" },
   Bengaluru: { x: 45, y: 72, tag: "SOUTH" },
-  Chennai: { x: 54, y: 74, tag: "SOUTH" },
-  Coimbatore: { x: 42, y: 80, tag: "SOUTH" },
+  Chennai: { x: 54, y: 74, tag: "TAMIL NADU" },
+  Salem: { x: 47, y: 77, tag: "TAMIL NADU" },
+  Coimbatore: { x: 42, y: 80, tag: "TAMIL NADU" },
+  Tirupur: { x: 44, y: 80, tag: "TAMIL NADU" },
+  Trichy: { x: 49, y: 81, tag: "TAMIL NADU" },
+  Madurai: { x: 47, y: 84, tag: "TAMIL NADU" },
+  Theni: { x: 43, y: 84, tag: "TAMIL NADU" },
   Kerala: { x: 40, y: 86, tag: "SOUTH" },
 };
 
@@ -182,6 +187,16 @@ export default function Availability() {
                   className="opacity-70"
                 />
 
+                {/* Tamil Nadu Regional Flight Corridor */}
+                <path
+                  d="M 54 74 L 47 77 L 49 81 L 47 84 L 43 84 L 42 80 L 44 80 Z"
+                  fill="none"
+                  stroke="url(#routeGrad)"
+                  strokeWidth="0.5"
+                  strokeDasharray="1 1"
+                  className="opacity-80"
+                />
+
                 {/* City Nodes & Pulse Beacons */}
                 {siteConfig.cities.map((city) => {
                   const pos = cityCoordinates[city];
@@ -293,20 +308,41 @@ export default function Availability() {
             {/* Quick Hubs Grid */}
             <motion.div
               variants={fadeInUp}
-              className="rounded-2xl bg-[#120e0e]/60 backdrop-blur-[16px] border border-white/[0.06] p-5"
+              className="rounded-2xl bg-[#120e0e]/60 backdrop-blur-[16px] border border-white/[0.06] p-5 space-y-4"
             >
-              <span className="font-mono text-[10px] uppercase tracking-widest text-red-400/90 block mb-3">
-                PRIMARY TRAVEL DESTINATIONS
-              </span>
-              <div className="flex flex-wrap gap-1.5">
-                {siteConfig.cities.map((city) => (
-                  <span
-                    key={city}
-                    className="px-2.5 py-1 rounded-md bg-white/[0.02] border border-white/[0.06] text-xs font-mono text-white/80 hover:text-white hover:border-red-500/30 transition-colors"
-                  >
-                    {city}
-                  </span>
-                ))}
+              <div>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-red-400/90 block mb-2 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
+                  TAMIL NADU REGIONAL HUBS
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {["Coimbatore", "Chennai", "Madurai", "Trichy", "Salem", "Theni", "Tirupur"].map((city) => (
+                    <span
+                      key={city}
+                      className="px-2.5 py-1 rounded-md bg-red-500/10 border border-red-500/25 text-xs font-mono text-white hover:border-red-400 transition-colors"
+                    >
+                      {city}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-2 border-t border-white/[0.05]">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-white/50 block mb-2">
+                  PAN-INDIA TRAVEL HUBS
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {siteConfig.cities
+                    .filter((city) => !["Coimbatore", "Chennai", "Madurai", "Trichy", "Salem", "Theni", "Tirupur"].includes(city))
+                    .map((city) => (
+                      <span
+                        key={city}
+                        className="px-2.5 py-1 rounded-md bg-white/[0.02] border border-white/[0.06] text-xs font-mono text-white/80 hover:text-white hover:border-red-500/30 transition-colors"
+                      >
+                        {city}
+                      </span>
+                    ))}
+                </div>
               </div>
             </motion.div>
           </motion.div>

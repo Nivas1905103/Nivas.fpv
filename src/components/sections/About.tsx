@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { fadeInUp, viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/context/LanguageContext";
 
 function HomePortraitCard() {
   return (
@@ -45,6 +46,8 @@ function HomePortraitCard() {
 }
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="relative pt-16 pb-16 md:pt-24 md:pb-24 bg-[#050505] overflow-hidden">
       {/* ═══════════════════════════════════════════════════
@@ -85,24 +88,17 @@ export default function About() {
             {/* Eyebrow Status Badge */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono tracking-[0.2em] uppercase mb-5 shadow-[0_0_20px_rgba(229,9,20,0.15)]">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-              <span>About / 01</span>
+              <span>{t.aboutEyebrow}</span>
             </div>
 
             {/* Main Headline */}
             <h2 className="font-heading font-bold uppercase tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] text-white mb-5">
-              Nivas
-              <span className="text-[var(--color-accent)] drop-shadow-[0_0_35px_rgba(229,9,20,0.5)]">
-                .
-              </span>
+              {t.aboutTitle}
             </h2>
 
             {/* Supporting Identity Line */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-6 font-mono text-xs sm:text-sm uppercase tracking-wider text-red-400/90 font-medium">
-              <span>FPV Drone Cinematographer</span>
-              <span className="text-white/30">•</span>
-              <span>Editor</span>
-              <span className="text-white/30">•</span>
-              <span>Visual Storyteller</span>
+              <span>{t.aboutRoleBadge}</span>
             </div>
 
             {/* Mobile Portrait (Positioned right after Identity on mobile, hidden on desktop) */}
@@ -112,10 +108,7 @@ export default function About() {
 
             {/* Confident Statement */}
             <p className="text-base sm:text-lg md:text-xl text-[var(--color-text-secondary)] font-light leading-relaxed mb-8 max-w-2xl">
-              Merging high-speed aviation discipline with visceral cinematic
-              storytelling. Based in India, I create physical camera movement that
-              conventional cameras, cranes, and standard drones cannot replicate—elevating
-              commercial films, brand campaigns, and architectural walkthroughs.
+              {t.aboutBio}
             </p>
 
             {/* Technical Specs Bar */}
@@ -125,7 +118,7 @@ export default function About() {
                   Role
                 </span>
                 <span className="font-mono text-xs sm:text-sm font-semibold text-white mt-1 block">
-                  Cinematographer
+                  {t.aboutSpecsRole}
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-[#120e0e]/60 backdrop-blur-md border border-white/[0.06]">
@@ -133,7 +126,7 @@ export default function About() {
                   Location
                 </span>
                 <span className="font-mono text-xs sm:text-sm font-semibold text-white mt-1 block">
-                  India (IST)
+                  {t.aboutSpecsLocation}
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-[#120e0e]/60 backdrop-blur-md border border-white/[0.06]">
@@ -141,7 +134,7 @@ export default function About() {
                   Delivery
                 </span>
                 <span className="font-mono text-xs sm:text-sm font-semibold text-white mt-1 block">
-                  4K Master / Raw
+                  {t.aboutSpecsDelivery}
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-[#120e0e]/60 backdrop-blur-md border border-white/[0.06]">
@@ -149,7 +142,7 @@ export default function About() {
                   Mobility
                 </span>
                 <span className="font-mono text-xs sm:text-sm font-semibold text-white mt-1 block">
-                  Nationwide
+                  {t.aboutSpecsMobility}
                 </span>
               </div>
             </div>

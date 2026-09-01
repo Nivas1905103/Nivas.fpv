@@ -5,8 +5,11 @@ import Link from "next/link";
 import SafeVideo from "@/components/ui/SafeVideo";
 import Magnetic from "@/components/ui/Magnetic";
 import { fadeInUp } from "@/lib/animations";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="hero"
@@ -125,20 +128,20 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#120e0e]/75 backdrop-blur-md border border-white/[0.08] shadow-[0_5px_15px_rgba(0,0,0,0.5)]">
               <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_10px_rgba(229,9,20,0.8)]" />
               <span className="font-mono text-[11px] sm:text-xs uppercase tracking-wider text-white/80">
-                FPV Drone Cinematographer &amp; Editor
+                {t.heroRole}
               </span>
             </div>
 
             {/* DGCA Verified Pill */}
             <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/25 text-red-400 font-mono text-[11px] sm:text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(229,9,20,0.15)]">
               <span className="text-red-400 font-bold">✓</span>
-              <span>DGCA Approved Pilot in India</span>
+              <span>{t.heroBadgeDgca}</span>
             </div>
 
             {/* Nationwide Availability Badge */}
             <div className="hidden md:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-white/60 font-mono text-xs uppercase tracking-wider">
               <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
-              <span>Available for Projects Across India</span>
+              <span>{t.heroBadgePanIndia}</span>
             </div>
           </motion.div>
 
@@ -151,13 +154,10 @@ export default function Hero() {
           >
             <h1 className="font-heading font-bold uppercase tracking-tight leading-[0.92] text-white">
               <span className="block text-[clamp(2.2rem,6.8vw,5.8rem)] text-white drop-shadow-[0_4px_25px_rgba(0,0,0,0.9)] tracking-tight">
-                FPV DRONE
+                {t.heroTitle1}
               </span>
               <span className="block text-[clamp(1.75rem,5.3vw,4.75rem)] tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-red-100 to-[var(--color-accent)] drop-shadow-[0_0_40px_rgba(229,9,20,0.4)] whitespace-nowrap">
-                CINEMATOGRAPHY
-                <span className="text-[var(--color-accent)] drop-shadow-[0_0_35px_rgba(229,9,20,0.8)]">
-                  .
-                </span>
+                {t.heroTitle2}
               </span>
             </h1>
           </motion.div>
@@ -169,9 +169,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="text-sm sm:text-base md:text-lg text-[var(--color-text-secondary)] font-light leading-relaxed max-w-2xl"
           >
-            High-speed perspectives, 6-axis dynamic camera movement, and
-            precision manual flight crafted for commercial films, automotive
-            campaigns, luxury architecture, and brand experiences.
+            {t.heroSubtitle}
           </motion.p>
 
           {/* Action CTAs & Telemetry Strip */}
@@ -186,7 +184,7 @@ export default function Hero() {
                 href="/work"
                 className="group relative inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-gradient-to-r from-red-600 via-[var(--color-accent)] to-red-600 hover:from-red-500 hover:to-red-500 text-white font-semibold text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_5px_25px_rgba(229,9,20,0.4),inset_0_1px_0_rgba(255,255,255,0.2)] hover:shadow-[0_8px_35px_rgba(229,9,20,0.6)] active:scale-[0.98]"
               >
-                <span>View My Work</span>
+                <span>{t.heroCtaWork}</span>
                 <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">
                   →
                 </span>
@@ -198,7 +196,7 @@ export default function Hero() {
                 href="/contact"
                 className="group inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl bg-[#120e0e]/75 hover:bg-[#181111] backdrop-blur-md border border-white/10 hover:border-red-500/40 text-white font-semibold text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_5px_20px_rgba(0,0,0,0.5)] active:scale-[0.98]"
               >
-                <span>Book a Project</span>
+                <span>{t.heroCtaContact}</span>
                 <span className="text-red-400 group-hover:text-white transition-colors">
                   →
                 </span>
@@ -208,7 +206,7 @@ export default function Hero() {
             {/* Mobile-Only Available Badge */}
             <div className="flex md:hidden items-center justify-center gap-2 py-1.5 text-center text-xs font-mono text-white/50">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-              <span>Available Across India</span>
+              <span>{t.heroBadgePanIndia}</span>
             </div>
           </motion.div>
 

@@ -6,8 +6,10 @@ import { motion, AnimatePresence } from "motion/react";
 import { siteConfig } from "@/data/siteConfig";
 
 import Magnetic from "@/components/ui/Magnetic";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
+  const { language, toggleLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -64,13 +66,25 @@ export default function Navbar() {
                 </Link>
               </Magnetic>
             ))}
+            {/* Language Switcher */}
+            <button
+              onClick={toggleLanguage}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] hover:border-red-500/40 text-xs font-mono tracking-wider text-white/80 hover:text-white transition-all duration-300"
+              aria-label="Toggle language between English and Tamil"
+              title="Toggle English / தமிழ்"
+            >
+              <span className={language === "en" ? "text-red-400 font-bold" : "text-white/40"}>EN</span>
+              <span className="text-white/20">/</span>
+              <span className={language === "ta" ? "text-red-400 font-bold" : "text-white/40"}>தமிழ்</span>
+            </button>
+
             <Magnetic strength={0.3}>
               <Link
                 href="/contact"
                 className="btn-primary text-[0.6875rem] py-2.5 px-5"
                 data-cursor="BOOK"
               >
-                Book a Project
+                {t.navBook}
                 <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
@@ -157,14 +171,24 @@ export default function Navbar() {
                   delay: 0.4,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="mt-4"
+                className="mt-4 flex flex-col items-center gap-4"
               >
+                <button
+                  onClick={toggleLanguage}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.05] border border-white/15 text-sm font-mono tracking-wider text-white"
+                  aria-label="Toggle language between English and Tamil"
+                >
+                  <span className={language === "en" ? "text-red-400 font-bold" : "text-white/50"}>ENGLISH</span>
+                  <span className="text-white/20">/</span>
+                  <span className={language === "ta" ? "text-red-400 font-bold" : "text-white/50"}>தமிழ்</span>
+                </button>
+
                 <Link
                   href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="btn-primary"
                 >
-                  Book a Project →
+                  {t.navBook} →
                 </Link>
               </motion.div>
             </nav>
