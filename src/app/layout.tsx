@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/layout/CustomCursor";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import { LanguageProvider } from "@/context/LanguageContext";
 import { siteConfig } from "@/data/siteConfig";
 
 const spaceGrotesk = Space_Grotesk({
@@ -81,6 +82,7 @@ const jsonLd = {
       name: siteConfig.name,
       description: siteConfig.description,
       publisher: { "@id": `${siteConfig.url}/#person` },
+      inLanguage: ["en-IN", "ta-IN"],
     },
     {
       "@type": "Person",
@@ -89,33 +91,51 @@ const jsonLd = {
       url: siteConfig.url,
       jobTitle: "FPV Drone Cinematographer & Video Editor",
       description:
-        "Professional FPV drone cinematographer and video editor specializing in commercial films, brand campaigns, real estate, automotive, and travel cinematography across India.",
+        "Professional FPV drone cinematographer and video editor specializing in commercial films, brand campaigns, luxury real estate, weddings, automotive, and travel cinematography across Tamil Nadu and India.",
       knowsAbout: [
         "FPV Drone Cinematography",
         "Video Editing",
         "Color Grading",
         "Aerial Cinematography",
         "Commercial Filmmaking",
+        "Real Estate Walkthroughs",
       ],
       sameAs: [siteConfig.instagramUrl],
     },
     {
-      "@type": "ProfessionalService",
+      "@type": ["ProfessionalService", "LocalBusiness"],
       "@id": `${siteConfig.url}/#service`,
       name: siteConfig.name,
       description: siteConfig.description,
       url: siteConfig.url,
+      image: `${siteConfig.url}/images/og/og-default.jpg`,
+      email: siteConfig.email,
+      priceRange: "$$",
       provider: { "@id": `${siteConfig.url}/#person` },
-      areaServed: {
-        "@type": "Country",
-        name: "India",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "Tamil Nadu",
+        addressCountry: "IN",
       },
+      areaServed: [
+        { "@type": "AdministrativeArea", name: "Tamil Nadu" },
+        { "@type": "City", name: "Coimbatore" },
+        { "@type": "City", name: "Chennai" },
+        { "@type": "City", name: "Madurai" },
+        { "@type": "City", name: "Trichy" },
+        { "@type": "City", name: "Salem" },
+        { "@type": "City", name: "Theni" },
+        { "@type": "City", name: "Tirupur" },
+        { "@type": "Country", name: "India" },
+      ],
+      sameAs: [siteConfig.instagramUrl],
       serviceType: [
         "FPV Drone Cinematography",
         "Aerial Cinematography",
         "Video Editing",
         "Commercial Filming",
         "Real Estate Cinematography",
+        "Wedding Cinematography",
         "Automotive Cinematography",
       ],
     },
@@ -140,15 +160,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
 
-        <CustomCursor />
-        <ScrollProgress />
-        <SmoothScroll>
-          <Navbar />
+        <LanguageProvider>
+          <CustomCursor />
+          <ScrollProgress />
+          <SmoothScroll>
+            <Navbar />
 
-          <main id="main-content">{children}</main>
+            <main id="main-content">{children}</main>
 
-          <Footer />
-        </SmoothScroll>
+            <Footer />
+          </SmoothScroll>
+        </LanguageProvider>
       </body>
     </html>
   );

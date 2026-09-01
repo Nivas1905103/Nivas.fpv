@@ -5,10 +5,10 @@
 
 export const siteConfig = {
   name: "NIVAS.FPV",
-  title: "NIVAS.FPV — FPV Drone Cinematographer & Video Editor | India",
+  title: "NIVAS.FPV — FPV Drone Cinematographer & Video Editor | Tamil Nadu & India",
   description:
-    "Professional FPV drone cinematography and video editing for films, brands, commercials, real estate, automotive, and events across India. High-speed aerial perspectives that move stories forward.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://nivas.fpv",
+    "Professional FPV drone cinematography and video editing for films, commercials, real estate, automotive, and weddings across Tamil Nadu (Coimbatore, Chennai, Madurai, Trichy, Salem, Theni, Tirupur) and India nationwide. High-speed aerial perspectives that move stories forward.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://nivasfpv.in",
   ogImage: "/images/og/og-default.jpg",
 
   // Contact
@@ -20,8 +20,8 @@ export const siteConfig = {
   tagline: "I don't just fly drones. I create perspectives.",
   shortTagline: "High-speed perspectives for films, brands and experiences.",
   role: "FPV Drone Cinematographer & Video Editor",
-  location: "India",
-  availability: "Available for projects across India",
+  location: "Tamil Nadu, India",
+  availability: "Available for projects across Tamil Nadu & India",
 
   // Navigation
   navLinks: [
@@ -45,11 +45,16 @@ export const siteConfig = {
     },
   ],
 
-  // Cities available for work
+  // Cities available for work (Tamil Nadu priority hubs + Pan-India)
   cities: [
-    "Chennai",
-    "Bengaluru",
     "Coimbatore",
+    "Chennai",
+    "Madurai",
+    "Trichy",
+    "Salem",
+    "Theni",
+    "Tirupur",
+    "Bengaluru",
     "Hyderabad",
     "Mumbai",
     "Pune",
@@ -59,8 +64,16 @@ export const siteConfig = {
     "Rajasthan",
   ],
 
-  // SEO keywords (used in metadata, not stuffed)
+  // SEO keywords (Tamil Nadu local search + Pan-India)
   keywords: [
+    "FPV drone pilot Coimbatore",
+    "FPV drone cinematographer Chennai",
+    "aerial cinematography Tamil Nadu",
+    "drone videographer Madurai",
+    "FPV drone pilot Trichy",
+    "drone filming Salem",
+    "FPV drone pilot Theni",
+    "FPV videographer Tirupur",
     "FPV drone cinematographer India",
     "FPV drone pilot India",
     "FPV aerial cinematography",
@@ -69,6 +82,8 @@ export const siteConfig = {
     "commercial drone cinematography",
     "FPV drone videographer",
     "cinematic FPV drone",
+    "wedding drone cinematography Theni",
+    "real estate FPV drone Tamil Nadu",
   ],
 } as const;
 
