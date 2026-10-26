@@ -35,7 +35,7 @@ export default function ProjectHero({
         ) : poster ? (
           <Image
             src={poster}
-            alt={title}
+            alt={`${title} - ${category} drone filming by NIVAS.FPV`}
             fill
             priority
             className="object-cover opacity-100"

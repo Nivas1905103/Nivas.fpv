@@ -52,7 +52,7 @@ export const projects: Project[] = [
     slug: "chase-the-moment",
     category: "Automotive",
     client: "Suzuki India", 
-    location: "",
+    location: "India",
     year: "2026",
     description:
       "High-speed FPV tracking sequence capturing the Suzuki Jimny's raw off-road energy through dynamic aerial perspectives.",
@@ -61,6 +61,7 @@ export const projects: Project[] = [
     role: "FPV Pilot / Cinematographer / Editor",
     services: [
       "FPV Cinematography",
+      "Automotive Tracking",
       "Aerial Cinematography",
       "Video Editing",
       "Color Grading",
@@ -141,7 +142,7 @@ export const projects: Project[] = [
     role: "FPV Pilot / Cinematographer / Editor",
     services: [
       "FPV Cinematography",
-      "Wedding Film",
+      "Wedding Drone Videography",
       "Aerial Cinematography",
       "Video Editing",
       "Color Grading",
@@ -162,13 +163,14 @@ export const projects: Project[] = [
     location: "Theni, India",
     year: "2026",
     description:
-      "A dynamic real estate commercial showcasing the massive scale and architectural intricacies of GBM Construction's upcoming developments.",
+      "A dynamic real estate commercial showcasing the massive scale and architectural intricacies of GBM Construction's upcoming developments in Theni.",
     brief:
-      "GBM Construction wanted a cinematic way to showcase their expansive new property developments. Using FPV drones, we provided unique aerial perspectives that highlight the scale of the construction, diving through tight spaces and soaring over the structures to deliver a powerful, high-energy real estate commercial.",
+      "GBM Construction wanted a cinematic way to showcase their expansive new property developments. Using FPV drones and high-resolution camera angles, we provided unique aerial perspectives that highlight the scale of the construction, diving through tight spaces and soaring over the structures to deliver a powerful, high-energy real estate commercial.",
     role: "FPV Pilot / Cinematographer / Editor",
     services: [
       "FPV Cinematography",
-      "Real Estate Film",
+      "Real Estate Drone Filming",
+      "Commercial Drone Filming",
       "Aerial Cinematography",
       "Video Editing",
       "Color Grading",

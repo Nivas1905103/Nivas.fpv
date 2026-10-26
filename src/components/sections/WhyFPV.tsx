@@ -239,11 +239,11 @@ export default function WhyFPV() {
               </span>
             </h2>
 
-            {/* Core Value Statement */}
             <p className="text-base sm:text-lg md:text-xl text-[var(--color-text-secondary)] font-light leading-relaxed mb-8 max-w-2xl">
-              FPV creates physical camera movement that conventional tripods, cranes,
-              cable-cams, and GPS-locked drones cannot replicate. It transforms the
-              camera from a passive observer into an agile, immersive narrative force.
+              FPV creates dynamic physical camera movement that conventional tripods, cranes,
+              and standard cable systems cannot replicate. Paired with cinematic camera-drone platforms
+              like the DJI Air 3 for wide establishing perspectives, it transforms aerial cinematography
+              into an agile, immersive narrative force.
             </p>
 
             {/* Technical Spec Telemetry Bar */}

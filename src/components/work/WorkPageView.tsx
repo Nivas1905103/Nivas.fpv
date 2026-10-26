@@ -50,6 +50,7 @@ function WorkProjectCard({
                 <SafeVideo
                   src={project.heroVideo}
                   poster={project.poster}
+                  alt={`${project.title} - ${project.category} drone filming video preview by NIVAS.FPV`}
                   autoPlay={true}
                   loop={true}
                   muted={true}
@@ -61,7 +62,7 @@ function WorkProjectCard({
               ) : project.poster ? (
                 <Image
                   src={project.poster}
-                  alt={project.title}
+                  alt={`${project.title} - ${project.category} aerial drone videography in ${project.location || "Tamil Nadu"} by NIVAS.FPV`}
                   fill
                   priority
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
@@ -179,6 +180,7 @@ function WorkProjectCard({
             <SafeVideo
               src={project.heroVideo}
               poster={project.poster}
+              alt={`${project.title} - ${project.category} drone filming video preview by NIVAS.FPV`}
               autoPlay={true}
               loop={true}
               muted={true}
@@ -190,7 +192,7 @@ function WorkProjectCard({
           ) : project.poster ? (
             <Image
               src={project.poster}
-              alt={project.title}
+              alt={`${project.title} - ${project.category} drone filming in ${project.location || "Tamil Nadu"} by NIVAS.FPV`}
               fill
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               sizes="(max-width: 1024px) 100vw, 50vw"

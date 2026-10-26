@@ -123,7 +123,7 @@ export default function ServingTamilNadu() {
                 <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-6 bg-black">
                   <Image
                     src={project.poster}
-                    alt={project.title}
+                    alt={`${project.title} - ${project.category} drone filming in ${project.location} by NIVAS.FPV`}
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"

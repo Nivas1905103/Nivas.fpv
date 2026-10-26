@@ -5,23 +5,23 @@
 
 export const siteConfig = {
   name: "NIVAS.FPV",
-  title: "NIVAS.FPV — FPV Drone Cinematographer & Video Editor | Tamil Nadu & India",
+  title: "NIVAS.FPV | Drone Pilot & Aerial Cinematography in Theni",
   description:
-    "Professional FPV drone cinematography and video editing for films, commercials, real estate, automotive, and weddings across Tamil Nadu (Coimbatore, Chennai, Madurai, Trichy, Salem, Theni, Tirupur) and India nationwide. High-speed aerial perspectives that move stories forward.",
+    "NIVAS.FPV offers cinematic drone filming in Theni, Tamil Nadu, including aerial cinematography, camera-drone footage, FPV filming and commercial video production. Explore the portfolio and enquire about your shoot.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://nivasfpv.in",
   ogImage: "/images/og/og-default.jpg",
 
   // Contact
   email: process.env.NEXT_PUBLIC_EMAIL || "nivas.fpv@gmail.com",
   instagram: process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE || "nivas.fpv",
-  instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/nivas.fpv?igsh=MTJxNXE1amRuZ2Z0Mw%3D%3D&utm_source=qr",
+  instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/nivas.fpv/",
 
   // Brand
   tagline: "I don't just fly drones. I create perspectives.",
-  shortTagline: "High-speed perspectives for films, brands and experiences.",
-  role: "FPV Drone Cinematographer & Video Editor",
-  location: "Tamil Nadu, India",
-  availability: "Available for projects across Tamil Nadu & India",
+  shortTagline: "Cinematic drone filming & aerial cinematography in Theni, Tamil Nadu.",
+  role: "Certified Drone Pilot & Aerial Cinematographer",
+  location: "Theni, Tamil Nadu, India",
+  availability: "Based in Theni • Available for projects across Tamil Nadu & India",
 
   // Navigation
   navLinks: [
@@ -35,7 +35,7 @@ export const siteConfig = {
   socialLinks: [
     {
       label: "Instagram",
-      href: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/nivas.fpv?igsh=MTJxNXE1amRuZ2Z0Mw%3D%3D&utm_source=qr",
+      href: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/nivas.fpv/",
       icon: "instagram",
     },
     {
@@ -45,14 +45,14 @@ export const siteConfig = {
     },
   ],
 
-  // Cities available for work (Tamil Nadu priority hubs + Pan-India)
+  // Cities available for work (Theni base + Tamil Nadu priority hubs + Pan-India)
   cities: [
+    "Theni",
+    "Madurai",
     "Coimbatore",
     "Chennai",
-    "Madurai",
     "Trichy",
     "Salem",
-    "Theni",
     "Tirupur",
     "Bengaluru",
     "Hyderabad",
@@ -64,26 +64,35 @@ export const siteConfig = {
     "Rajasthan",
   ],
 
-  // SEO keywords (Tamil Nadu local search + Pan-India)
+  // SEO keywords (Theni local searches + Tamil Nadu + Pan-India)
   keywords: [
+    "Drone pilot in Theni",
+    "Drone pilots in Theni",
+    "Drone services in Theni",
+    "Drone videography in Theni",
+    "Drone photography in Theni",
+    "Drone filming in Theni",
+    "Cinematic drone videography in Theni",
+    "Aerial cinematography in Theni",
+    "FPV drone pilot in Theni",
+    "FPV drone filming in Tamil Nadu",
+    "Commercial drone filming in Tamil Nadu",
+    "Real estate drone filming in Theni",
+    "Certified remote pilot in Theni",
+    "DJI Air 3 drone filming Theni",
+    "Camera drone pilot Tamil Nadu",
+    "Wedding drone cinematography Theni",
+    "Drone videographer Madurai",
     "FPV drone pilot Coimbatore",
     "FPV drone cinematographer Chennai",
-    "aerial cinematography Tamil Nadu",
-    "drone videographer Madurai",
+    "Drone filming Salem",
     "FPV drone pilot Trichy",
-    "drone filming Salem",
-    "FPV drone pilot Theni",
     "FPV videographer Tirupur",
     "FPV drone cinematographer India",
     "FPV drone pilot India",
-    "FPV aerial cinematography",
-    "drone cinematography India",
-    "FPV drone filming",
-    "commercial drone cinematography",
-    "FPV drone videographer",
-    "cinematic FPV drone",
-    "wedding drone cinematography Theni",
-    "real estate FPV drone Tamil Nadu",
+    "Drone cinematography India",
+    "Commercial drone cinematography",
+    "Cinematic FPV drone",
   ],
 } as const;
 

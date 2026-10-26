@@ -159,6 +159,11 @@ const expertiseList = [
 ];
 
 const gearSpecs: Record<string, { badge: string; spec: string; status: string }> = {
+  "DJI Air 3": {
+    badge: "CAMERA DRONE",
+    spec: "Dual-Camera 4K HDR & Telephoto",
+    status: "ACTIVE DEPLOYMENT",
+  },
   "DJI Avata 2": {
     badge: "FPV PLATFORM",
     spec: "Ultra-Agile Cinematic Platform",
@@ -196,7 +201,7 @@ function PortraitCard() {
       <div className="aspect-[4/5] relative w-full rounded-[1.5rem] overflow-hidden bg-black">
         <Image
           src="/images/about/nivas-fpv-enhanced.jpg"
-          alt="Nivas - FPV Drone Cinematographer"
+          alt="Nivas - DGCA Certified Remote Drone Pilot & Aerial Cinematographer in Theni, Tamil Nadu"
           fill
           priority
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
@@ -288,11 +293,11 @@ export default function AboutPageView() {
 
             {/* Supporting Identity Line */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-6 font-mono text-xs sm:text-sm uppercase tracking-wider text-red-400/90 font-medium">
-              <span>FPV Drone Cinematographer</span>
+              <span>Certified Drone Pilot</span>
               <span className="text-white/30">•</span>
-              <span>Editor</span>
+              <span>Aerial Cinematographer</span>
               <span className="text-white/30">•</span>
-              <span>Visual Storyteller</span>
+              <span>Video Editor</span>
             </div>
 
             {/* Mobile Portrait (Positioned right after Identity on mobile, hidden on desktop) */}
@@ -302,10 +307,10 @@ export default function AboutPageView() {
 
             {/* Confident Personal Statement */}
             <p className="text-base sm:text-lg md:text-xl text-[var(--color-text-secondary)] font-light leading-relaxed mb-8 max-w-2xl">
-              Merging high-speed aviation discipline with visceral cinematic
-              storytelling. Based in India, I create physical camera movement that
-              conventional cameras, cranes, and standard drones cannot replicate—elevating
-              commercial films, brand campaigns, and architectural walkthroughs.
+              DGCA-certified remote drone pilot and aerial cinematographer based in Theni,
+              Tamil Nadu. Merging aviation discipline with cinematic storytelling, I deliver dynamic
+              camera-drone filming, DJI Air 3 aerial footage, and high-speed FPV cinematography across
+              Tamil Nadu and India—elevating commercial films, brand campaigns, real estate, and architectural projects.
             </p>
 
             {/* Technical Specs Bar */}
@@ -315,7 +320,7 @@ export default function AboutPageView() {
                   Role
                 </span>
                 <span className="font-mono text-xs sm:text-sm font-semibold text-white mt-1 block">
-                  Cinematographer
+                  Drone Pilot &amp; Editor
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-[#120e0e]/60 backdrop-blur-md border border-white/[0.06]">
@@ -323,7 +328,7 @@ export default function AboutPageView() {
                   Location
                 </span>
                 <span className="font-mono text-xs sm:text-sm font-semibold text-white mt-1 block">
-                  India (IST)
+                  Theni, Tamil Nadu
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-[#120e0e]/60 backdrop-blur-md border border-white/[0.06]">
@@ -339,7 +344,7 @@ export default function AboutPageView() {
                   Mobility
                 </span>
                 <span className="font-mono text-xs sm:text-sm font-semibold text-white mt-1 block">
-                  Nationwide
+                  Pan-India Ready
                 </span>
               </div>
             </div>
@@ -406,17 +411,17 @@ export default function AboutPageView() {
                   </h2>
 
                   <p className="text-base sm:text-lg text-[var(--color-text-secondary)] font-light leading-relaxed mb-5">
-                    Based in India, I create dynamic, unconstrained visual experiences through
-                    specialized FPV drone cinematography and professional video editing. I collaborate
+                    Based in Theni, Tamil Nadu, I provide cinematic aerial filming, camera-drone videography,
+                    and specialized FPV cinematography alongside professional video editing. I collaborate
                     closely with film productions, commercial brands, creative agencies, and
-                    architectural studios to craft aerial camera movements that elevate narratives.
+                    architectural studios across Tamil Nadu and India to craft aerial camera movements that elevate narratives.
                   </p>
 
                   <p className="text-base sm:text-lg text-[var(--color-text-secondary)] font-light leading-relaxed mb-5">
                     My journey began at the intersection of aviation mechanics and visual
                     storytelling. Over years of disciplined piloting, I unified both worlds—transforming
-                    custom FPV quadcopters from mere flying sensors into precise, emotive instruments
-                    for world-class filmmaking.
+                    high-performance camera drones including the DJI Air 3 and custom FPV quadcopters
+                    into precise, emotive instruments for world-class filmmaking.
                   </p>
 
                   <p className="text-base sm:text-lg text-[var(--color-text-secondary)] font-light leading-relaxed">
@@ -429,7 +434,7 @@ export default function AboutPageView() {
                 <div className="mt-8 pt-6 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[var(--color-text-muted)]">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-red-500" />
-                    <span>OPERATIONAL SCOPE: PAN-INDIA</span>
+                    <span>BASE: THENI, TAMIL NADU • PAN-INDIA</span>
                   </div>
                   <div className="text-white/60">
                     NARRATIVE-FIRST CAMERAWORK
@@ -442,15 +447,15 @@ export default function AboutPageView() {
                 <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.07] hover:border-red-500/30 transition-colors">
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-mono text-[10px] uppercase tracking-widest text-red-400">
-                      01 // ORIGIN &amp; BASE
+                      01 // BASE &amp; REACH
                     </span>
-                    <span className="text-[10px] font-mono text-white/40">INDIA (IST)</span>
+                    <span className="text-[10px] font-mono text-white/40">THENI, TN (IST)</span>
                   </div>
                   <h3 className="font-heading font-semibold text-lg text-white mb-1">
-                    Pan-India Deployment
+                    Theni Base &amp; Nationwide Reach
                   </h3>
                   <p className="text-xs text-[var(--color-text-muted)] font-light leading-relaxed">
-                    Self-contained flight kits and rapid nationwide travel availability for film sets, commercials, and architecture.
+                    Self-contained flight kits and rapid travel availability across Tamil Nadu and all of India for film sets, commercials, and architecture.
                   </p>
                 </div>
 
@@ -824,7 +829,7 @@ export default function AboutPageView() {
             </div>
 
             <p className="text-xs text-[var(--color-text-muted)] font-mono mt-8">
-              Based in India • Available for projects nationwide &amp; global shoots • 24-Hour Response
+              Based in Theni, Tamil Nadu • Available across Tamil Nadu &amp; Pan-India • 24-Hour Response
             </p>
           </motion.div>
         </section>

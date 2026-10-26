@@ -34,9 +34,9 @@ const infoCards = [
         <circle cx="12" cy="12" r="2" fill="#e50914" />
       </svg>
     ),
-    title: "Based in India",
-    detail: "Direct operational base with comprehensive pan-India deployment capabilities.",
-    badge: "BASE: INDIA (IST)",
+    title: "Based in Theni, Tamil Nadu",
+    detail: "Direct operational base in Theni with comprehensive coverage across Tamil Nadu and Pan-India deployment capabilities.",
+    badge: "BASE: THENI, TN (IST)",
   },
   {
     icon: (props: { className?: string }) => (

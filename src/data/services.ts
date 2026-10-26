@@ -12,10 +12,10 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    title: "FPV Cinematography",
+    title: "FPV & Aerial Cinematography",
     slug: "fpv-cinematography",
     description:
-      "Dynamic FPV drone footage for commercials, films, brands and events. High-speed perspectives that traditional cameras cannot achieve.",
+      "Dynamic FPV drone footage and cinematic aerial videography for commercials, films, brands and events across Theni, Tamil Nadu and India.",
     details: [
       "Low-altitude dynamic movement",
       "High-speed tracking sequences",
@@ -29,13 +29,13 @@ export const services: Service[] = [
     title: "Commercial Drone Films",
     slug: "commercial-drone-films",
     description:
-      "High-impact aerial storytelling for brands and campaigns. Cinematic drone footage designed to captivate audiences and elevate brand presence.",
+      "High-impact aerial storytelling and camera-drone filming for brands, corporate campaigns, and industry. Utilizing DJI Air 3 and FPV systems for cinematic visual depth.",
     details: [
       "Brand campaign films",
-      "Product cinematography",
-      "Promotional content",
-      "Social media assets",
-      "Advertising campaigns",
+      "Commercial drone filming",
+      "Camera-drone cinematography",
+      "Product & promotional footage",
+      "Advertising & social media campaigns",
     ],
     icon: "◆",
   },
@@ -43,7 +43,7 @@ export const services: Service[] = [
     title: "Film Production",
     slug: "film-production",
     description:
-      "FPV sequences designed for feature films, short films, music videos and production houses. Precision flying for narrative-driven projects.",
+      "Cinematic aerial sequences for feature films, short films, music videos and production houses. Precision flying by a DGCA-certified remote pilot.",
     details: [
       "Feature film sequences",
       "Short film cinematography",
@@ -57,13 +57,13 @@ export const services: Service[] = [
     title: "Real Estate & Architecture",
     slug: "real-estate-architecture",
     description:
-      "Immersive FPV walkthroughs and cinematic property films. Showcase spaces in ways that static photography cannot capture.",
+      "Immersive FPV walkthroughs, camera-drone exterior establishing shots, and property films for developers and luxury estates in Theni and across Tamil Nadu.",
     details: [
-      "Property walkthroughs",
-      "Luxury home tours",
-      "Construction progress",
+      "Property walkthroughs & fly-throughs",
+      "Luxury home & resort tours",
+      "Construction progress & aerial surveys",
       "Architectural visualization",
-      "Interior flythrough",
+      "High-resolution aerials",
     ],
     icon: "◆",
   },

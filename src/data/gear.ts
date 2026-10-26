@@ -10,6 +10,11 @@ export interface GearItem {
 
 export const gear: GearItem[] = [
   {
+    name: "DJI Air 3",
+    category: "Camera Drone",
+    description: "Dual-camera cinematic drone for wide establishing aerials, telephoto compression, and commercial filming",
+  },
+  {
     name: "DJI Avata 2",
     category: "FPV Drone",
     description: "Primary FPV platform for cinematic shoots",

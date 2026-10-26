@@ -18,11 +18,11 @@ export default function Footer() {
               NIVAS<span className="text-[var(--color-accent)]">.</span>FPV
             </Link>
             <p className="mt-4 text-sm text-[var(--color-text-muted)] leading-relaxed max-w-xs">
-              FPV Drone Cinematographer
+              Drone Pilot & Aerial Cinematography
               <br />
-              Editor
+              FPV & Camera-Drone Filming
               <br />
-              Visual Storyteller
+              Theni, Tamil Nadu • Pan-India
             </p>
           </div>
 

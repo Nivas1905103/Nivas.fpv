@@ -26,9 +26,11 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const projectTypes = [
+  "Aerial Cinematography (Camera Drone / DJI Air 3)",
   "FPV Cinematography",
   "Commercial Film / Ad",
   "Real Estate & Architecture",
+  "Wedding Drone Videography",
   "Automotive & High-Speed Tracking",
   "Travel & Hospitality",
   "Event & Festival Coverage",
@@ -681,10 +683,10 @@ export default function Contact() {
                   </span>
                 </div>
                 <span className="font-sans font-medium text-base sm:text-lg text-white block">
-                  Based in India
+                  Based in Theni, Tamil Nadu
                 </span>
                 <p className="text-xs text-[var(--color-text-secondary)] mt-1 font-light leading-relaxed">
-                  Available for productions nationwide & international travel.
+                  Rapid deployment across Tamil Nadu and Pan-India nationwide.
                 </p>
               </div>
             </div>
@@ -722,7 +724,7 @@ export default function Contact() {
             <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.05] text-xs text-[var(--color-text-muted)] flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] shrink-0" />
               <span>
-                DGCA Approved • Custom 5&quot; Cinelifters & DJI Avata 2 • ND Filtration
+                DGCA Certified Remote Pilot • DJI Air 3 & DJI Avata 2 • Cinema ND Filtration
               </span>
             </div>
           </motion.div>

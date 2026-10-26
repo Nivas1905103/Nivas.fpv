@@ -30,6 +30,7 @@ function ProjectVisual({
         <SafeVideo
           src={project.heroVideo}
           poster={project.poster}
+          alt={`${project.title} - ${project.category} drone filming video preview by NIVAS.FPV`}
           autoPlay={true}
           loop={true}
           muted={true}
@@ -41,7 +42,7 @@ function ProjectVisual({
       ) : project.poster ? (
         <Image
           src={project.poster}
-          alt={project.title}
+          alt={`${project.title} - ${project.category} aerial drone videography in ${project.location || "Tamil Nadu"} by NIVAS.FPV`}
           fill
           priority={priority}
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
@@ -377,7 +378,7 @@ export default function SelectedWork({
                       {project.poster ? (
                         <Image
                           src={project.poster}
-                          alt={project.title}
+                          alt={`${project.title} - ${project.category} drone filming in ${project.location || "Tamil Nadu"} by NIVAS.FPV`}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                           sizes="150px"

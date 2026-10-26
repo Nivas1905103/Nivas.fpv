@@ -5,6 +5,7 @@ import React, { useRef, useEffect, useState } from "react";
 export interface SafeVideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
   src: string;
   poster?: string;
+  alt?: string;
   className?: string;
   containerClassName?: string;
   autoPlay?: boolean;
@@ -20,6 +21,7 @@ export interface SafeVideoProps extends React.VideoHTMLAttributes<HTMLVideoEleme
 export default function SafeVideo({
   src,
   poster,
+  alt = "Cinematic drone filming preview - NIVAS.FPV",
   className = "",
   containerClassName = "",
   autoPlay = true,
@@ -94,9 +96,10 @@ export default function SafeVideo({
               : "opacity-100"
           }`}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={poster}
-            alt="Video Poster Fallback"
+            alt={alt}
             className="w-full h-full object-cover"
             loading={priority ? "eager" : "lazy"}
           />

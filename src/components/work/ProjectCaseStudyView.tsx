@@ -94,6 +94,7 @@ export default function ProjectCaseStudyView({
               <SafeVideo
                 src={project.heroVideo}
                 poster={project.poster}
+                alt={`${project.title} - ${project.category} drone filming video in ${project.location || "Tamil Nadu"} by NIVAS.FPV`}
                 autoPlay={true}
                 loop={true}
                 muted={true}
@@ -106,7 +107,7 @@ export default function ProjectCaseStudyView({
             ) : project.poster ? (
               <Image
                 src={project.poster}
-                alt={project.title}
+                alt={`${project.title} - ${project.category} drone filming in ${project.location || "Tamil Nadu"} by NIVAS.FPV`}
                 fill
                 priority
                 className="object-cover"
@@ -436,7 +437,7 @@ export default function ProjectCaseStudyView({
                       {nextProject.poster ? (
                         <Image
                           src={nextProject.poster}
-                          alt={nextProject.title}
+                          alt={`${nextProject.title} - Next ${nextProject.category} drone filming project by NIVAS.FPV`}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                           sizes="200px"

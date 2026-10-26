@@ -22,6 +22,7 @@ export default function Hero() {
         <SafeVideo
           src="/videos/13.mp4"
           poster="/images/posters/hero-13.jpg"
+          alt="Cinematic aerial filming and FPV drone videography in Theni, Tamil Nadu by NIVAS.FPV"
           autoPlay={true}
           loop={true}
           muted={true}

@@ -64,7 +64,7 @@ export default function BehindTheFlight() {
               {/* AI Generated BTS Photo */}
               <Image
                 src={item.image}
-                alt={item.label}
+                alt={`${item.label} - Behind the scenes drone production by NIVAS.FPV`}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100"
               />

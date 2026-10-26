@@ -16,7 +16,7 @@ function HomePortraitCard() {
       <div className="aspect-[4/5] relative w-full rounded-[1.5rem] overflow-hidden bg-black">
         <Image
           src="/images/about/nivas-fpv-enhanced.jpg"
-          alt="Nivas - FPV Drone Cinematographer"
+          alt="Nivas - DGCA Certified Remote Drone Pilot & Aerial Cinematographer in Theni, Tamil Nadu"
           fill
           priority
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
